@@ -30,6 +30,17 @@
                 {
                     "name": "Up",
                     "id": "b444f0a6-4fb5-4bcd-9fd0-94e3574a115a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Up",
+                    "id": "af1d1473-e7f8-43fa-bf05-f33253e74412",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -39,9 +50,20 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Down",
-                    "id": "0e1bcd50-a7fb-4603-9cff-286419b327b8",
-                    "path": "<Keyboard>/s",
+                    "name": "Up",
+                    "id": "b9d1e0fd-62c7-4352-8833-12fc0392746e",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Up",
+                    "id": "f5eb85a2-5f4a-40d8-9ce3-f0d9f7d35602",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -61,9 +83,64 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "Left",
+                    "id": "c10f081a-5f45-48ca-ba99-4cfb10acfcad",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "6db10273-815f-4cf2-b9bc-e560223ffee6",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "Right",
                     "id": "ed32d1ea-4c57-45f1-8f01-4db366eaa9b2",
                     "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "e497e660-5bf8-4196-97d3-c79f1439096e",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "26b2f127-f39b-40c5-a5ff-096ba171ccf1",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HorizontalMovement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Down",
+                    "id": "0e1bcd50-a7fb-4603-9cff-286419b327b8",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

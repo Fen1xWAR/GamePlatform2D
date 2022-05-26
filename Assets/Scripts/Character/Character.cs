@@ -45,6 +45,7 @@ public class Character : MonoBehaviour
         _animator.SetBool(IsRunningKey, _direction.x != 0);
         _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
         _animator.SetBool(IsGroundKey, _isGrounded);
+
        UpdateSpriteDirection();
 
     }
