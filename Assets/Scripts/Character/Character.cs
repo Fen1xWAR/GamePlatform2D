@@ -14,8 +14,10 @@ public class Character : MonoBehaviour
     private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
     private static readonly int IsRunningKey = Animator.StringToHash("is-running");
     private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
+    private static readonly int Hit = Animator.StringToHash("hit");
 
     [SerializeField] private float _jumpForce;
+    [SerializeField] private float _DamageJumpForce;
     [SerializeField] private LayerCheck _groundCheck;
     [SerializeField] private float _speed;
     [SerializeField] private bool _doubleJump;
@@ -124,6 +126,12 @@ public class Character : MonoBehaviour
     private bool IsGrounded()
     {
         return _groundCheck.IsTouchingLayer;                                                               
+    }
+
+    public void TakeDamage()
+    {
+        _animator.SetTrigger(Hit);
+        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _DamageJumpForce); // толчок от дамага по y координате
     }
 
     /* private void OnDrawGizmos() //дебаг
