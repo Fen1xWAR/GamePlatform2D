@@ -57,18 +57,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Components\DamageComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\HealingComponent.cs" />
     <Compile Include="Assets\Scripts\Components\InteractableComponent.cs" />
     <Compile Include="Assets\Scripts\Components\HealthComponent.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />
     <Compile Include="Assets\Scripts\Components\SwitchComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\DestroyObjectComponent.cs" />
     <Compile Include="Assets\Scripts\Components\EnterTriggerComponent.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterInputReader.cs" />
     <Compile Include="Assets\Scripts\LayerCheck.cs" />
     <Compile Include="Assets\Scripts\Components\ReloadLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Components\EnterCollision.cs" />
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
-    <Compile Include="Assets\Scripts\Components\HealingComponent.cs" />
-    <Compile Include="Assets\Scripts\Components\DestroyObjectComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resourses\Pixel Art Platformer - Village Props\Changelog.txt" />
