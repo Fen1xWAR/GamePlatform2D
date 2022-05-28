@@ -2,142 +2,168 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+namespace Scripts
 {
-    private Vector2 _direction;
-    private Rigidbody2D _rigidbody;
-    private Animator _animator;
-    private SpriteRenderer _spriteRenderer;
-    private bool _isGrounded;
-    private bool _allowDoubleJump;
-
-    private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
-    private static readonly int IsRunningKey = Animator.StringToHash("is-running");
-    private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
-    private static readonly int Hit = Animator.StringToHash("hit");
-
-    [SerializeField] private float _jumpForce;
-    [SerializeField] private float _DamageJumpForce;
-    [SerializeField] private LayerCheck _groundCheck;
-    [SerializeField] private float _speed;
-    [SerializeField] private bool _doubleJump;
-
-    private void Awake()
+    public class Character : MonoBehaviour
     {
-        _rigidbody = GetComponent<Rigidbody2D>(); 
-        _animator = GetComponent<Animator>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-    private void Start()
-    {
-        bool DoubleJump = _allowDoubleJump;
-        DoubleJump = false;
-    }
-    public void SetDirection(Vector2 direction)
-    {
-        _direction = direction;
-    }
+        private Vector2 _direction;
+        private Rigidbody2D _rigidbody;
+        private Animator _animator;
+        private SpriteRenderer _spriteRenderer;
+        private bool _isGrounded;
+        private bool _allowDoubleJump;
+        private Collider2D[] _interactionResult = new Collider2D[1]; // Массив с одним элементом
 
-    private void FixedUpdate()
-    {
-        var xVelocity = _direction.x * _speed;
-        var yVelocity = CalculateYVelocity();
-        _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
-        
-        _animator.SetBool(IsRunningKey, _direction.x != 0);
-        _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
-        _animator.SetBool(IsGroundKey, _isGrounded);
+        private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
+        private static readonly int IsRunningKey = Animator.StringToHash("is-running");
+        private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
+        private static readonly int Hit = Animator.StringToHash("hit");
 
-       UpdateSpriteDirection();
+        [SerializeField] private float _jumpForce;
+        [SerializeField] private float _DamageJumpForce;
+        [SerializeField] private LayerCheck _groundCheck; //layercheck
+        [SerializeField] private float _speed;
+        [SerializeField] private bool _doubleJump;
+        [SerializeField] private float _interactionRadius; // радиус взаимодействия
+        [SerializeField] private LayerMask _interactionLayer; // На каких слоях будет работать
 
-    }
-
-    private void Update()
-    {
-        _isGrounded = IsGrounded();
-    }
-    
-    private float CalculateYVelocity()
-    {
-        var yVelocity = _rigidbody.velocity.y;
-        var isJump = _direction.y > 0;
-        if (_doubleJump == true)
+        private void Awake()
         {
-            if (_isGrounded) _allowDoubleJump = true;
+            _rigidbody = GetComponent<Rigidbody2D>();
+            _animator = GetComponent<Animator>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+        }
+        private void Start()
+        {
+            bool DoubleJump = _allowDoubleJump;
+            DoubleJump = false;
+        }
+        public void SetDirection(Vector2 direction)
+        {
+            _direction = direction;
+        }
 
-            if (isJump)
+        private void FixedUpdate()
+        {
+            var xVelocity = _direction.x * _speed;
+            var yVelocity = CalculateYVelocity();
+            _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
+
+            _animator.SetBool(IsRunningKey, _direction.x != 0);
+            _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
+            _animator.SetBool(IsGroundKey, _isGrounded);
+
+            UpdateSpriteDirection();
+
+        }
+
+        private void Update()
+        {
+            _isGrounded = IsGrounded();
+        }
+
+        private float CalculateYVelocity()
+        {
+            var yVelocity = _rigidbody.velocity.y;
+            var isJump = _direction.y > 0;
+            if (_doubleJump == true)
             {
-                yVelocity = CalculateJumpVelocity(yVelocity);
+                if (_isGrounded) _allowDoubleJump = true;
+
+                if (isJump)
+                {
+                    yVelocity = CalculateJumpVelocity(yVelocity);
+                }
+                else if (_rigidbody.velocity.y > 0)
+                {
+                    yVelocity *= 0.5f;
+                }
+
+                return yVelocity;
             }
-            else if (_rigidbody.velocity.y > 0)
+            else
             {
-                yVelocity *= 0.5f;
+                if (_isGrounded) _allowDoubleJump = false;
+
+                if (isJump)
+                {
+                    yVelocity = CalculateJumpVelocity(yVelocity);
+                }
+                else if (_rigidbody.velocity.y > 0)
+                {
+                    yVelocity *= 0.5f;
+                }
+
+                return yVelocity;
+            }
+
+        }
+
+        private float CalculateJumpVelocity(float yVelocity)
+        {
+            var isFalling = _rigidbody.velocity.y <= 0.001f;
+            if (!isFalling) return yVelocity;
+
+            if (_isGrounded)
+            {
+                yVelocity += _jumpForce;
+            }
+            else if (_allowDoubleJump)
+            {
+                yVelocity = _jumpForce;
+                _allowDoubleJump = false;
             }
 
             return yVelocity;
-        }else
-        {
-            if (_isGrounded) _allowDoubleJump = false;
+        } // Высчитывание высоты прыжка
 
-            if (isJump)
+        private void UpdateSpriteDirection()
+        {
+            if (_direction.x > 0)
             {
-                yVelocity = CalculateJumpVelocity(yVelocity);
+                _spriteRenderer.flipX = false;
             }
-            else if (_rigidbody.velocity.y > 0)
+            else if (_direction.x < 0)
             {
-                yVelocity *= 0.5f;
+                _spriteRenderer.flipX = true;
             }
+        } // Поворот по оси Х
 
-            return yVelocity;
-        }
-        
-    }
-
-    private float CalculateJumpVelocity(float yVelocity)
-    {
-        var isFalling = _rigidbody.velocity.y <= 0.001f;
-        if (!isFalling) return yVelocity;
-
-        if(_isGrounded)
+        private bool IsGrounded()
         {
-            yVelocity += _jumpForce;
+            return _groundCheck.IsTouchingLayer;
         }
-        else if (_allowDoubleJump)
+
+        public void TakeDamage()
         {
-            yVelocity = _jumpForce;
-            _allowDoubleJump = false;
+            _animator.SetTrigger(Hit);
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _DamageJumpForce); // толчок от дамага по y координате
         }
 
-        return yVelocity;
-    }
+        /* private void OnDrawGizmos() //дебаг
+         {
+             // Debug.DrawRay(transform.position, Vector3.down, IsGrounded() ? Color.green : Color.red);
+             Gizmos.color = IsGrounded() ? Color.green : Color.red;
+             Gizmos.DrawSphere(transform.position, 0.3f);
+         }*/
 
-    private void UpdateSpriteDirection()
-    {
-        if (_direction.x > 0)
+        public void Interact() // Создание зоны, в которй персонаж сможет взаимодействовать с предметами
         {
-            _spriteRenderer.flipX = false;
+            var size = Physics2D.OverlapCircleNonAlloc(
+                transform.position,
+                _interactionRadius,
+                _interactionResult,
+                _interactionLayer);
+
+            for (int i = 0; i < size; i++) // Перебор массива, если не вернется не один из элементов, то size = 0
+            {
+                var interactable = _interactionResult[i].GetComponent<InteractableComponent>(); // Получаем компонент
+                if (interactable != null) // Если компонент присутствует, то
+                {
+                    interactable.Interact(); // Выполняется действие
+                }
+            }
         }
-        else if (_direction.x < 0)
-        {
-            _spriteRenderer.flipX = true;
-        }
     }
-
-    private bool IsGrounded()
-    {
-        return _groundCheck.IsTouchingLayer;                                                               
-    }
-
-    public void TakeDamage()
-    {
-        _animator.SetTrigger(Hit);
-        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _DamageJumpForce); // толчок от дамага по y координате
-    }
-
-    /* private void OnDrawGizmos() //дебаг
-     {
-         // Debug.DrawRay(transform.position, Vector3.down, IsGrounded() ? Color.green : Color.red);
-         Gizmos.color = IsGrounded() ? Color.green : Color.red;
-         Gizmos.DrawSphere(transform.position, 0.3f);
-     }*/
 }
+

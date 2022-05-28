@@ -3,13 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CharacterInputReader : MonoBehaviour
+namespace Scripts
 {
-    [SerializeField] private Character _char;
-
-    public void OnHorizontalMovement(InputAction.CallbackContext context)
+    public class CharacterInputReader : MonoBehaviour
     {
-        var direction = context.ReadValue<Vector2>();
-        _char.SetDirection(direction);
+        [SerializeField] private Character _char;
+
+        public void OnHorizontalMovement(InputAction.CallbackContext context)
+        {
+            var direction = context.ReadValue<Vector2>();
+            _char.SetDirection(direction);
+        }
+
+        public void OnInteract(InputAction.CallbackContext context) // OnInteract - зависит от того как назвали в схеме управления, чтобы он подхватил эту кнопку
+        {
+            if (context.canceled) // Отпустили клавишу
+            {
+                _char.Interact();
+            }
+        }
     }
 }
+
+

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Scripts.Components
+namespace Scripts
 {
     public class EnterTriggerComponent : MonoBehaviour
     {
