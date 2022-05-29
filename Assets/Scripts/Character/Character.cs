@@ -9,7 +9,7 @@ namespace Scripts
         private Vector2 _direction;
         private Rigidbody2D _rigidbody;
         private Animator _animator;
-        private SpriteRenderer _spriteRenderer;
+      //  private SpriteRenderer _spriteRenderer;
         private bool _isGrounded;
         private bool _allowDoubleJump;
         private Collider2D[] _interactionResult = new Collider2D[1]; // Массив с одним элементом
@@ -26,12 +26,13 @@ namespace Scripts
         [SerializeField] private bool _doubleJump;
         [SerializeField] private float _interactionRadius; // радиус взаимодействия
         [SerializeField] private LayerMask _interactionLayer; // На каких слоях будет работать
+        [SerializeField] private SpawnComponent _footParticles;
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
+            // _spriteRenderer = GetComponent<SpriteRenderer>();
         }
         private void Start()
         {
@@ -121,11 +122,13 @@ namespace Scripts
         {
             if (_direction.x > 0)
             {
-                _spriteRenderer.flipX = false;
+                transform.localScale = new Vector3(1, 1, 1);
+              //  _spriteRenderer.flipX = false;
             }
             else if (_direction.x < 0)
             {
-                _spriteRenderer.flipX = true;
+                transform.localScale = new Vector3(-1, 1, 1);
+               // _spriteRenderer.flipX = true;
             }
         } // Поворот по оси Х
 
@@ -163,6 +166,11 @@ namespace Scripts
                     interactable.Interact(); // Выполняется действие
                 }
             }
+        }
+        
+        public void SpawnFootPart() // Создание партиклов ходьбы
+        {
+            _footParticles.Spawn();
         }
     }
 }
