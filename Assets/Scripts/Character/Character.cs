@@ -13,7 +13,8 @@ namespace Scripts
         private bool _isGrounded;
         private bool _allowDoubleJump;
         private Collider2D[] _interactionResult = new Collider2D[1]; // Массив с одним элементом
-       // private int _coins;
+     //   private int _coins;
+       // private CoinValue _coinValue;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");
@@ -28,13 +29,15 @@ namespace Scripts
         [SerializeField] private float _interactionRadius; // радиус взаимодействия
         [SerializeField] private LayerMask _interactionLayer; // На каких слоях будет работать
         [SerializeField] private SpawnComponent _footParticles;
-      //  [SerializeField] private ParticleSystem _hitParticle;
+        //  [SerializeField] private ParticleSystem _hitParticle;
+
 
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
             // _spriteRenderer = GetComponent<SpriteRenderer>();
+           //_coinValue = GetComponent<CoinValue>();
         }
         private void Start()
         {
@@ -120,7 +123,7 @@ namespace Scripts
             return yVelocity;
         } // Высчитывание высоту прыжка
 
-      /*  public void AddCoins(int Coins) // Добавление монет
+       /* public void AddCoins(int Coins) // Добавление монет
         {
             _coins += Coins;
             Debug.Log($"{Coins} coins added. Total coins: {_coins}");

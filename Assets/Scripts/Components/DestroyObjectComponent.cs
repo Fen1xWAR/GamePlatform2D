@@ -13,6 +13,7 @@ namespace Scripts.Components
         {
             Destroy(_objectToDestroy);
         }
+
     }
 }
 
