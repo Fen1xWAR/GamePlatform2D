@@ -7,11 +7,9 @@ namespace Scripts
 {
     public class SceneChangeComponent : MonoBehaviour
     {
-        [SerializeField] private Scene _nextScene;
-
-        public void ChangeScene()
+        public void ChangeScene(string _nextScene)
         {
-           
+            SceneManager.LoadSceneAsync(_nextScene);
         }
     }
 }

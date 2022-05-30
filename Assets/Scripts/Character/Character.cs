@@ -28,7 +28,7 @@ namespace Scripts
         [SerializeField] private float _interactionRadius; // радиус взаимодействия
         [SerializeField] private LayerMask _interactionLayer; // На каких слоях будет работать
         [SerializeField] private SpawnComponent _footParticles;
-        [SerializeField] private ParticleSystem _hitParticle;
+      //  [SerializeField] private ParticleSystem _hitParticle;
 
         private void Awake()
         {
@@ -150,7 +150,7 @@ namespace Scripts
             _animator.SetTrigger(Hit);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _DamageJumpForce); // толчок от дамага по y координате
 
-            PlayParticles();
+          //  PlayParticles();
         }
 
         /* private void OnDrawGizmos() //дебаг
@@ -183,11 +183,11 @@ namespace Scripts
             _footParticles.Spawn();
         }
 
-        private void PlayParticles()
+    /*    private void PlayParticles()
         {
             _hitParticle.gameObject.SetActive(true);
             _hitParticle.Play();
-        } // Проигрываение партиклов у персонажа
+        } // Проигрываение партиклов у персонажа */
     }
 }
 
