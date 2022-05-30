@@ -22,6 +22,10 @@ namespace Scripts
                 _char.Interact();
             }
         }
+        public void OnAttack(InputAction.CallbackContext context)
+        {
+
+        }
     }
 }
 

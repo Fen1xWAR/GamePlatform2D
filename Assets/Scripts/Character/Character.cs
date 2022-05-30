@@ -13,6 +13,7 @@ namespace Scripts
         private bool _isGrounded;
         private bool _allowDoubleJump;
         private Collider2D[] _interactionResult = new Collider2D[1]; // Массив с одним элементом
+       // private int _coins;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");
@@ -27,6 +28,7 @@ namespace Scripts
         [SerializeField] private float _interactionRadius; // радиус взаимодействия
         [SerializeField] private LayerMask _interactionLayer; // На каких слоях будет работать
         [SerializeField] private SpawnComponent _footParticles;
+        [SerializeField] private ParticleSystem _hitParticle;
 
         private void Awake()
         {
@@ -116,7 +118,13 @@ namespace Scripts
             }
 
             return yVelocity;
-        } // Высчитывание высоты прыжка
+        } // Высчитывание высоту прыжка
+
+      /*  public void AddCoins(int Coins) // Добавление монет
+        {
+            _coins += Coins;
+            Debug.Log($"{Coins} coins added. Total coins: {_coins}");
+        }*/
 
         private void UpdateSpriteDirection()
         {
@@ -141,6 +149,8 @@ namespace Scripts
         {
             _animator.SetTrigger(Hit);
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _DamageJumpForce); // толчок от дамага по y координате
+
+            PlayParticles();
         }
 
         /* private void OnDrawGizmos() //дебаг
@@ -172,6 +182,12 @@ namespace Scripts
         {
             _footParticles.Spawn();
         }
+
+        private void PlayParticles()
+        {
+            _hitParticle.gameObject.SetActive(true);
+            _hitParticle.Play();
+        } // Проигрываение партиклов у персонажа
     }
 }
 

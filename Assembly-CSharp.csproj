@@ -66,11 +66,12 @@
     <Compile Include="Assets\Scripts\Components\DestroyObjectComponent.cs" />
     <Compile Include="Assets\Scripts\Components\EnterTriggerComponent.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterInputReader.cs" />
-    <Compile Include="Assets\Scripts\LayerCheck.cs" />
+    <Compile Include="Assets\Scripts\Components\LayerCheck.cs" />
     <Compile Include="Assets\Scripts\Components\ReloadLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SpawnComponent.cs" />
     <Compile Include="Assets\Scripts\Components\EnterCollision.cs" />
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\SceneChangeComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Warrior free set\License.txt" />
