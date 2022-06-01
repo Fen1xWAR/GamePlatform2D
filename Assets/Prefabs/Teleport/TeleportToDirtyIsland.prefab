@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5998563061650988487}
   - component: {fileID: 5998563061650988486}
   - component: {fileID: 5104857745604594308}
-  - component: {fileID: 3165396704358905341}
   - component: {fileID: 4632976179539680178}
-  m_Layer: 0
+  - component: {fileID: 5683058343787495008}
+  m_Layer: 6
   m_Name: TeleportToDirtyIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5998563061650988485}
-  m_LocalRotation: {x: -0, y: -0, z: 0.70992017, w: 0.7042822}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7099211, w: 0.7042812}
   m_LocalPosition: {x: 31.54, y: -1.64, z: 0}
-  m_LocalScale: {x: 14.678988, y: 15.881423, z: 1}
+  m_LocalScale: {x: 2.5784, y: 2.5784, z: 1.2892}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,9 +75,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 359344223
   m_SortingLayer: 1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.18653369, g: 0.048282295, b: 0.2924528, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 1472299262, guid: c2af8da2cb6239744b9d57072faf6959, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,13 +97,13 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.000004799403, y: 0.0006058869}
   serializedVersion: 2
   m_Radius: 0.08934221
---- !u!114 &3165396704358905341
+--- !u!114 &4632976179539680178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,10 +112,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 5998563061650988485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98becbc913db5b4cbf475ed3f5809db, type: 3}
+  m_Script: {fileID: 11500000, guid: fab08bea5a824fb4f8f9d9c56d0e20f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: Player
+--- !u!114 &5683058343787495008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5998563061650988485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55e9111a00265a439872b35d992f001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -131,15 +142,3 @@ MonoBehaviour:
           m_StringArgument: DirtyIsland
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4632976179539680178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5998563061650988485}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab08bea5a824fb4f8f9d9c56d0e20f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

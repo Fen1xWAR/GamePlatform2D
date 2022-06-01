@@ -234,7 +234,7 @@ MonoBehaviour:
   _interactionRadius: 1
   _interactionLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   _footParticles: {fileID: 0}
 --- !u!114 &9025307322779981543
 MonoBehaviour:
@@ -306,6 +306,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: be3859c9-3806-499c-b440-46f1de455c5e
     m_ActionName: Character/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ae8254f6-1b2b-4797-b1e8-e1ccd8497679
+    m_ActionName: Character/Attack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Character

@@ -9393,6 +9393,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1357124168774316360, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
+      propertyPath: m_ForceIntoRT
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357124168774316360, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
       propertyPath: orthographic size
       value: 5
       objectReference: {fileID: 0}
@@ -9415,6 +9419,10 @@ PrefabInstance:
     - target: {fileID: 1357124168774316362, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1357124168774316365, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
+      propertyPath: m_StretchFill
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1357124168774316367, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
       propertyPath: m_RootOrder

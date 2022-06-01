@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3081142200218954705}
   - component: {fileID: 3081142200218954704}
   - component: {fileID: 4550147184323034258}
-  - component: {fileID: 5913499380840236011}
   - component: {fileID: 4158762659836571044}
-  m_Layer: 0
+  - component: {fileID: 1046608288}
+  m_Layer: 6
   m_Name: TeleportToIsland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3081142200218954707}
-  m_LocalRotation: {x: -0, y: -0, z: 0.70992017, w: 0.7042822}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7099211, w: 0.7042812}
   m_LocalPosition: {x: 14.97, y: -2.16, z: 0}
   m_LocalScale: {x: 5.99994, y: 5.9606, z: 1}
   m_ConstrainProportionsScale: 0
@@ -97,13 +97,13 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.000004799403, y: 0.0006058869}
   serializedVersion: 2
   m_Radius: 0.08934221
---- !u!114 &5913499380840236011
+--- !u!114 &4158762659836571044
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,10 +112,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 3081142200218954707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d98becbc913db5b4cbf475ed3f5809db, type: 3}
+  m_Script: {fileID: 11500000, guid: fab08bea5a824fb4f8f9d9c56d0e20f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tag: Player
+--- !u!114 &1046608288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081142200218954707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f55e9111a00265a439872b35d992f001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _action:
     m_PersistentCalls:
       m_Calls:
@@ -131,15 +142,3 @@ MonoBehaviour:
           m_StringArgument: Island
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4158762659836571044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3081142200218954707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fab08bea5a824fb4f8f9d9c56d0e20f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

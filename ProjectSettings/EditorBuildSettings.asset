@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Island.unity
     guid: 57ca053026441da4d83aebb41c9cfc85
+  - enabled: 1
+    path: Assets/Scenes/LevelSelector.unity
+    guid: d6736747c21b8e64d9d2facfb77fb5c4
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e65353f19fc7abb43bbe3594b3d7654f, type: 2}
