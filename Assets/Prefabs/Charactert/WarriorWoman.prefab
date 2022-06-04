@@ -46,9 +46,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.5622044, y: -0.3682739}
+  m_Offset: {x: 2.4633312, y: -0.47420907}
   serializedVersion: 2
-  m_Radius: 0.19254446
+  m_Radius: 0.24198198
 --- !u!114 &9025307322540058133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,12 +207,12 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 9025307322779981538}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d88fe77d984e5f649bf43e7561554e8a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2207892, y: -0.15062904}
-  m_Size: {x: 0.59822774, y: 0.99113417}
+  m_Offset: {x: -0.34084937, y: -0.18947184}
+  m_Size: {x: 0.6971008, y: 1.4078133}
   m_Direction: 0
 --- !u!114 &9025307322779981542
 MonoBehaviour:
@@ -229,7 +229,7 @@ MonoBehaviour:
   _jumpForce: 15
   _DamageJumpForce: 10
   _groundCheck: {fileID: 9025307322540058133}
-  _speed: 5
+  _speed: 9
   _doubleJump: 1
   _interactionRadius: 1
   _interactionLayer:

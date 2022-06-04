@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Components\SpawnComponent.cs" />
     <Compile Include="Assets\Prefabs\Charactert\Wizard - 2D Character\Demo\SimplePlayerController.cs" />
     <Compile Include="Assets\Scripts\Components\EnterCollision.cs" />
+    <Compile Include="Assets\Scripts\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
     <Compile Include="Assets\Prefabs\Charactert\Wizard - 2D Character\Demo\WizDemo1.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
