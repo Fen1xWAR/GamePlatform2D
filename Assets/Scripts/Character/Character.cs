@@ -1,167 +1,123 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
 namespace Scripts
 {
-    public class Character : MonoBehaviour
+    public class Character : Creature
     {
-        private Vector2 _direction;
-        private Rigidbody2D _rigidbody;
-        private Animator _animator;
-      //  private SpriteRenderer _spriteRenderer;
-        private bool _isGrounded;
+        private AddCoin _addCoin;
+        //  private AnimatorController _controller;
+        //  private SpriteRenderer _spriteRenderer;
         private bool _allowDoubleJump;
-        private Collider2D[] _interactionResult = new Collider2D[1]; // Массив с одним элементом
-     //   private int _coins;
-       // private CoinValue _coinValue;
+        private readonly Collider2D[] _interactionResult = new Collider2D[1]; // Массив с одним элементом
+        // [SerializeField] private bool _isArmed;
 
-        private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
-        private static readonly int IsRunningKey = Animator.StringToHash("is-running");
-        private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
-        private static readonly int Hit = Animator.StringToHash("hit");
-
-        [SerializeField] private float _jumpForce;
-        [SerializeField] private float _DamageJumpForce;
-        [SerializeField] private LayerCheck _groundCheck; //layercheck
-        [SerializeField] private float _speed;
-        [SerializeField] private bool _doubleJump;
+        [Space] [Header("Interaction")]
         [SerializeField] private float _interactionRadius; // радиус взаимодействия
         [SerializeField] private LayerMask _interactionLayer; // На каких слоях будет работать
-        [SerializeField] private SpawnComponent _footParticles;
-        //  [SerializeField] private ParticleSystem _hitParticle;
+        
+       // [Space] [Header("Particles")] [SerializeField]
+       // private SpawnComponent _footParticles;
+       //  [SerializeField] private ParticleSystem _hitParticle;
 
+        [Space] [Header("Smth")] [SerializeField]
+        private AnimatorController _armed;
+        [SerializeField] private AnimatorController _disArmed;
+        [SerializeField] private float _coinBonus = 1f;
 
-        private void Awake()
+        private GameSession _gameSession;
+        private float _defaultGravityScale;
+
+        protected override void Awake()
         {
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _animator = GetComponent<Animator>();
+            base.Awake();
+            _defaultGravityScale = _rigidbody.gravityScale;
+            //  _controller = GetComponent<AnimatorController>();
             // _spriteRenderer = GetComponent<SpriteRenderer>();
-           //_coinValue = GetComponent<CoinValue>();
+            //_coinValue = GetComponent<CoinValue>();
         }
+      
         private void Start()
         {
             bool DoubleJump = _allowDoubleJump;
             DoubleJump = false;
-        }
-        public void SetDirection(Vector2 direction)
-        {
-            _direction = direction;
-        }
+            _gameSession = FindObjectOfType<GameSession>();
+            var health = GetComponent<HealthComponent>();
 
-        private void FixedUpdate()
-        {
-            var xVelocity = _direction.x * _speed;
-            var yVelocity = CalculateYVelocity();
-            _rigidbody.velocity = new Vector2(xVelocity, yVelocity);
-
-            _animator.SetBool(IsRunningKey, _direction.x != 0);
-            _animator.SetFloat(VerticalVelocity, _rigidbody.velocity.y);
-            _animator.SetBool(IsGroundKey, _isGrounded);
-
-            UpdateSpriteDirection();
-
+            health.SetHealth(_gameSession.Data.Hp);
+            UpdateCharWeapon();
         }
 
-        private void Update()
+        public void OnHeathChanged(int currentHealth)
         {
-            _isGrounded = IsGrounded();
+            _gameSession.Data.Hp = currentHealth;
         }
 
-        private float CalculateYVelocity()
+        protected override void FixedUpdate()
         {
-            var yVelocity = _rigidbody.velocity.y;
+            base.FixedUpdate();
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+        }
+
+        protected override float CalculateYVelocity()
+        {
+           // var yVelocity = _rigidbody.velocity.y;
             var isJump = _direction.y > 0;
-            if (_doubleJump == true)
+            if (_gameSession.Data.DoubleJump == true)
             {
-                if (_isGrounded) _allowDoubleJump = true;
-
-                if (isJump)
+                if (_isGrounded)
                 {
-                    yVelocity = CalculateJumpVelocity(yVelocity);
+                    _allowDoubleJump = true;
                 }
-                else if (_rigidbody.velocity.y > 0)
-                {
-                    yVelocity *= 0.5f;
-                }
-
-                return yVelocity;
-            }
-            else
+            }else
             {
-                if (_isGrounded) _allowDoubleJump = false;
-
-                if (isJump)
-                {
-                    yVelocity = CalculateJumpVelocity(yVelocity);
-                }
-                else if (_rigidbody.velocity.y > 0)
-                {
-                    yVelocity *= 0.5f;
-                }
-
-                return yVelocity;
+                  _allowDoubleJump = false;
             }
-
+            return base.CalculateYVelocity();
         }
 
-        private float CalculateJumpVelocity(float yVelocity)
+        protected override float CalculateJumpVelocity(float yVelocity)
         {
-            var isFalling = _rigidbody.velocity.y <= 0.001f;
-            if (!isFalling) return yVelocity;
+            //var isFalling = _rigidbody.velocity.y <= 0.001f;
+            //if (!isFalling) return yVelocity;
 
-            if (_isGrounded)
+            if (!_isGrounded && _allowDoubleJump)
             {
-                yVelocity += _jumpForce;
-            }
-            else if (_allowDoubleJump)
-            {
+                _particles.Spawn("Jump");
                 yVelocity = _jumpForce;
                 _allowDoubleJump = false;
+                return _jumpForce;
             }
 
-            return yVelocity;
+            return base.CalculateJumpVelocity(yVelocity);
         } // Высчитывание высоту прыжка
 
-       /* public void AddCoins(int Coins) // Добавление монет
+        public void AddCoins(int coins) // Добавление монет
         {
-            _coins += Coins;
-            Debug.Log($"{Coins} coins added. Total coins: {_coins}");
-        }*/
+            _gameSession.Data.Coins += (int)(coins * _coinBonus);
+            Debug.Log($"{(coins * _coinBonus)} coins added. Total coins: {_gameSession.Data.Coins}");
+        }
 
-        private void UpdateSpriteDirection()
+        protected override void UpdateSpriteDirection()
         {
-            if (_direction.x > 0)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-              //  _spriteRenderer.flipX = false;
-            }
-            else if (_direction.x < 0)
-            {
-                transform.localScale = new Vector3(-1, 1, 1);
-               // _spriteRenderer.flipX = true;
-            }
-        } // Поворот по оси Х
+            base.UpdateSpriteDirection();
+        }
 
-        private bool IsGrounded()
+      /*  private bool IsGrounded()
         {
             return _groundCheck.IsTouchingLayer;
-        }
+        }*/
 
-        public void TakeDamage()
+        public override void TakeDamage()
         {
-            _animator.SetTrigger(Hit);
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _DamageJumpForce); // толчок от дамага по y координате
-
-          //  PlayParticles();
+            base.TakeDamage();
         }
-
-        /* private void OnDrawGizmos() //дебаг
-         {
-             // Debug.DrawRay(transform.position, Vector3.down, IsGrounded() ? Color.green : Color.red);
-             Gizmos.color = IsGrounded() ? Color.green : Color.red;
-             Gizmos.DrawSphere(transform.position, 0.3f);
-         }*/
 
         public void Interact() // Создание зоны, в которй персонаж сможет взаимодействовать с предметами
         {
@@ -181,16 +137,37 @@ namespace Scripts
             }
         }
         
-        public void SpawnFootPart() // Создание партиклов ходьбы
-        {
-            _footParticles.Spawn();
-        }
 
     /*    private void PlayParticles()
         {
             _hitParticle.gameObject.SetActive(true);
             _hitParticle.Play();
         } // Проигрываение партиклов у персонажа */
+        public override void Attack()
+        {
+            if (!_gameSession.Data.IsArmed) return;
+            base.Attack();
+        }
+
+        public override void OnDoAttack()
+        {
+            base.OnDoAttack();
+        }
+        public void ArmHero()
+        {
+            _gameSession.Data.IsArmed = true;
+            UpdateCharWeapon();  
+        }
+
+        private void UpdateCharWeapon()
+        {
+            _animator.runtimeAnimatorController = _gameSession.Data.IsArmed ? _armed : _disArmed; // if (_gameSession.Data.IsArmed) { _animator.runtimeAnimatorController = _armed;} else{_animator.runtimeAnimatorController = _disArmed;}
+        }
+
+        public void SetBonus()
+        {
+            _coinBonus = 1.2f;
+        }
     }
 }
 
