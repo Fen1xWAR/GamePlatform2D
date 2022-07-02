@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1814978726992621685}
   - component: {fileID: 5711698074004071504}
-  - component: {fileID: 8371650889371633737}
   - component: {fileID: 7747918618215539434}
   - component: {fileID: 6905402223881365263}
   - component: {fileID: 2553518478846301490}
+  - component: {fileID: 1118649076}
+  - component: {fileID: 50457721}
   m_Layer: 0
   m_Name: Coins_0
   m_TagString: Untagged
@@ -88,28 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8371650889371633737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7017420986938159005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 134ae110e3d8869458645add8d3ca130, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _frameRate: 10
-  _loop: 1
-  _sprites:
-  - {fileID: -157798756, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
-  - {fileID: 1611578344, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
-  - {fileID: -1891317598, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
-  - {fileID: 1581228473, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
-  _onComplete:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!58 &7747918618215539434
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -142,9 +121,33 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2553518478846301490}
-        m_TargetAssemblyTypeName: Scripts.Components.DestroyObjectComponent, Assembly-CSharp
-        m_MethodName: DestroyObject
+      - m_Target: {fileID: 1118649076}
+        m_TargetAssemblyTypeName: Scripts.SpriteAnimation, Assembly-CSharp
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: destroy
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 7747918618215539434}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 50457721}
+        m_TargetAssemblyTypeName: Scripts.AddCoin, Assembly-CSharp
+        m_MethodName: Add
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -167,3 +170,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 7017420986938159005}
+--- !u!114 &1118649076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7017420986938159005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccb1da1f98350e440ac86ad566b684b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _frameRate: 10
+  _onComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  _clips:
+  - _name: idle
+    _sprites:
+    - {fileID: -157798756, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
+    - {fileID: 1611578344, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
+    - {fileID: -1891317598, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
+    - {fileID: 1581228473, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
+    _loop: 1
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - _name: destroy
+    _sprites:
+    - {fileID: 863033081, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
+    - {fileID: 1188449705, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
+    - {fileID: 1318179039, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
+    - {fileID: -1442097176, guid: 7a309ee58e3b5834889b2c8c41d572b3, type: 3}
+    _loop: 0
+    _allowNextClip: 0
+    _onComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2553518478846301490}
+          m_TargetAssemblyTypeName: Scripts.Components.DestroyObjectComponent, Assembly-CSharp
+          m_MethodName: DestroyObject
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 10
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &50457721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7017420986938159005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7355dd519d50849b84ad0c3af25068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _numCoins: 10

@@ -57,17 +57,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Resourses\assets\Free Pixel Art Forest\Demo\MoveBackground.cs" />
+    <Compile Include="Assets\Scripts\Components\SpawnListComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DamageComponent.cs" />
     <Compile Include="Assets\Scripts\Components\HealingComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Components\InteractableComponent.cs" />
     <Compile Include="Assets\Scripts\Components\HealthComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\ArmHeroComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SceneChangeComponent.cs" />
+    <Compile Include="Assets\Scripts\Creatures\Creature.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />
+    <Compile Include="Assets\Scripts\Character\CheckCircleOverlap.cs" />
+    <Compile Include="Assets\Scripts\Model\GameSession.cs" />
+    <Compile Include="Assets\Scripts\Model\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\Components\AddCoin.cs" />
     <Compile Include="Assets\Scripts\Components\SwitchComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DestroyObjectComponent.cs" />
     <Compile Include="Assets\Scripts\Components\EnterTriggerComponent.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterInputReader.cs" />
+    <Compile Include="Assets\Scripts\Components\ExitLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Components\LayerCheck.cs" />
     <Compile Include="Assets\Scripts\Components\ReloadLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SpawnComponent.cs" />
@@ -77,6 +85,7 @@
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
     <Compile Include="Assets\Prefabs\Charactert\Wizard - 2D Character\Demo\WizDemo1.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
+    <Compile Include="Assets\Scripts\Components\MovablePlatform.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />
