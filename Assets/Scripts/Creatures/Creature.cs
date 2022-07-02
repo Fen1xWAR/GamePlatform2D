@@ -11,6 +11,7 @@ namespace Scripts
         [SerializeField] protected float _jumpForce;
         [SerializeField] private float _DamageJumpForce;
         [SerializeField] private int _damage; // Урон персонажа
+        [SerializeField] protected bool doubleJump;
 
         [Space] [Header("Checkers")] [SerializeField]
         private LayerCheck _groundCheck; //layercheck
@@ -21,7 +22,7 @@ namespace Scripts
         protected Rigidbody2D _rigidbody;
         protected Animator _animator;
         protected bool _isGrounded;
-        protected bool _isJumping;
+        private bool _isJumping;
         private bool _isOnWall;
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
@@ -43,7 +44,7 @@ namespace Scripts
 
         protected virtual void Update()
         {
-            _isGrounded = _groundCheck.IsTouchingLayer; //  _isGrounded = IsGrounded();
+            _isGrounded = _groundCheck.IsTouchingLayer;
         }
 
         protected virtual void FixedUpdate()
@@ -62,23 +63,25 @@ namespace Scripts
         protected virtual float CalculateYVelocity()
         {
             var yVelocity = _rigidbody.velocity.y;
-            var isJump = _direction.y > 0;
+            var isJumpPressing = _direction.y > 0;
 
             if (_isGrounded)
             {
                 _isJumping = false;
             }
 
-            if (isJump) // проблем
+            if (isJumpPressing) // проблем
             {
                 _isJumping = true;
+
                 var isFalling = _rigidbody.velocity.y <= 0.001f;
                 yVelocity = isFalling ? CalculateJumpVelocity(yVelocity) : yVelocity;
             }
-                else if (_rigidbody.velocity.y > 0 && _isJumping)
-                {
-                    yVelocity *= 0.5f;
-                }
+            else if (_rigidbody.velocity.y > 0 && _isJumping)
+            {
+                yVelocity *= 0.5f;
+            }
+
                 return yVelocity;
         }
 
@@ -86,12 +89,13 @@ namespace Scripts
         {
             if (_isGrounded)
             {
-                yVelocity += _jumpForce;
-                _particles.Spawn("Jump");
+                yVelocity = _jumpForce;
+             //   _particles.Spawn("Jump");
             }
 
             return yVelocity;
         } // Высчитывание высоту прыжка
+
 
         protected virtual void UpdateSpriteDirection()
         {

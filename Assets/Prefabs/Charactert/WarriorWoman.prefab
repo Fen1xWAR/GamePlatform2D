@@ -238,7 +238,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -272,19 +272,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0ea2cbc93b5214e83c6b1d28701e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 9
-  _attackRange: {fileID: 925378226}
+  _speed: 10
+  _jumpForce: 20
+  _DamageJumpForce: 15
   _damage: 1
-  _jumpForce: 15
-  _DamageJumpForce: 10
+  doubleJump: 1
   _groundCheck: {fileID: 9025307322540058133}
+  _attackRange: {fileID: 925378226}
+  _particles: {fileID: 0}
   _interactionRadius: 1
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 64
-  _footParticles: {fileID: 0}
   _armed: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
   _disArmed: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
+  _coinBonus: 1
 --- !u!114 &9025307322779981543
 MonoBehaviour:
   m_ObjectHideFlags: 0
