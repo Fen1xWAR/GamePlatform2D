@@ -6,31 +6,38 @@ namespace Scripts
 {
     public class MovablePlatform : MonoBehaviour
     {
-        [SerializeField] private float moveRadius; // ÑÄÅËÀÒÜ ÄÂÈÆÅÍÈß ÏÎ ÒÎ×ÊÀÌ POS ÈËÈ ×ÅÐÅÇ localPosition(ÍÅ ÐÀÁÎÒÀÅÒ)
+        //[SerializeField] private float moveRadius; // ÑÄÅËÀÒÜ ÄÂÈÆÅÍÈß ÏÎ ÒÎ×ÊÀÌ POS ÈËÈ ×ÅÐÅÇ localPosition(ÍÅ ÐÀÁÎÒÀÅÒ)
         [SerializeField] private float moveSpeed;
-
+        //[SerializeField] private Transform platform;
+        [SerializeField] private Transform pos1;
+        [SerializeField] private Transform pos2;
+        [SerializeField] private Transform startPos;
         bool movingRight = true;
-        private void Update()
-        {
-            if (transform.localPosition.x > moveRadius)
-            {
-                movingRight = false;
-            }
-            else if (transform.localPosition.x < -moveRadius)
-            {
-                movingRight = true;
-            }
-            if (movingRight)
-            {
-                transform.position = new Vector2(transform.position.x + moveSpeed * Time.deltaTime, transform.position.y);
-            }
-            else
-            {
-                transform.position = new Vector2(transform.position.x - moveSpeed * Time.deltaTime, transform.position.y);
 
+        Vector3 nextPos;
+
+         private void Start()
+         {
+             nextPos = startPos.position;
+         }
+
+         private void Update()
+         {
+             transform.position = Vector3.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
+
+             if (transform.position == pos1.position)
+            {
+                nextPos = pos2.position;
+                movingRight = false;
+                transform.position = Vector3.MoveTowards(transform.position, nextPos, -moveSpeed * Time.deltaTime);
+            }
+            if (transform.position == pos2.position)
+            {
+                nextPos = pos1.position;
+                movingRight = true;
+                transform.position = Vector3.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
             }
         }
-
     }
 }
 
