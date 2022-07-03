@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 namespace Scripts
 {
@@ -11,6 +12,7 @@ namespace Scripts
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onDie;
         [SerializeField] private UnityEvent _onHeal;
+        [SerializeField] private HealthChangeEvent _onChange;
 
         public void ApllyDamage(int damageValue) // вписывание очков урона
         {
@@ -19,6 +21,8 @@ namespace Scripts
             if (_health <= 0) // если здоровье <=0 то
             {
                 _onDie?.Invoke(); // проигрывается ивент при SMERTI
+
+                _onChange?.Invoke(_health);
             }
         }
 
@@ -28,8 +32,18 @@ namespace Scripts
             _onHeal?.Invoke();
             if (_health >=20)
             {
+                _onChange?.Invoke(_health);
                 Debug.Log("Your HP is full");
             }
+        }
+        public void SetHealth(int health)
+        {
+            _health = health;
+        }
+        [Serializable]
+        public class HealthChangeEvent : UnityEvent<int>
+        {
+
         }
     }
 }

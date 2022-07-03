@@ -6,19 +6,17 @@ namespace Scripts
 {
     public class CoinValue : MonoBehaviour
     {
-        [SerializeField] private GameObject _coinType;
         [SerializeField] private int _coinPrice;
-        private int _coins;
-
-        private Character _char;
-        private void Awake()
+        private void Start()
         {
-            _char = GetComponent<Character>();
+            
         }
-        private void CoinPrice(int Coins)
+        public void SetCoins(int coins)
         {
-            _coins += _coinPrice;
-            Debug.Log($"{_coinPrice} coins added. Total coins: {_coins}");
+            coins += _coinPrice;
+            Debug.Log(coins);
+            var Coins = GetComponent<Character>();
+            
         }
     }
 

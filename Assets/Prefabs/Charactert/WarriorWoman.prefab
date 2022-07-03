@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &925378225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 925378227}
+  - component: {fileID: 925378226}
+  m_Layer: 0
+  m_Name: AttackRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &925378227
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925378225}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.429, y: -0.541, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9025307322779981597}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &925378226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925378225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0f3d971e4ac9e4eac3982deec6f86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _radius: 0.33
 --- !u!1 &9025307322540058130
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,9 +91,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.5622044, y: -0.3682739}
+  m_Offset: {x: 2.4633312, y: -0.47420907}
   serializedVersion: 2
-  m_Radius: 0.19254446
+  m_Radius: 0.24198198
 --- !u!114 &9025307322540058133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +147,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9025307322540058135}
+  - {fileID: 925378227}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -192,7 +238,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -207,12 +253,12 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 9025307322779981538}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: d88fe77d984e5f649bf43e7561554e8a, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2207892, y: -0.15062904}
-  m_Size: {x: 0.59822774, y: 0.99113417}
+  m_Offset: {x: -0.34084937, y: -0.18947184}
+  m_Size: {x: 0.6971008, y: 1.4078133}
   m_Direction: 0
 --- !u!114 &9025307322779981542
 MonoBehaviour:
@@ -226,16 +272,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0ea2cbc93b5214e83c6b1d28701e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 15
-  _DamageJumpForce: 10
+  _speed: 10
+  _jumpForce: 20
+  _DamageJumpForce: 15
+  _damage: 1
+  doubleJump: 1
   _groundCheck: {fileID: 9025307322540058133}
-  _speed: 5
-  _doubleJump: 1
+  _attackRange: {fileID: 925378226}
+  _particles: {fileID: 0}
   _interactionRadius: 1
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 64
-  _footParticles: {fileID: 0}
+  _armed: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
+  _disArmed: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
+  _coinBonus: 1
 --- !u!114 &9025307322779981543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +358,19 @@ MonoBehaviour:
     m_ActionId: be3859c9-3806-499c-b440-46f1de455c5e
     m_ActionName: Character/Interact[/Keyboard/e]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9025307322779981543}
+        m_TargetAssemblyTypeName: Scripts.CharacterInputReader, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ae8254f6-1b2b-4797-b1e8-e1ccd8497679
     m_ActionName: Character/Attack[/Mouse/leftButton]
   m_NeverAutoSwitchControlSchemes: 0
@@ -345,11 +408,17 @@ MonoBehaviour:
         m_CallState: 2
   _onDie:
     m_PersistentCalls:
+      m_Calls: []
+  _onHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  _onChange:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scripts.ReloadLevelComponent, Assembly-CSharp
-        m_MethodName: Reload
-        m_Mode: 1
+      - m_Target: {fileID: 9025307322779981542}
+        m_TargetAssemblyTypeName: Scripts.Character, Assembly-CSharp
+        m_MethodName: OnHeathChanged
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -358,6 +427,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onHeal:
-    m_PersistentCalls:
-      m_Calls: []

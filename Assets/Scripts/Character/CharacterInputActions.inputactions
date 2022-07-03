@@ -58,30 +58,8 @@
                 },
                 {
                     "name": "Up",
-                    "id": "af1d1473-e7f8-43fa-bf05-f33253e74412",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HorizontalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Up",
-                    "id": "b9d1e0fd-62c7-4352-8833-12fc0392746e",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HorizontalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Up",
-                    "id": "f5eb85a2-5f4a-40d8-9ce3-f0d9f7d35602",
-                    "path": "<Keyboard>/upArrow",
+                    "id": "ad9b829c-c6f4-42f9-9f07-88630e9f9f17",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -112,17 +90,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Left",
-                    "id": "6db10273-815f-4cf2-b9bc-e560223ffee6",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HorizontalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "Right",
                     "id": "ed32d1ea-4c57-45f1-8f01-4db366eaa9b2",
                     "path": "<Keyboard>/d",
@@ -137,17 +104,6 @@
                     "name": "Right",
                     "id": "e497e660-5bf8-4196-97d3-c79f1439096e",
                     "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "HorizontalMovement",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Right",
-                    "id": "26b2f127-f39b-40c5-a5ff-096ba171ccf1",
-                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -179,8 +135,30 @@
                 },
                 {
                     "name": "",
+                    "id": "d44e7a6a-e2e4-4c74-b6ad-c172dd342d47",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "76f98791-7525-43e4-a811-f3d0119224ba",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e9fe0ed3-c152-4cf3-bd7b-d0c803c9c4bf",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

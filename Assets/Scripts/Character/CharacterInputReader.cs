@@ -24,7 +24,10 @@ namespace Scripts
         }
         public void OnAttack(InputAction.CallbackContext context)
         {
-
+            if (context.canceled) // Отпустили клавишу
+            {
+                _char.Attack();
+            }
         }
     }
 }

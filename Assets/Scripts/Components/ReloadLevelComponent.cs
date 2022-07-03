@@ -9,6 +9,9 @@ namespace Scripts
     {
         public void Reload()
         {
+            var sessiion = FindObjectOfType<GameSession>();
+            DestroyImmediate(sessiion);
+
             var scene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scene.name);
         }
