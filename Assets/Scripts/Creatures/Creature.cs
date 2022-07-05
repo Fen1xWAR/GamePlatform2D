@@ -23,7 +23,7 @@ namespace Scripts
         protected Animator _animator;
         protected bool _isGrounded;
         private bool _isJumping;
-        private bool _isOnWall;
+        private bool _isOnWall; // Задействовать надо
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");

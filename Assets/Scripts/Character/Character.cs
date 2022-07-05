@@ -1,33 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
+using UnityEngine.Animations;
 
 namespace Scripts
 {
     public class Character : Creature
     {
         private AddCoin _addCoin;
-        //  private AnimatorController _controller;
-        //  private SpriteRenderer _spriteRenderer;
-        private bool _allowDoubleJump;
+     //  private AnimatorController _controller;
+     //   private SpriteRenderer _spriteRenderer;
+          private bool _allowDoubleJump;
         private readonly Collider2D[] _interactionResult = new Collider2D[1]; // Массив с одним элементом
-        // [SerializeField] private bool _isArmed;
+     //   [SerializeField] private bool _isArmed;
 
         [Space]
         [Header("Interaction")]
         [SerializeField] private float _interactionRadius; // радиус взаимодействия
         [SerializeField] private LayerMask _interactionLayer; // На каких слоях будет работать
+        [SerializeField] private CheckCircleOverlap _interactionCheck;
 
-        // [Space] [Header("Particles")] [SerializeField]
-        // private SpawnComponent _footParticles;
-        //  [SerializeField] private ParticleSystem _hitParticle;
+    //    [Space] [Header("Particles")] [SerializeField]
+    //    private SpawnComponent _footParticles;
+    //    [SerializeField] private ParticleSystem _hitParticle;
 
         [Space]
         [Header("Smth")]
-        [SerializeField]
-        private AnimatorController _armed;
-        [SerializeField] private AnimatorController _disArmed;
+    //   [SerializeField]
+    //    private AnimatorController _armed;
+    //    [SerializeField] private AnimatorController _disArmed;
         [SerializeField] private float _coinBonus = 1f;
 
         private GameSession _gameSession;
@@ -46,7 +48,7 @@ namespace Scripts
             var health = GetComponent<HealthComponent>();
 
             health.SetHealth(_gameSession.Data.Hp);
-            UpdateCharWeapon();
+    //       UpdateCharWeapon();
         }
 
         public void OnHeathChanged(int currentHealth)
@@ -80,7 +82,7 @@ namespace Scripts
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!_isGrounded && _allowDoubleJump)
+            if (!_isGrounded && _allowDoubleJump && _gameSession.Data.DoubleJump)
             {
             //    _particles.Spawn("Jump");
                 _allowDoubleJump = false;
@@ -137,7 +139,7 @@ namespace Scripts
             } // Проигрываение партиклов у персонажа */
         public override void Attack()
         {
-            if (!_gameSession.Data.IsArmed) return;
+            if (!_gameSession.Data.CanAttack) return;
             base.Attack();
         }
 
@@ -147,14 +149,14 @@ namespace Scripts
         }
         public void ArmHero()
         {
-            _gameSession.Data.IsArmed = true;
-            UpdateCharWeapon();
+            _gameSession.Data.CanAttack = true;
+    //        UpdateCharWeapon();
         }
 
-        private void UpdateCharWeapon()
+      /*  private void UpdateCharWeapon()
         {
             _animator.runtimeAnimatorController = _gameSession.Data.IsArmed ? _armed : _disArmed; // if (_gameSession.Data.IsArmed) { _animator.runtimeAnimatorController = _armed;} else{_animator.runtimeAnimatorController = _disArmed;}
-        }
+        }*/
 
         public void SetBonus()
         {

@@ -12,7 +12,6 @@ namespace Scripts
         [SerializeField] private Transform pos1;
         [SerializeField] private Transform pos2;
         [SerializeField] private Transform startPos;
-        bool movingRight = true;
 
         Vector3 nextPos;
 
@@ -28,13 +27,11 @@ namespace Scripts
              if (transform.position == pos1.position)
             {
                 nextPos = pos2.position;
-                movingRight = false;
                 transform.position = Vector3.MoveTowards(transform.position, nextPos, -moveSpeed * Time.deltaTime);
             }
             if (transform.position == pos2.position)
             {
                 nextPos = pos1.position;
-                movingRight = true;
                 transform.position = Vector3.MoveTowards(transform.position, nextPos, moveSpeed * Time.deltaTime);
             }
         }

@@ -10,7 +10,7 @@ namespace Scripts
     {
         public int Coins;
         public int Hp;
-        public bool IsArmed;
+        public bool CanAttack;
         public bool DoubleJump;
     }
 }
