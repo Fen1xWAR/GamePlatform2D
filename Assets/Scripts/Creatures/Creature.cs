@@ -10,8 +10,10 @@ namespace Scripts
         private float _speed;
         [SerializeField] protected float _jumpForce;
         [SerializeField] private float _DamageJumpForce;
-        [SerializeField] private int _damage; // Урон персонажа
+        [SerializeField] protected int _damage; // Урон персонажа
         [SerializeField] protected bool doubleJump;
+        [SerializeField] private string _tagToAttack;
+        [SerializeField] private bool _invertScale;
 
         [Space] [Header("Checkers")] [SerializeField]
         private LayerCheck _groundCheck; //layercheck
@@ -99,14 +101,15 @@ namespace Scripts
 
         protected virtual void UpdateSpriteDirection()
         {
+            var multiplier = _invertScale ? -1 : 1;
             if (_direction.x > 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(multiplier, 1, 1);
                 //  _spriteRenderer.flipX = false;
             }
             else if (_direction.x < 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-1 * multiplier, 1, 1);
                 // _spriteRenderer.flipX = true;
             }
         } // Поворот по оси Х
@@ -129,7 +132,7 @@ namespace Scripts
             foreach (var go in gos) // Перебор объектов
             {
                 var hp = go.GetComponent<HealthComponent>(); // Пробуем получить HealthComponent, у объектов в радиусе аттаки
-                if (hp != null && go.CompareTag("Enemy")) // Если есть здоровье и тэг Enemy
+                if (hp != null && go.CompareTag(_tagToAttack)) // Если есть здоровье и тэг Enemy
                 {
                     hp.ApllyDamage(_damage);
                 }

@@ -13,6 +13,7 @@ namespace Scripts
         [SerializeField] private UnityEvent _onDie;
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] private HealthChangeEvent _onChange;
+        private GameSession _gameSession;
 
         public void ApllyDamage(int damageValue) // вписывание очков урона
         {
@@ -25,15 +26,19 @@ namespace Scripts
                 _onChange?.Invoke(_health);
             }
         }
-
+        
         public void ApllyHeal(int HealCount)
         {
-            _health += HealCount;
-            _onHeal?.Invoke();
             if (_health >=20)
             {
                 _onChange?.Invoke(_health);
                 Debug.Log("Your HP is full");
+            }
+            else
+            {
+                _health += HealCount;
+                _onHeal?.Invoke();
+                _onChange?.Invoke(_health);
             }
         }
         public void SetHealth(int health)

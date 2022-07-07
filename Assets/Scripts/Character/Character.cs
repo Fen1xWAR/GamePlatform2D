@@ -145,6 +145,7 @@ namespace Scripts
 
         public override void OnDoAttack()
         {
+            _damage = _gameSession.Data.Damage;
             base.OnDoAttack();
         }
         public void ArmHero()

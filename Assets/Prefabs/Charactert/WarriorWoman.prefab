@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 925378227}
   - component: {fileID: 925378226}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925378225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.429, y: -0.541, z: 0}
+  m_LocalPosition: {x: 0.25, y: -0.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,7 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0f3d971e4ac9e4eac3982deec6f86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 0.33
+  _radius: 0.83
+  _action:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1933763592
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1933763593}
   - component: {fileID: 1933763594}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InteractionCheck
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
@@ -70,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933763592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: -0.336, z: 0}
+  m_LocalPosition: {x: 0.12, y: -0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -89,7 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0f3d971e4ac9e4eac3982deec6f86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 0.46
+  _radius: 0.7
+  _action:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9025307322540058130
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +107,7 @@ GameObject:
   - component: {fileID: 9025307322540058135}
   - component: {fileID: 9025307322540058132}
   - component: {fileID: 9025307322540058133}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +122,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9025307322540058130}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.7999997, y: -0.26000002, z: 0}
+  m_LocalPosition: {x: -2.99, y: -0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -172,7 +178,7 @@ GameObject:
   - component: {fileID: 9025307322779981543}
   - component: {fileID: 9025307322779981540}
   - component: {fileID: 9025307322779981541}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: WarriorWoman
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -303,8 +309,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.34084937, y: -0.18947184}
-  m_Size: {x: 0.6971008, y: 1.4078133}
+  m_Offset: {x: -0.50646156, y: -0.2963184}
+  m_Size: {x: 1.0283252, y: 2.1343706}
   m_Direction: 0
 --- !u!114 &9025307322779981542
 MonoBehaviour:
@@ -320,9 +326,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _jumpForce: 20
-  _DamageJumpForce: 15
-  _damage: 1
+  _DamageJumpForce: 3
+  _damage: 5
   doubleJump: 1
+  _tagToAttack: Enemy
   _groundCheck: {fileID: 9025307322540058133}
   _attackRange: {fileID: 925378226}
   _particles: {fileID: 0}
@@ -331,8 +338,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _interactionCheck: {fileID: 1933763594}
-  _armed: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
-  _disArmed: {fileID: 9100000, guid: 312496b25d842af4a938e96c7d5aaee0, type: 2}
   _coinBonus: 1
 --- !u!114 &9025307322779981543
 MonoBehaviour:
@@ -455,7 +460,19 @@ MonoBehaviour:
         m_CallState: 2
   _onDie:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9025307322779981538}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onHeal:
     m_PersistentCalls:
       m_Calls: []
