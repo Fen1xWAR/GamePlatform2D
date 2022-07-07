@@ -134,7 +134,7 @@ namespace Scripts
                 var hp = go.GetComponent<HealthComponent>(); // Пробуем получить HealthComponent, у объектов в радиусе аттаки
                 if (hp != null && go.CompareTag(_tagToAttack)) // Если есть здоровье и тэг Enemy
                 {
-                    hp.ApllyDamage(_damage);
+                    hp.ModifyHealth(-_damage);
                 }
             }
         }

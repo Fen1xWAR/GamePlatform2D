@@ -13,7 +13,7 @@ namespace Scripts
             var healthComponent = target.GetComponent<HealthComponent>(); // вызываем компонент HealthComponent с таргета
             if (healthComponent != null) // Проверяем есть ли у объекта компонент healthComponent, если есть то
             {
-                healthComponent?.ApllyDamage(_DamageValue); // принимается какой-то урон
+                healthComponent?.ModifyHealth(-_DamageValue); // принимается какой-то урон
             }
         }
     }
