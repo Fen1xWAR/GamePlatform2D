@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEditor;
 
 namespace Scripts
@@ -8,7 +9,7 @@ namespace Scripts
     public class CheckCircleOverlap : MonoBehaviour
     {
         [SerializeField] private float _radius = 1f;
-        //[SerializeField] private string _tag;
+        [SerializeField] private UnityEvent<GameObject> _action;
         private readonly Collider2D[] _interactionResult = new Collider2D[5]; // Массив с 5 элементами
 
         public GameObject[] GetObjectsInRange() // Вызов метода

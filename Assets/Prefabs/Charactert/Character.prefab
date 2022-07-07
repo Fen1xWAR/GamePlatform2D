@@ -4991,7 +4991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7796144999536704988
 Transform:
   m_ObjectHideFlags: 0
@@ -5110,18 +5110,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _attackRange: {fileID: 974123225}
-  _damage: 1
   _jumpForce: 15
   _DamageJumpForce: 50
+  _damage: 1
+  doubleJump: 0
   _groundCheck: {fileID: 7796144998761895444}
+  _attackRange: {fileID: 974123225}
+  _particles: {fileID: 0}
   _interactionRadius: 1
   _interactionLayer:
     serializedVersion: 2
     m_Bits: 64
-  _footParticles: {fileID: 995527242}
-  _armed: {fileID: 9100000, guid: e03dd534ee8646245baf9487ca694421, type: 2}
-  _disArmed: {fileID: 9100000, guid: 35288eed91b0bd64ab80d8467e41d4a9, type: 2}
+  _interactionCheck: {fileID: 0}
+  _coinBonus: 1
 --- !u!114 &7796144999536704987
 MonoBehaviour:
   m_ObjectHideFlags: 0
