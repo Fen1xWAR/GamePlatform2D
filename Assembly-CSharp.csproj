@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Components\ArmHeroComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SceneChangeComponent.cs" />
     <Compile Include="Assets\Scripts\Creatures\Creature.cs" />
+    <Compile Include="Assets\Scripts\Creatures\PlatformPatrol.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />
     <Compile Include="Assets\Scripts\Character\CheckCircleOverlap.cs" />
     <Compile Include="Assets\Scripts\Model\GameSession.cs" />
@@ -84,15 +85,16 @@
     <Compile Include="Assets\Scripts\Components\LayerCheck.cs" />
     <Compile Include="Assets\Scripts\Components\ReloadLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SpawnComponent.cs" />
-    <Compile Include="Assets\Prefabs\Charactert\Wizard - 2D Character\Demo\SimplePlayerController.cs" />
     <Compile Include="Assets\Scripts\Components\MovablePlatform.cs" />
     <Compile Include="Assets\Scripts\Components\EnterCollision.cs" />
+    <Compile Include="Assets\Scripts\Creatures\Weapons\ArrowProjectile.cs" />
     <Compile Include="Assets\Scripts\Test&apos;\_CoroutineTest.cs" />
+    <Compile Include="Assets\Scripts\Creatures\Weapons\Projectile.cs" />
     <Compile Include="Assets\Scripts\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
-    <Compile Include="Assets\Prefabs\Charactert\Wizard - 2D Character\Demo\WizDemo1.cs" />
+    <Compile Include="Assets\Scripts\Test&apos;\_TransformBred.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
-    <Compile Include="Assets\Scripts\Creatures\PlatformPatrol.cs" />
+    <Compile Include="Assets\Scripts\Creatures\Weapons\DamageProjectile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />

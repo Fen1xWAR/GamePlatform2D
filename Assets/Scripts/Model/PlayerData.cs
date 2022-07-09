@@ -9,10 +9,13 @@ namespace Scripts
     public class PlayerData
     {
         public int Coins;
-        public int Hp;
+        public int MaxHp;
+        public int Hp; // CurrentHP
         public int Damage;
+        public int ThrowDamage;
         public bool CanAttack;
         public bool DoubleJump;
+        public bool CanThrowAttack;
     }
 }
 

@@ -32,6 +32,7 @@ namespace Scripts
         private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int AttackKey = Animator.StringToHash("attack");
+        private static readonly int ThrowAttackKey = Animator.StringToHash("throw");
 
         protected virtual void Awake()
         {
@@ -137,6 +138,16 @@ namespace Scripts
                     hp.ModifyHealth(-_damage);
                 }
             }
+        }
+
+        public virtual void ThrowAttack()
+        {
+            _animator.SetTrigger(ThrowAttackKey);
+        }
+
+        public virtual void OnDoThrowAttack()
+        {
+            _particles.Spawn("Throw");
         }
     }
 }

@@ -47,7 +47,8 @@ namespace Scripts
             _gameSession = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
 
-            health.SetHealth(_gameSession.Data.Hp);
+            health.SetHealth(_gameSession.Data.MaxHp);
+            _gameSession.Data.Hp = _gameSession.Data.MaxHp;
     //       UpdateCharWeapon();
         }
 
@@ -178,6 +179,17 @@ namespace Scripts
             {
                 this.transform.parent = null;
             }
+        }
+
+        public override void ThrowAttack()
+        {
+            if (!_gameSession.Data.CanThrowAttack) return;
+            base.ThrowAttack();
+        }
+
+        public override void OnDoThrowAttack()
+        {
+            base.OnDoThrowAttack();
         }
     }
 }
