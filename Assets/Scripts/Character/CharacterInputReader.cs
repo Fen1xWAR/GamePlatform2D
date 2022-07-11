@@ -29,6 +29,14 @@ namespace Scripts
                 _char.Attack();
             }
         }
+
+        public void OnThrowAttack(InputAction.CallbackContext context)
+        {
+            if (context.performed) // Действие совершится, когда мы нажали на кнопку
+            {
+                _char.ThrowAttack();
+            }
+        }
     }
 }
 

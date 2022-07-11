@@ -13,7 +13,7 @@ namespace Scripts
             var healthComponent = target.GetComponent<HealthComponent>();
             if (healthComponent != null) // Проверяем есть ли у объекта компонент healthComponent, если есть то
             {
-                healthComponent?.ApllyHeal(_healCount);
+                healthComponent?.ModifyHealth(_healCount);
             }
         }
     }

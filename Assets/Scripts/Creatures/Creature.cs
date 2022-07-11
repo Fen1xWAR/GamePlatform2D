@@ -32,6 +32,7 @@ namespace Scripts
         private static readonly int VerticalVelocity = Animator.StringToHash("vertical-velocity");
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int AttackKey = Animator.StringToHash("attack");
+        private static readonly int ThrowAttackKey = Animator.StringToHash("throw");
 
         protected virtual void Awake()
         {
@@ -134,9 +135,19 @@ namespace Scripts
                 var hp = go.GetComponent<HealthComponent>(); // Пробуем получить HealthComponent, у объектов в радиусе аттаки
                 if (hp != null && go.CompareTag(_tagToAttack)) // Если есть здоровье и тэг Enemy
                 {
-                    hp.ApllyDamage(_damage);
+                    hp.ModifyHealth(-_damage);
                 }
             }
+        }
+
+        public virtual void ThrowAttack()
+        {
+            _animator.SetTrigger(ThrowAttackKey);
+        }
+
+        public virtual void OnDoThrowAttack()
+        {
+            _particles.Spawn("Throw");
         }
     }
 }
