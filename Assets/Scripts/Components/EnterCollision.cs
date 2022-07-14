@@ -6,8 +6,10 @@ using UnityEngine.Events;
 
 public class EnterCollision : MonoBehaviour
 {
+    [Header("Tag")]
     [SerializeField] private string _tag;
     [SerializeField] private UnityEvent<GameObject> _action;
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag(_tag)) // в случае столкновения с _tag 

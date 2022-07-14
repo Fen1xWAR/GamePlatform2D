@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Platform
+  - LevelGround
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - Entity
   - Trash
   - Player
-  - 
-  - 
-  - 
+  - Enemy
+  - Collectable
+  - Checkers
   - 
   - 
   - 

@@ -7,12 +7,17 @@ namespace Scripts
 {
     public class MobAI : MonoBehaviour
     {
+        [Header("Checker")]
         [SerializeField] private LayerCheck _vision;
         [SerializeField] private LayerCheck _canAttack;
 
+        [Header("Cooldowns")]
         [SerializeField] private float _alarmDelay = 0.5f;
         [SerializeField] private float _attackCoolDown = 1f;
         [SerializeField] private float _missHeroCoolDown = 0.5f;
+
+        [Header("Other")]
+        [SerializeField] private bool _isTower;
 
         private Coroutine _current;
         private GameObject _target;
@@ -25,6 +30,7 @@ namespace Scripts
         private Patrol _patrol;
 
         private bool _isDead;
+        
 
         private void Awake()
         {
@@ -36,6 +42,8 @@ namespace Scripts
 
         private void Start()
         {
+            if (_isTower) return;
+            else
             StartState(_patrol.DoPatrol());
         }
 
@@ -121,6 +129,16 @@ namespace Scripts
             {
                 StopCoroutine(_current);
             }
+        }
+
+        public void OnHeroInVisionWithoutAgro(GameObject go)
+        {
+            if (_isDead)
+            {
+                return;
+            }
+
+            _target = go;
         }
     }
 }

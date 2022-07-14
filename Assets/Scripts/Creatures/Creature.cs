@@ -14,6 +14,7 @@ namespace Scripts
         [SerializeField] protected bool doubleJump;
         [SerializeField] private string _tagToAttack;
         [SerializeField] private bool _invertScale;
+        [SerializeField] private float _attackFreeze =0.5f;
 
         [Space] [Header("Checkers")] [SerializeField]
         private LayerCheck _groundCheck; //layercheck
@@ -23,6 +24,7 @@ namespace Scripts
         protected Vector2 _direction;
         protected Rigidbody2D _rigidbody;
         protected Animator _animator;
+        protected PlaySoundComponent _sounds;
         protected bool _isGrounded;
         private bool _isJumping;
         private bool _isOnWall; // Задействовать надо
@@ -38,6 +40,7 @@ namespace Scripts
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
+            _sounds = GetComponent<PlaySoundComponent>();
         }
 
         public void SetDirection(Vector2 direction)
@@ -93,12 +96,16 @@ namespace Scripts
             if (_isGrounded)
             {
                 yVelocity = _jumpForce;
-             //   _particles.Spawn("Jump");
+                DoJumpVfx();
             }
 
             return yVelocity;
         } // Высчитывание высоту прыжка
 
+        protected virtual void DoJumpVfx()
+        {
+            _sounds.Play("Jump");
+        }
 
         protected virtual void UpdateSpriteDirection()
         {
@@ -124,6 +131,7 @@ namespace Scripts
 
         public virtual void Attack()
         {
+            _sounds.Play("Melee");
             _animator.SetTrigger(AttackKey);
         }
 
@@ -134,20 +142,28 @@ namespace Scripts
             {
                 var hp = go.GetComponent<HealthComponent>(); // Пробуем получить HealthComponent, у объектов в радиусе аттаки
                 if (hp != null && go.CompareTag(_tagToAttack)) // Если есть здоровье и тэг Enemy
-                {
+                {       
                     hp.ModifyHealth(-_damage);
+                    //_particles.Spawn("Splash"); // Их нет, поэтому и выключил!!! Через spawnlist на персонаже настроить нужно, но мне пофигу на эту чушь!!!!!!!!!
                 }
             }
         }
-
+        
         public virtual void ThrowAttack()
         {
+            _sounds.Play("Range");
             _animator.SetTrigger(ThrowAttackKey);
         }
 
         public virtual void OnDoThrowAttack()
         {
             _particles.Spawn("Throw");
+
+        }
+
+        private IEnumerator AttackFreeze()// Нужно чтобы когда персонаж делал удар, то стоял на месте, хрен его знает как это сделать)_))))
+        {
+            yield return new WaitForSeconds(_attackFreeze);
         }
     }
 }

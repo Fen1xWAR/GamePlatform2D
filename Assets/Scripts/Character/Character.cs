@@ -55,6 +55,11 @@ namespace Scripts
         public void OnHeathChanged(int currentHealth)
         {
             _gameSession.Data.Hp = currentHealth;
+            if (_gameSession.Data.Hp > _gameSession.Data.MaxHp)
+            {
+                _gameSession.Data.Hp = _gameSession.Data.MaxHp;
+                Debug.Log("Your HP if full!");
+            }
         }
 
         protected override void FixedUpdate()
@@ -85,8 +90,9 @@ namespace Scripts
         {
             if (!_isGrounded && _allowDoubleJump && _gameSession.Data.DoubleJump)
             {
-            //    _particles.Spawn("Jump");
+            //    _particles.Spawn("Jump"); // мерс!
                 _allowDoubleJump = false;
+                DoJumpVfx();
                 return _jumpForce;
             }
 
@@ -141,6 +147,7 @@ namespace Scripts
         public override void Attack()
         {
             if (!_gameSession.Data.CanAttack) return;
+            if (_isGrounded == false) return;
             base.Attack();
         }
 
@@ -184,6 +191,7 @@ namespace Scripts
         public override void ThrowAttack()
         {
             if (!_gameSession.Data.CanThrowAttack) return;
+            if (_isGrounded == false) return;
             base.ThrowAttack();
         }
 

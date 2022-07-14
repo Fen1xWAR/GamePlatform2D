@@ -4857,6 +4857,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _radius: 0.2
+  _action:
+    m_PersistentCalls:
+      m_Calls: []
+  _mask:
+    serializedVersion: 2
+    m_Bits: 0
+  _tags: []
+  _onOverlap:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &995527240
 GameObject:
   m_ObjectHideFlags: 0
@@ -4991,7 +5001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7796144999536704988
 Transform:
   m_ObjectHideFlags: 0
@@ -5114,6 +5124,8 @@ MonoBehaviour:
   _DamageJumpForce: 50
   _damage: 1
   doubleJump: 0
+  _tagToAttack: 
+  _invertScale: 0
   _groundCheck: {fileID: 7796144998761895444}
   _attackRange: {fileID: 974123225}
   _particles: {fileID: 0}
@@ -5196,6 +5208,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ae8254f6-1b2b-4797-b1e8-e1ccd8497679
     m_ActionName: Character/Attack[/Mouse/leftButton,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2a9a46c8-3ee1-4394-a0a7-7ea5c373acb3
+    m_ActionName: Character/ThrowAttack[/Keyboard/shift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Character
@@ -5265,6 +5281,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onHeal:
+    m_PersistentCalls:
+      m_Calls: []
   _onDie:
     m_PersistentCalls:
       m_Calls:
@@ -5280,9 +5299,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onHeal:
-    m_PersistentCalls:
-      m_Calls: []
   _onChange:
     m_PersistentCalls:
       m_Calls:

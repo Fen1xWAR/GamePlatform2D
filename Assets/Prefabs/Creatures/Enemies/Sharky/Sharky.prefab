@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1772602940}
   - component: {fileID: 1772602941}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DeadSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -56,7 +56,7 @@ GameObject:
   m_Component:
   - component: {fileID: 891000962006775003}
   - component: {fileID: 891000962006775002}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: MissSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 1837120511450422294}
   - component: {fileID: 289014065248573622}
   - component: {fileID: 7766818949504869242}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5566274438035604201}
   - component: {fileID: 3185660860199488133}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: ExclamationSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 7729095612925137829}
   - component: {fileID: 7663110256507709522}
   - component: {fileID: 2904570094927463047}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -325,7 +325,8 @@ GameObject:
   - component: {fileID: 3514555058725605444}
   - component: {fileID: 6947928554823323416}
   - component: {fileID: 2008007500}
-  m_Layer: 7
+  - component: {fileID: 6651289358905386302}
+  m_Layer: 10
   m_Name: Sharky
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -462,6 +463,7 @@ MonoBehaviour:
   doubleJump: 0
   _tagToAttack: Player
   _invertScale: 1
+  _attackFreeze: 0.5
   _groundCheck: {fileID: 7766818949504869242}
   _attackRange: {fileID: 8864919759506437724}
   _particles: {fileID: 3514555058725605444}
@@ -482,6 +484,7 @@ MonoBehaviour:
   _alarmDelay: 0.7
   _attackCoolDown: 1
   _missHeroCoolDown: 0.5
+  _isTower: 0
 --- !u!114 &5590430881758018198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -524,6 +527,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6947928554823323395}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: set_layer
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -598,6 +613,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _treshold: 1
+--- !u!114 &6651289358905386302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947928554823323395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1577d5034ca5a438e0dc498742b4f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _source: {fileID: 0}
+  _sounds: []
 --- !u!1 &7241245401842722165
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7589099068374102891}
   - component: {fileID: 4852575028016657877}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: DeadSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -657,7 +686,7 @@ GameObject:
   - component: {fileID: 891000961435340124}
   - component: {fileID: 891000961435340125}
   - component: {fileID: 7891424393672088177}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -707,6 +736,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _mask:
+    serializedVersion: 2
+    m_Bits: 0
+  _tags: []
+  _onOverlap:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &891000961435340124
 CircleCollider2D:
   m_ObjectHideFlags: 0

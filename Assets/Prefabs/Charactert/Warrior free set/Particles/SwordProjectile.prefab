@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flySpeed: 0.1
+  _invertX: 1
 --- !u!114 &7851541181188295629
 MonoBehaviour:
   m_ObjectHideFlags: 0
