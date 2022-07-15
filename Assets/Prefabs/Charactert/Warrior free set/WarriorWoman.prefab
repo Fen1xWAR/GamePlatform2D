@@ -704,7 +704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _jumpForce: 20
-  _DamageJumpForce: 3
+  _DamageJumpForce: 7
   _damage: 5
   doubleJump: 1
   _tagToAttack: Enemy

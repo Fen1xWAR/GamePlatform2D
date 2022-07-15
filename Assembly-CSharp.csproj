@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\_TransformBred.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
+    <Compile Include="Assets\Scripts\Components\Checkpoint\_TestCheckpoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />

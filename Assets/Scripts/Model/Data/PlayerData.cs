@@ -9,10 +9,13 @@ namespace Scripts
     public class PlayerData
     {
         [SerializeField] private InventoryData _inventory;
+        public int CurrentCheckpoint;
         public int Coins;
         public int MaxHp;
         public int Hp; // CurrentHP
         public int Damage;
+
+        [Header("Specs")]
         public int ThrowDamage;
         public bool CanAttack;
         public bool DoubleJump;

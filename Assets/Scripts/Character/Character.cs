@@ -104,7 +104,10 @@ namespace Scripts
             _gameSession.Data.Coins += (int)(coins * _coinBonus);
             Debug.Log($"{(coins * _coinBonus)} coins added. Total coins: {_gameSession.Data.Coins}");
         }
-
+        public void SetCheckpoint(int currentCheckoint)
+        {
+            _gameSession.Data.CurrentCheckpoint = currentCheckoint;
+        }
         protected override void UpdateSpriteDirection()
         {
             base.UpdateSpriteDirection();
