@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\Model\Definitions\DefsFacade.cs" />
     <Compile Include="Assets\Resourses\assets\Free Pixel Art Forest\Demo\MoveBackground.cs" />
     <Compile Include="Assets\Scripts\Components\SpawnListComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\RoomGenerator 2.0\RoomPoints.cs" />
     <Compile Include="Assets\Scripts\Components\DamageComponent.cs" />
     <Compile Include="Assets\Scripts\Components\HealingComponent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\InvenotryData.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets\Scripts\Model\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Components\AddCoin.cs" />
     <Compile Include="Assets\Scripts\Creatures\MobAI.cs" />
+    <Compile Include="Assets\Scripts\Components\Audio\PlaySoundComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DebugConsole.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\BaseProjectile.cs" />
     <Compile Include="Assets\Scripts\Creatures\PointPatrol.cs" />
@@ -85,6 +87,7 @@
     <Compile Include="Assets\Scripts\Components\DestroyObjectComponent.cs" />
     <Compile Include="Assets\Scripts\Creatures\Patrol.cs" />
     <Compile Include="Assets\Scripts\Components\EnterTriggerComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\RoomVariants.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterInputReader.cs" />
     <Compile Include="Assets\Scripts\Components\ExitLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Components\LayerCheck.cs" />
@@ -92,6 +95,7 @@
     <Compile Include="Assets\Scripts\Components\SpawnComponent.cs" />
     <Compile Include="Assets\Scripts\Cooldown.cs" />
     <Compile Include="Assets\Scripts\Creatures\ShootingTrapAI.cs" />
+    <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\DamageProjectile.cs" />
     <Compile Include="Assets\Scripts\Components\MovablePlatform.cs" />
     <Compile Include="Assets\Scripts\Components\EnterCollision.cs" />
@@ -102,9 +106,8 @@
     <Compile Include="Assets\Scripts\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryItemDefinitions.cs" />
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
-    <Compile Include="Assets\Scripts\Test&apos;\_TransformBred.cs" />
+    <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\_TransformBred.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
-    <Compile Include="Assets\Scripts\Components\Audio\PlaySoundComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />
