@@ -47,7 +47,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.80401134, y: 0}
+  m_Offset: {x: -0.6367154, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -58,7 +58,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0123329, y: 5}
+  m_Size: {x: 1.3469248, y: 5}
   m_EdgeRadius: 0
 --- !u!114 &591336227
 MonoBehaviour:
@@ -5198,7 +5198,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.51657104, y: 0.38161612}
+  m_Offset: {x: -0.74870837, y: 0.35771513}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5209,7 +5209,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9444294, y: 6.314456}
+  m_Size: {x: 0.95814896, y: 9.421367}
   m_EdgeRadius: 0
 --- !u!114 &3878276256503831513
 MonoBehaviour:
@@ -5521,7 +5521,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.025111645, y: -0.12720442}
+  m_Offset: {x: 1.316576, y: -0.22280502}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5532,7 +5532,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9497767, y: 6.229657}
+  m_Size: {x: 3.633152, y: 13.112656}
   m_EdgeRadius: 0
 --- !u!114 &841920054823336102
 MonoBehaviour:
@@ -6059,7 +6059,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0595131, y: 0}
+  m_Offset: {x: -2.158288, y: 0.50691795}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6070,7 +6070,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5013294, y: 5}
+  m_Size: {x: 5.823328, y: 6.013836}
   m_EdgeRadius: 0
 --- !u!114 &8810548832795769181
 MonoBehaviour:

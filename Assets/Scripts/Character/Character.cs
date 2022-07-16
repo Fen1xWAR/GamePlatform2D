@@ -32,6 +32,7 @@ namespace Scripts
     //    [SerializeField] private AnimatorController _disArmed;
         [SerializeField] private float _coinBonus = 1f;
 
+        public SceneChangeComponent _scene;
         private GameSession _gameSession;
 
         protected override void Awake()
@@ -40,6 +41,7 @@ namespace Scripts
             //  _controller = GetComponent<AnimatorController>();
             // _spriteRenderer = GetComponent<SpriteRenderer>();
             //_coinValue = GetComponent<CoinValue>();
+            _scene = GetComponent<SceneChangeComponent>();
         }
 
         private void Start()
