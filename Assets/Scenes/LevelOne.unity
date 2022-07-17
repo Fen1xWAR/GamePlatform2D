@@ -533,18 +533,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomTwo
       objectReference: {fileID: 0}
-    - target: {fileID: 8810548832795769180, guid: 2bd70772a70d7a342a90725fd3774ee6, type: 3}
-      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810548832795769183, guid: 2bd70772a70d7a342a90725fd3774ee6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 38.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810548832795769183, guid: 2bd70772a70d7a342a90725fd3774ee6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -10.79
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bd70772a70d7a342a90725fd3774ee6, type: 3}
 --- !u!1001 &6172755181669199170
@@ -658,10 +646,6 @@ PrefabInstance:
     - target: {fileID: 8324388832444355941, guid: b76db9b84726a0744809631f42c995d8, type: 3}
       propertyPath: m_Name
       value: RoomOne
-      objectReference: {fileID: 0}
-    - target: {fileID: 8810548833989837917, guid: b76db9b84726a0744809631f42c995d8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -15.61
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b76db9b84726a0744809631f42c995d8, type: 3}

@@ -57,9 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Model\Definitions\DefsFacade.cs" />
-    <Compile Include="Assets\Resourses\assets\Free Pixel Art Forest\Demo\MoveBackground.cs" />
+    <Compile Include="Assets\Resources\assets\Free Pixel Art Forest\Demo\MoveBackground.cs" />
     <Compile Include="Assets\Scripts\Components\SpawnListComponent.cs" />
     <Compile Include="Assets\Scripts\Components\RoomGenerator 2.0\RoomPoints.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\MainMenuWindow.cs" />
     <Compile Include="Assets\Scripts\Components\DamageComponent.cs" />
     <Compile Include="Assets\Scripts\Components\HealingComponent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\InvenotryData.cs" />
@@ -90,7 +91,9 @@
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\RoomVariants.cs" />
     <Compile Include="Assets\Scripts\Components\Checkpoint\_TestCheckpoint.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterInputReader.cs" />
+    <Compile Include="Assets\Scripts\UI\OptionsWindow\OptionsWindow.cs" />
     <Compile Include="Assets\Scripts\Components\ExitLevelComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\WindowController.cs" />
     <Compile Include="Assets\Scripts\Components\LayerCheck.cs" />
     <Compile Include="Assets\Scripts\Components\ReloadLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SpawnComponent.cs" />
@@ -101,6 +104,7 @@
     <Compile Include="Assets\Scripts\Components\MovablePlatform.cs" />
     <Compile Include="Assets\Scripts\Components\EnterCollision.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\ArrowProjectile.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\CustomButton.cs" />
     <Compile Include="Assets\Scripts\Test&apos;\_CoroutineTest.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryIdAttribute.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\Projectile.cs" />
@@ -109,15 +113,14 @@
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\_TransformBred.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
-    <Compile Include="Assets\Scripts\UI\Widgets\CustomButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />
-    <None Include="Assets\Resourses\assets\Pixel Art Platformer - Village Props\Changelog.txt" />
-    <None Include="Assets\Resourses\assets\Free Pixel Art Forest\Contact.txt" />
-    <None Include="Assets\Resourses\assets\Free Pixel Art Forest\Lisense.txt" />
+    <None Include="Assets\Resources\assets\Pixel Art Platformer - Village Props\Changelog.txt" />
+    <None Include="Assets\Resources\assets\Free Pixel Art Forest\Contact.txt" />
+    <None Include="Assets\Resources\assets\Free Pixel Art Forest\Lisense.txt" />
     <None Include="Assets\Prefabs\Charactert\Warrior free set\Contact.txt" />
-    <None Include="Assets\Resourses\assets\Free Pixel Art Forest\readme.txt" />
+    <None Include="Assets\Resources\assets\Free Pixel Art Forest\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
