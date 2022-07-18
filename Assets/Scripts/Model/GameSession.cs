@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts
+/*namespace Scripts
 {
     public class GameSession : MonoBehaviour
     {
@@ -37,12 +37,12 @@ namespace Scripts
 
         public void Save()
         {
-            _save = _payerData.Clone();
+       //     _save = _payerData.Clone();
         }
 
         public void LoadLastSave()
         {
-            _payerData = _save.Clone();
+        //    _payerData = _save.Clone();
         }
     }
-}
+}*/

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using UnityEngine.SceneManagement;
 //using UnityEditor.Animations;
 using UnityEngine.Animations;
 
@@ -9,11 +11,11 @@ namespace Scripts
     public class Character : Creature
     {
         private AddCoin _addCoin;
-     //  private AnimatorController _controller;
-     //   private SpriteRenderer _spriteRenderer;
-          private bool _allowDoubleJump;
+        //  private AnimatorController _controller;
+        //   private SpriteRenderer _spriteRenderer;
+        private bool _allowDoubleJump;
         private readonly Collider2D[] _interactionResult = new Collider2D[1]; // Массив с одним элементом
-     //   [SerializeField] private bool _isArmed;
+                                                                              //   [SerializeField] private bool _isArmed;
 
         [Space]
         [Header("Interaction")]
@@ -21,45 +23,71 @@ namespace Scripts
         [SerializeField] private LayerMask _interactionLayer; // На каких слоях будет работать
         [SerializeField] private CheckCircleOverlap _interactionCheck;
 
-    //    [Space] [Header("Particles")] [SerializeField]
-    //    private SpawnComponent _footParticles;
-    //    [SerializeField] private ParticleSystem _hitParticle;
+        //    [Space] [Header("Particles")] [SerializeField]
+        //    private SpawnComponent _footParticles;
+        //    [SerializeField] private ParticleSystem _hitParticle;
 
         [Space]
         [Header("Smth")]
-    //   [SerializeField]
-    //    private AnimatorController _armed;
-    //    [SerializeField] private AnimatorController _disArmed;
+        //   [SerializeField]
+        //    private AnimatorController _armed;
+        //    [SerializeField] private AnimatorController _disArmed;
         [SerializeField] private float _coinBonus = 1f;
 
-        public SceneChangeComponent _scene;
-        private GameSession _gameSession;
+        private SceneManager _scene;
+    //    private GameSession _gameSession;
+
+        [Header("Player Stats")]
+        public int CurrentCheckpoint;
+        public int Coins;
+        public int MaxHp = 20;
+        public int Hp; // CurrentHP
+        public int Damage;
+
+        [Header("Player Level")]
+        public int Level;
+        public int Xp;
+        public int XpToUp;
+
+        [Header("Specs")]
+        public int ThrowDamage;
+        public bool CanAttack;
+        public bool DoubleJump;
+        public bool CanThrowAttack;
+
+        [Header("Managment")]
+        public string Scene = "Island";
+        public float[] Position;
 
         protected override void Awake()
         {
             base.Awake();
             //  _controller = GetComponent<AnimatorController>();
             // _spriteRenderer = GetComponent<SpriteRenderer>();
-            //_coinValue = GetComponent<CoinValue>();
-            _scene = GetComponent<SceneChangeComponent>();
+            //_coinValue = GetComponent<CoinValue>(); 
+            
         }
-
         private void Start()
         {
-            _gameSession = FindObjectOfType<GameSession>();
+    //        _gameSession = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
+            health.SetHealth(MaxHp);
+            Hp = MaxHp;
+            if (File.Exists(Application.persistentDataPath + "/player.nya"))
+            {
+                LoadPlayer();
+            }
+            SavePlayer();
 
-            health.SetHealth(_gameSession.Data.MaxHp);
-            _gameSession.Data.Hp = _gameSession.Data.MaxHp;
-    //       UpdateCharWeapon();
+            //       UpdateCharWeapon();
         }
 
         public void OnHeathChanged(int currentHealth)
         {
-            _gameSession.Data.Hp = currentHealth;
-            if (_gameSession.Data.Hp > _gameSession.Data.MaxHp)
+            Hp = currentHealth;
+            if (Hp > MaxHp)
             {
-                _gameSession.Data.Hp = _gameSession.Data.MaxHp;
+                Hp = MaxHp;
                 Debug.Log("Your HP if full!");
             }
         }
@@ -72,6 +100,9 @@ namespace Scripts
         protected override void Update()
         {
             base.Update();
+
+            Scene CurrentScene = SceneManager.GetActiveScene();
+            Scene = CurrentScene.name;
         }
 
         protected override float CalculateYVelocity()
@@ -83,16 +114,16 @@ namespace Scripts
                 _allowDoubleJump = true;
             }
 
-           
+
 
             return base.CalculateYVelocity();
         }
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!_isGrounded && _allowDoubleJump && _gameSession.Data.DoubleJump)
+            if (!_isGrounded && _allowDoubleJump && DoubleJump)
             {
-            //    _particles.Spawn("Jump"); // НЕТУ!
+                //    _particles.Spawn("Jump"); // НЕТУ!
                 _allowDoubleJump = false;
                 DoJumpVfx();
                 return _jumpForce;
@@ -103,12 +134,12 @@ namespace Scripts
 
         public void AddCoins(int coins) // Добавление монет
         {
-            _gameSession.Data.Coins += (int)(coins * _coinBonus);
-            Debug.Log($"{(coins * _coinBonus)} coins added. Total coins: {_gameSession.Data.Coins}");
+            Coins += (int)(coins * _coinBonus);
+            Debug.Log($"{(coins * _coinBonus)} coins added. Total coins: {Coins}");
         }
         public void SetCheckpoint(int currentCheckoint)
         {
-            _gameSession.Data.CurrentCheckpoint = currentCheckoint;
+            CurrentCheckpoint = currentCheckoint;
         }
         protected override void UpdateSpriteDirection()
         {
@@ -151,26 +182,26 @@ namespace Scripts
             } // Проигрываение партиклов у персонажа */
         public override void Attack()
         {
-            if (!_gameSession.Data.CanAttack) return;
+            if (!CanAttack) return;
             if (_isGrounded == false) return;
             base.Attack();
         }
 
         public override void OnDoAttack()
         {
-            _damage = _gameSession.Data.Damage;
+            _damage = Damage;
             base.OnDoAttack();
         }
         public void ArmHero()
         {
-            _gameSession.Data.CanAttack = true;
-    //        UpdateCharWeapon();
+            CanAttack = true;
+            //        UpdateCharWeapon();
         }
 
-      /*  private void UpdateCharWeapon()
-        {
-            _animator.runtimeAnimatorController = _gameSession.Data.IsArmed ? _armed : _disArmed; // if (_gameSession.Data.IsArmed) { _animator.runtimeAnimatorController = _armed;} else{_animator.runtimeAnimatorController = _disArmed;}
-        }*/
+        /*  private void UpdateCharWeapon()
+          {
+              _animator.runtimeAnimatorController = _gameSession.Data.IsArmed ? _armed : _disArmed; // if (_gameSession.Data.IsArmed) { _animator.runtimeAnimatorController = _armed;} else{_animator.runtimeAnimatorController = _disArmed;}
+          }*/
 
         public void SetBonus()
         {
@@ -179,7 +210,7 @@ namespace Scripts
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.CompareTag ("Platform"))
+            if (collision.gameObject.CompareTag("Platform"))
             {
                 this.transform.parent = collision.transform;
             }
@@ -195,7 +226,7 @@ namespace Scripts
 
         public override void ThrowAttack()
         {
-            if (!_gameSession.Data.CanThrowAttack) return;
+            if (!CanThrowAttack) return;
             if (_isGrounded == false) return;
             base.ThrowAttack();
         }
@@ -203,6 +234,33 @@ namespace Scripts
         public override void OnDoThrowAttack()
         {
             base.OnDoThrowAttack();
+        }
+
+        public void SavePlayer()
+        {
+            SaveSystem.SavePlayer(this);
+        }
+
+        public void LoadPlayer()
+        {
+            PlayerData data = SaveSystem.LoadPlayer();
+
+            CurrentCheckpoint = data.CurrentCheckpoint;
+            Coins = data.Coins;
+            MaxHp = data.MaxHp;
+            Hp = data.Hp;
+            Damage = data.Damage;
+
+            Level = data.Level;
+            Xp = data.Xp;
+            XpToUp = data.XpToUp;
+
+            ThrowDamage = data.ThrowDamage;
+            CanAttack = data.CanAttack;
+            DoubleJump = data.DoubleJump;
+            CanThrowAttack = data.CanThrowAttack;
+
+        //    SceneManager.LoadScene("Island");
         }
     }
 }

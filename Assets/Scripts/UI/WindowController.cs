@@ -10,7 +10,7 @@ namespace Scripts
         private static readonly int Show = Animator.StringToHash("Show");
         private static readonly int Hide = Animator.StringToHash("Hide");
 
-        private void Start()
+        protected virtual void Start()
         {
             _animator = GetComponent<Animator>();
 

@@ -12,8 +12,6 @@ namespace Scripts
         [SerializeField] private UnityEvent _onDie;
         [SerializeField] private HealthChangeEvent _onChange;
 
-        private GameSession _gameSession;
-
         public void ModifyHealth(int healthDelta)
         {
             if (_health <= 0) return;

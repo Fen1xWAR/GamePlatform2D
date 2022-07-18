@@ -8,13 +8,13 @@ namespace Scripts
     {
         private int _damage;
 
-        private GameSession _gameSession;
+        private Character _character;
         public void Apply(GameObject target)
         {
             var healthComponent = target.GetComponent<HealthComponent>();
             if (healthComponent != null)
             {
-                _damage = _gameSession.Data.ThrowDamage;
+                _damage = _character.ThrowDamage;
                 healthComponent.ModifyHealth(_damage);
             }
         }

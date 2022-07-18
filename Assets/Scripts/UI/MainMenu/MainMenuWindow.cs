@@ -1,6 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 using System;
+using System.IO;
 using UnityEngine.SceneManagement;
 
 namespace Scripts
@@ -8,6 +9,7 @@ namespace Scripts
     public class MainMenuWindow : WindowController
     {
         private Action _closeAction;
+
         public void OnNewGame()
         {
             _closeAction = () => { SceneManager.LoadScene("Island"); }; // Замыкание
@@ -16,7 +18,16 @@ namespace Scripts
 
         public void OnLoadGame()
         {
-            return;
+            if (File.Exists(Application.persistentDataPath + "/player.nya"))
+            {
+                _closeAction = () => { SceneManager.LoadScene("Island"); };
+                CloseWindow();
+            }
+            else
+            {
+                PlayerData data = SaveSystem.LoadPlayer();
+            }
+                
         }
 
         public void OnShowOptions()

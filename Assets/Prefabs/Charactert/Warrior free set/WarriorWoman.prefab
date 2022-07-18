@@ -720,6 +720,20 @@ MonoBehaviour:
     m_Bits: 64
   _interactionCheck: {fileID: 1933763594}
   _coinBonus: 1
+  CurrentCheckpoint: 0
+  Coins: 0
+  MaxHp: 20
+  Hp: 0
+  Damage: 5
+  Level: 1
+  Xp: 0
+  XpToUp: 0
+  ThrowDamage: 2
+  CanAttack: 1
+  DoubleJump: 0
+  CanThrowAttack: 0
+  Scene: 
+  Position: []
 --- !u!114 &9025307322779981543
 MonoBehaviour:
   m_ObjectHideFlags: 0
