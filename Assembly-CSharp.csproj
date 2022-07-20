@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Model\Data\Properties\PrefsPersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Components\RoomGenerator 2.0\RoomPoints.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\FloatPersistentProperty.cs" />
+    <Compile Include="Assets\Scripts\Components\Audio\AudioSettingsComponent.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\MainMenuWindow.cs" />
     <Compile Include="Assets\Scripts\Components\DamageComponent.cs" />
     <Compile Include="Assets\Scripts\Components\HealingComponent.cs" />
@@ -69,15 +70,18 @@
     <Compile Include="Assets\Scripts\Components\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\SinusoidalProjectile.cs" />
     <Compile Include="Assets\Scripts\Components\InteractableComponent.cs" />
+    <Compile Include="Assets\Scripts\Model\DeleteSave.cs" />
     <Compile Include="Assets\Scripts\Model\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\HandlesUtils.cs" />
     <Compile Include="Assets\Scripts\Components\ModifyHealthComponent.cs" />
     <Compile Include="Assets\Scripts\Components\HealthComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\AudioSettingsWidget.cs" />
     <Compile Include="Assets\Scripts\Components\ArmHeroComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SceneChangeComponent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\PersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Creatures\Creature.cs" />
     <Compile Include="Assets\Scripts\Creatures\PlatformPatrol.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\ButtonSound.cs" />
     <Compile Include="Assets\Scripts\Character\Character.cs" />
     <Compile Include="Assets\Scripts\Character\CheckCircleOverlap.cs" />
     <Compile Include="Assets\Scripts\Character\PlayerStats.cs" />
@@ -97,6 +101,7 @@
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\RoomVariants.cs" />
     <Compile Include="Assets\Scripts\Components\Checkpoint\_TestCheckpoint.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterInputReader.cs" />
+    <Compile Include="Assets\Scripts\Components\PlayerXp\MobXpGenerate.cs" />
     <Compile Include="Assets\Scripts\UI\OptionsWindow\OptionsWindow.cs" />
     <Compile Include="Assets\Scripts\Components\ExitLevelComponent.cs" />
     <Compile Include="Assets\Scripts\UI\WindowController.cs" />
@@ -114,6 +119,7 @@
     <Compile Include="Assets\Scripts\Test&apos;\_CoroutineTest.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryIdAttribute.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\Projectile.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu\ConfirmNewGameWindow.cs" />
     <Compile Include="Assets\Scripts\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryItemDefinitions.cs" />
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />

@@ -12,8 +12,17 @@ namespace Scripts
 
         public void OnNewGame()
         {
-            _closeAction = () => { SceneManager.LoadScene("Island"); }; // Замыкание
-            CloseWindow();
+            if (File.Exists(Application.persistentDataPath + "/player.nya"))
+            {
+                var window = Resources.Load<GameObject>("UI/NewGameConfirm");
+                var canvas = FindObjectOfType<Canvas>();
+                Instantiate(window, canvas.transform);
+            }
+            else
+            {
+                _closeAction = () => { SceneManager.LoadScene("Island"); }; // Замыкание, тут на новую игру нужно будет написать какой-нибудь скрипт адекватный
+                Close();
+            }       
         }
 
         public void OnLoadGame()
@@ -21,13 +30,12 @@ namespace Scripts
             if (File.Exists(Application.persistentDataPath + "/player.nya"))
             {
                 _closeAction = () => { SceneManager.LoadScene("Island"); };
-                CloseWindow();
+                Close();
             }
             else
             {
                 PlayerData data = SaveSystem.LoadPlayer();
-            }
-                
+            }           
         }
 
         public void OnShowOptions()
@@ -35,6 +43,15 @@ namespace Scripts
             var window = Resources.Load<GameObject>("UI/OptionsWindow");
             var canvas = FindObjectOfType<Canvas>();
             Instantiate(window, canvas.transform);
+        }
+
+        public void Delete()
+        {
+            if (File.Exists(Application.persistentDataPath + "/player.nya"))
+            {
+                string path = Application.persistentDataPath + "/player.nya";
+                File.Delete(path);
+            }
         }
 
         public void OnExitGame()
@@ -47,7 +64,7 @@ namespace Scripts
                 UnityEditor.EditorApplication.isPlaying = false;
 #endif
             }; // Замыкание
-            CloseWindow();
+            Close();
         }
 
         public override void OnCloseAnimationComplete()

@@ -6,7 +6,6 @@ namespace Scripts
     public class WindowController : MonoBehaviour
     {
         private Animator _animator;
-
         private static readonly int Show = Animator.StringToHash("Show");
         private static readonly int Hide = Animator.StringToHash("Hide");
 
@@ -17,9 +16,9 @@ namespace Scripts
             _animator.SetTrigger(Show);
         }
 
-        public void CloseWindow()
+        public void Close()
         {
-            _animator.SetTrigger("Hide");
+            _animator.SetTrigger(Hide);
         }
 
         public virtual void OnCloseAnimationComplete()

@@ -25,9 +25,6 @@ namespace Scripts
             Debug.Log("This is test message!!!");
             Debug.Log("You reached checkpoint # 1");
             _character.Coins += 100;
-            _character.DoubleJump = true;
-            _character.CanAttack = true;
-            _character.Damage = 1;
         }
         public void SetCheckpointTwo()
         {
@@ -43,7 +40,7 @@ namespace Scripts
             Debug.Log("This is test message!!!");
             Debug.Log("You reached checkpoint #2");
             _character.Coins += 10;
-            _character.MaxHp = 22;
+            _character.MaxHp += 2;
         }
         private void OnApplicationQuit() // Нужно сейв сделать короче, чтоб работал адекватно
         {

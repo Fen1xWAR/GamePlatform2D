@@ -20,12 +20,14 @@ namespace Scripts
         public int Level;
         public int Xp;
         public int XpToUp;
+        public int AbilPoint;
 
         [Header("Specs")]
         public int ThrowDamage;
         public bool CanAttack;
         public bool DoubleJump;
         public bool CanThrowAttack;
+        public float CoinBonus;
 
         [Header("Managment")]
         public string Scene;
@@ -41,11 +43,13 @@ namespace Scripts
             Level = player.Level;
             Xp = player.Xp;
             XpToUp = player.XpToUp;
+            AbilPoint = player.AbilPoint;
 
             ThrowDamage = player.ThrowDamage;
             CanAttack = player.CanAttack;
             DoubleJump = player.DoubleJump;
             CanThrowAttack = player.CanThrowAttack;
+            CoinBonus = player.CoinBonus;
 
             Scene = player.Scene;
         }

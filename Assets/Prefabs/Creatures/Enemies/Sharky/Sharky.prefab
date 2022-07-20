@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 6947928554823323416}
   - component: {fileID: 2008007500}
   - component: {fileID: 6651289358905386302}
+  - component: {fileID: 9037549624887837412}
   m_Layer: 10
   m_Name: Sharky
   m_TagString: Enemy
@@ -545,19 +546,7 @@ MonoBehaviour:
         m_CallState: 2
   _onChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Scripts.Character, Assembly-CSharp
-        m_MethodName: OnHeathChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &3514555058725605444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -625,8 +614,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1577d5034ca5a438e0dc498742b4f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 0}
-  _sounds: []
+  _sounds:
+  - _id: Melee
+    _clip: {fileID: 8300000, guid: 2d09f06cdfcbdb1479a3dbefa5d61ab2, type: 3}
+--- !u!114 &9037549624887837412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6947928554823323395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252c532504df6514abdd9987ac631299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character: {fileID: 0}
+  _xpAmount: 5
+  _xpMultiply: 1
 --- !u!1 &7241245401842722165
 GameObject:
   m_ObjectHideFlags: 0

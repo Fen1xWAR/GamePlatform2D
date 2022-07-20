@@ -9,6 +9,7 @@ TagManager:
   - LevelGround
   - RoomPoint
   - Rooms
+  - SfxAudioSource
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Enemy
   - Collectable
   - Checkers
-  - 
+  - Wall
   - 
   - 
   - 

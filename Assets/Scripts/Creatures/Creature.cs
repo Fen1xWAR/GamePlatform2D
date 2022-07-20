@@ -27,7 +27,7 @@ namespace Scripts
         protected PlaySoundComponent _sounds;
         protected bool _isGrounded;
         private bool _isJumping;
-        private bool _isOnWall; // Задействовать надо
+        protected bool _isOnWall; // Задействовать надо
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");
@@ -35,6 +35,7 @@ namespace Scripts
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int AttackKey = Animator.StringToHash("attack");
         private static readonly int ThrowAttackKey = Animator.StringToHash("throw");
+       
 
         protected virtual void Awake()
         {
@@ -93,10 +94,11 @@ namespace Scripts
 
         protected virtual float CalculateJumpVelocity(float yVelocity)
         {
-            if (_isGrounded)
+            if (_isGrounded && !_isOnWall)
             {
                 yVelocity = _jumpForce;
                 DoJumpVfx();
+    //            _particles.Spawn("Jump");
             }
 
             return yVelocity;

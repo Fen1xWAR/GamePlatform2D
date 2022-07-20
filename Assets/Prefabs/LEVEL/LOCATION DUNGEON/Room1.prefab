@@ -31062,6 +31062,58 @@ PrefabInstance:
       propertyPath: _points.Array.data[1]
       value: 
       objectReference: {fileID: 1068789106}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onChange.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1885138313727113267}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1885138313727113267}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_layer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: set_layer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_IntArgument
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_IntArgument
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5590430881758018198, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+      propertyPath: _onDie.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6947928554823323395, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
       propertyPath: m_Name
       value: Sharky
@@ -31117,6 +31169,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6947928554823323421, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
   m_PrefabInstance: {fileID: 8810548832227522352}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1885138313727113267 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6947928554823323395, guid: 46fd89d2d774cb74d8a05eefe3af8bdb, type: 3}
+  m_PrefabInstance: {fileID: 8810548832227522352}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &302411105547789282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1885138313727113267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252c532504df6514abdd9987ac631299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Character: {fileID: 0}
+  _xpAmount: 100
+  _xpMultiply: 1
 --- !u!1001 &8810548832535810831
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,20 +22,19 @@ namespace Scripts
         [SerializeField] private float _interactionRadius; // радиус взаимодействия
         [SerializeField] private LayerMask _interactionLayer; // На каких слоях будет работать
         [SerializeField] private CheckCircleOverlap _interactionCheck;
-
+        [SerializeField] private LayerCheck _wallCheck;
         //    [Space] [Header("Particles")] [SerializeField]
         //    private SpawnComponent _footParticles;
         //    [SerializeField] private ParticleSystem _hitParticle;
-
-        [Space]
-        [Header("Smth")]
-        //   [SerializeField]
+        //    [Space] [Header("Smth")]
+        //    [SerializeField]
         //    private AnimatorController _armed;
         //    [SerializeField] private AnimatorController _disArmed;
-        [SerializeField] private float _coinBonus = 1f;
+        //    private GameSession _gameSession;
 
-        private SceneManager _scene;
-    //    private GameSession _gameSession;
+        private static readonly int IsOnWallKey = Animator.StringToHash("is-on-wall");
+        private float _defaultGravityScale;
+
 
         [Header("Player Stats")]
         public int CurrentCheckpoint;
@@ -45,15 +44,17 @@ namespace Scripts
         public int Damage;
 
         [Header("Player Level")]
-        public int Level;
-        public int Xp;
-        public int XpToUp;
+        public int Level = 1;
+        public int Xp = 0;
+        public int XpToUp = 100;
+        public int AbilPoint = 0;
 
         [Header("Specs")]
         public int ThrowDamage;
         public bool CanAttack;
-        public bool DoubleJump;
+        public bool DoubleJump = false;
         public bool CanThrowAttack;
+        public float CoinBonus = 1f;  
 
         [Header("Managment")]
         public string Scene = "Island";
@@ -65,7 +66,7 @@ namespace Scripts
             //  _controller = GetComponent<AnimatorController>();
             // _spriteRenderer = GetComponent<SpriteRenderer>();
             //_coinValue = GetComponent<CoinValue>(); 
-            
+            _defaultGravityScale = _rigidbody.gravityScale;
         }
         private void Start()
         {
@@ -78,7 +79,6 @@ namespace Scripts
                 LoadPlayer();
             }
             SavePlayer();
-
             //       UpdateCharWeapon();
         }
 
@@ -92,6 +92,8 @@ namespace Scripts
             }
         }
 
+       
+
         protected override void FixedUpdate()
         {
             base.FixedUpdate();
@@ -103,15 +105,33 @@ namespace Scripts
 
             Scene CurrentScene = SceneManager.GetActiveScene();
             Scene = CurrentScene.name;
+
+            var moveToSameDirection = _direction.x * transform.lossyScale.x > 0;
+            if (_wallCheck.IsTouchingLayer && moveToSameDirection)
+            {
+                _isOnWall = true;
+                _rigidbody.gravityScale = 3;
+            }
+            else
+            {
+                _isOnWall = false;
+                _rigidbody.gravityScale = _defaultGravityScale;
+            }
+
+            _animator.SetBool(IsOnWallKey, _isOnWall);
         }
 
         protected override float CalculateYVelocity()
         {
             var isJumpPressing = _direction.y > 0;
 
-            if (_isGrounded)
+            if (_isGrounded || _isOnWall)
             {
                 _allowDoubleJump = true;
+            }
+            if (!isJumpPressing && _isOnWall)
+            {
+                return 0f;
             }
 
 
@@ -121,7 +141,7 @@ namespace Scripts
 
         protected override float CalculateJumpVelocity(float yVelocity)
         {
-            if (!_isGrounded && _allowDoubleJump && DoubleJump)
+            if (!_isGrounded && _allowDoubleJump && DoubleJump && !_isOnWall)
             {
                 //    _particles.Spawn("Jump"); // НЕТУ!
                 _allowDoubleJump = false;
@@ -134,8 +154,8 @@ namespace Scripts
 
         public void AddCoins(int coins) // Добавление монет
         {
-            Coins += (int)(coins * _coinBonus);
-            Debug.Log($"{(coins * _coinBonus)} coins added. Total coins: {Coins}");
+            Coins += (int)(coins * CoinBonus);
+            Debug.Log($"{(coins * CoinBonus)} coins added. Total coins: {Coins}");
         }
         public void SetCheckpoint(int currentCheckoint)
         {
@@ -205,7 +225,7 @@ namespace Scripts
 
         public void SetBonus()
         {
-            _coinBonus = 1.2f;
+            CoinBonus = 1.2f;
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -250,10 +270,12 @@ namespace Scripts
             MaxHp = data.MaxHp;
             Hp = data.Hp;
             Damage = data.Damage;
+            AbilPoint = data.AbilPoint;
 
             Level = data.Level;
             Xp = data.Xp;
             XpToUp = data.XpToUp;
+            CoinBonus = data.CoinBonus;
 
             ThrowDamage = data.ThrowDamage;
             CanAttack = data.CanAttack;
@@ -261,6 +283,32 @@ namespace Scripts
             CanThrowAttack = data.CanThrowAttack;
 
         //    SceneManager.LoadScene("Island");
+        }
+
+        public void AddXp(int xp)
+        {
+            Xp += xp;
+            XpSystem();
+        }
+        public void XpSystem()
+        {
+            if (Level == 1 && Xp >= XpToUp)
+            {
+                Level = 2;
+                Xp = 0;
+                XpToUp += 100;
+                AbilPoint += 2;
+                Debug.Log("Level UP! Your Level is " + Level);
+            }
+            else if (Level == 2 && Xp >= XpToUp)
+            {
+                Level = 3;
+                Xp = 0;
+                XpToUp += 100;
+                AbilPoint += 2;
+                Debug.Log("Level UP! Your Level is " + Level);
+            }
+            else return;
         }
     }
 }
