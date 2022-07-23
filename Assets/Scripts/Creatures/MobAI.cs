@@ -18,6 +18,7 @@ namespace Scripts
 
         [Header("Other")]
         [SerializeField] private bool _isTower;
+        [SerializeField] private bool _platformPatroling;
 
         private Coroutine _current;
         private GameObject _target;
@@ -28,6 +29,7 @@ namespace Scripts
         private Creature _creature;
         private Animator _animator;
         private Patrol _patrol;
+        private PlatformPatrolParent _platformPatrol;
 
         private bool _isDead;
         
@@ -38,13 +40,15 @@ namespace Scripts
             _creature = GetComponent<Creature>();
             _animator = GetComponent<Animator>();
             _patrol = GetComponent<Patrol>();
+            _platformPatrol = GetComponent<PlatformPatrolParent>();
         }
 
         private void Start()
         {
             if (_isTower) return;
-            else
-            StartState(_patrol.DoPatrol());
+            else 
+                StartState(_patrol.DoPatrol());
+            
         }
 
         public void OnHeroInVision(GameObject go)

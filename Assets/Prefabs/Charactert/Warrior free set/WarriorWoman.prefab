@@ -455,13 +455,14 @@ MonoBehaviour:
   Coins: 0
   MaxHp: 20
   Hp: 0
-  Damage: 5
+  Damage: 100
   Level: 1
   Xp: 0
   XpToUp: 100
   AbilPoint: 0
   ThrowDamage: 2
   CanAttack: 1
+  WallSliding: 0
   DoubleJump: 1
   CanThrowAttack: 1
   CoinBonus: 1

@@ -1674,7 +1674,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4341210114617255616}
         m_TargetAssemblyTypeName: Scripts.WindowController, Assembly-CSharp
-        m_MethodName: CloseWindow
+        m_MethodName: Close
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

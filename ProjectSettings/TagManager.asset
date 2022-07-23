@@ -10,6 +10,7 @@ TagManager:
   - RoomPoint
   - Rooms
   - SfxAudioSource
+  - Hud
   layers:
   - Default
   - TransparentFX

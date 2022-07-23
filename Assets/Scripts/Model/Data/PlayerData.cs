@@ -26,6 +26,7 @@ namespace Scripts
         public int ThrowDamage;
         public bool CanAttack;
         public bool DoubleJump;
+        public bool WallSliding;
         public bool CanThrowAttack;
         public float CoinBonus;
 
@@ -48,6 +49,7 @@ namespace Scripts
             ThrowDamage = player.ThrowDamage;
             CanAttack = player.CanAttack;
             DoubleJump = player.DoubleJump;
+            WallSliding = player.WallSliding;
             CanThrowAttack = player.CanThrowAttack;
             CoinBonus = player.CoinBonus;
 

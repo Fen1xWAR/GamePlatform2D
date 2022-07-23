@@ -15,7 +15,7 @@ namespace Scripts
                     string path = Application.persistentDataPath + "/player.nya";
                     FileStream stream = new FileStream(path, FileMode.Create);
 
-            PlayerData data = new PlayerData(player);
+            PlayerData data = new PlayerData(player); 
 
             formatter.Serialize(stream, data);
             stream.Close();

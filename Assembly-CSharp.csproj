@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\UI\Widgets\AudioSettingsWidget.cs" />
     <Compile Include="Assets\Scripts\Components\ArmHeroComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SceneChangeComponent.cs" />
+    <Compile Include="Assets\Scripts\Creatures\PlatformPatrolParent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\PersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Creatures\Creature.cs" />
     <Compile Include="Assets\Scripts\Creatures\PlatformPatrol.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Scripts\Creatures\Patrol.cs" />
     <Compile Include="Assets\Scripts\Components\EnterTriggerComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\RoomVariants.cs" />
+    <Compile Include="Assets\Scripts\Test&apos;\_testMove.cs" />
     <Compile Include="Assets\Scripts\Components\Checkpoint\_TestCheckpoint.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterInputReader.cs" />
     <Compile Include="Assets\Scripts\Components\PlayerXp\MobXpGenerate.cs" />
@@ -125,6 +127,10 @@
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\_TransformBred.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
+    <Compile Include="Assets\Scripts\UI\Hud\HudController.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\ProgressBar.cs" />
+    <Compile Include="Assets\Scripts\Model\Data\Properties\IntProperty.cs" />
+    <Compile Include="Assets\Scripts\Model\Data\Properties\ObservableProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />

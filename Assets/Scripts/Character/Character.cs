@@ -52,6 +52,7 @@ namespace Scripts
         [Header("Specs")]
         public int ThrowDamage;
         public bool CanAttack;
+        public bool WallSliding;
         public bool DoubleJump = false;
         public bool CanThrowAttack;
         public float CoinBonus = 1f;  
@@ -106,19 +107,27 @@ namespace Scripts
             Scene CurrentScene = SceneManager.GetActiveScene();
             Scene = CurrentScene.name;
 
-            var moveToSameDirection = _direction.x * transform.lossyScale.x > 0;
-            if (_wallCheck.IsTouchingLayer && moveToSameDirection)
+            if (WallSliding == true)
             {
-                _isOnWall = true;
-                _rigidbody.gravityScale = 3;
+                var moveToSameDirection = _direction.x * transform.lossyScale.x > 0;
+                if (_wallCheck.IsTouchingLayer && moveToSameDirection)
+                {
+                    _isOnWall = true;
+                    _rigidbody.gravityScale = 3;
+                }
+                else
+                {
+                    _isOnWall = false;
+                    _rigidbody.gravityScale = _defaultGravityScale;
+                }
+
+                _animator.SetBool(IsOnWallKey, _isOnWall);
             }
-            else
+            else if (_wallCheck.IsTouchingLayer && WallSliding == false)
             {
-                _isOnWall = false;
-                _rigidbody.gravityScale = _defaultGravityScale;
+                Debug.LogError("Uncorrupted error, please reinstall your project or call an ambulance");
             }
 
-            _animator.SetBool(IsOnWallKey, _isOnWall);
         }
 
         protected override float CalculateYVelocity()
@@ -280,6 +289,7 @@ namespace Scripts
             ThrowDamage = data.ThrowDamage;
             CanAttack = data.CanAttack;
             DoubleJump = data.DoubleJump;
+            WallSliding = data.WallSliding;
             CanThrowAttack = data.CanThrowAttack;
 
         //    SceneManager.LoadScene("Island");
@@ -299,6 +309,7 @@ namespace Scripts
                 XpToUp += 100;
                 AbilPoint += 2;
                 Debug.Log("Level UP! Your Level is " + Level);
+                SavePlayer();
             }
             else if (Level == 2 && Xp >= XpToUp)
             {
@@ -307,6 +318,7 @@ namespace Scripts
                 XpToUp += 100;
                 AbilPoint += 2;
                 Debug.Log("Level UP! Your Level is " + Level);
+                SavePlayer();
             }
             else return;
         }
