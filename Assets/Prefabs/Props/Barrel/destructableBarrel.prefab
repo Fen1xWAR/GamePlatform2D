@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8238695294222181050}
   - component: {fileID: 8238695294222181051}
   - component: {fileID: 7218473015270794219}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: destructableBarrel
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -260,6 +260,9 @@ MonoBehaviour:
           m_StringArgument: hit
           m_BoolArgument: 0
         m_CallState: 2
+  _onHeal:
+    m_PersistentCalls:
+      m_Calls: []
   _onDie:
     m_PersistentCalls:
       m_Calls:
@@ -275,9 +278,6 @@ MonoBehaviour:
           m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
-  _onHeal:
-    m_PersistentCalls:
-      m_Calls: []
   _onChange:
     m_PersistentCalls:
       m_Calls: []

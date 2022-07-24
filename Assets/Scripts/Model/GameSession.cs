@@ -2,22 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts
+/*namespace Scripts
 {
     public class GameSession : MonoBehaviour
     {
         [SerializeField] private PlayerData _payerData;
-
         public PlayerData Data  => _payerData;
+        private PlayerData _save;
 
         private void Awake()
         {
             if(IsSessionExist())
             {
-                DestroyImmediate(gameObject);
+                Destroy(gameObject);
             }
             else
             {
+                Save();
                 DontDestroyOnLoad(this); // создает хранилище между сценами
             }
         }
@@ -33,5 +34,15 @@ namespace Scripts
 
             return false;
         }
+
+        public void Save()
+        {
+       //     _save = _payerData.Clone();
+        }
+
+        public void LoadLastSave()
+        {
+        //    _payerData = _save.Clone();
+        }
     }
-}
+}*/
