@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Enemy
   - Platform
+  - LevelGround
+  - RoomPoint
+  - Rooms
+  - SfxAudioSource
+  - Hud
   layers:
   - Default
   - TransparentFX
@@ -17,10 +22,10 @@ TagManager:
   - Entity
   - Trash
   - Player
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Collectable
+  - Checkers
+  - Wall
   - 
   - 
   - 
