@@ -48,6 +48,13 @@ MonoBehaviour:
   _action:
     m_PersistentCalls:
       m_Calls: []
+  _mask:
+    serializedVersion: 2
+    m_Bits: 0
+  _tags: []
+  _onOverlap:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1933763592
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +101,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _radius: 0.7
   _action:
+    m_PersistentCalls:
+      m_Calls: []
+  _mask:
+    serializedVersion: 2
+    m_Bits: 0
+  _tags: []
+  _onOverlap:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &9025307322540058130
@@ -224,7 +238,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -332,6 +346,7 @@ MonoBehaviour:
   doubleJump: 1
   _tagToAttack: Enemy
   _invertScale: 0
+  _attackFreeze: 0.5
   _groundCheck: {fileID: 9025307322540058133}
   _attackRange: {fileID: 925378226}
   _particles: {fileID: 0}
@@ -340,7 +355,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _interactionCheck: {fileID: 1933763594}
-  _coinBonus: 1
+  _wallCheck: {fileID: 0}
+  CurrentCheckpoint: 0
+  Coins: 0
+  MaxHp: 20
+  Hp: 0
+  Damage: 0
+  Level: 1
+  Xp: 0
+  XpToUp: 100
+  AbilPoint: 0
+  ThrowDamage: 0
+  CanAttack: 0
+  WallSliding: 0
+  DoubleJump: 0
+  CanThrowAttack: 0
+  CoinBonus: 1
+  Scene: Island
+  Position: []
 --- !u!114 &9025307322779981543
 MonoBehaviour:
   m_ObjectHideFlags: 0
