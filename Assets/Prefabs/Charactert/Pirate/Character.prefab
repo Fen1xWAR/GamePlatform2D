@@ -4761,7 +4761,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5041,7 +5041,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5126,6 +5126,7 @@ MonoBehaviour:
   doubleJump: 0
   _tagToAttack: 
   _invertScale: 0
+  _attackFreeze: 0.5
   _groundCheck: {fileID: 7796144998761895444}
   _attackRange: {fileID: 974123225}
   _particles: {fileID: 0}
@@ -5134,7 +5135,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _interactionCheck: {fileID: 0}
-  _coinBonus: 1
+  _wallCheck: {fileID: 0}
+  CurrentCheckpoint: 0
+  Coins: 0
+  MaxHp: 20
+  Hp: 0
+  Damage: 0
+  Level: 1
+  Xp: 0
+  XpToUp: 100
+  AbilPoint: 0
+  ThrowDamage: 0
+  CanAttack: 0
+  WallSliding: 0
+  DoubleJump: 0
+  CanThrowAttack: 0
+  CoinBonus: 1
+  Scene: Island
+  Position: []
 --- !u!114 &7796144999536704987
 MonoBehaviour:
   m_ObjectHideFlags: 0

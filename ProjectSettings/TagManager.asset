@@ -26,7 +26,7 @@ TagManager:
   - Collectable
   - Checkers
   - Wall
-  - 
+  - Post Processing
   - 
   - 
   - 
@@ -56,4 +56,10 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 525610241
+    locked: 0
+  - name: Portal
+    uniqueID: 1123235643
+    locked: 0
+  - name: Player
+    uniqueID: 1967789385
     locked: 0

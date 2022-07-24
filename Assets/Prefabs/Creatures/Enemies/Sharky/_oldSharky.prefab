@@ -325,6 +325,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _mask:
+    serializedVersion: 2
+    m_Bits: 0
+  _tags: []
+  _onOverlap:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8869949648937370544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,7 +469,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -550,6 +557,7 @@ MonoBehaviour:
   doubleJump: 0
   _tagToAttack: Player
   _invertScale: 1
+  _attackFreeze: 0.5
   _groundCheck: {fileID: 7463643293677097403}
   _attackRange: {fileID: 8600746273217430685}
   _particles: {fileID: 4367169558549586565}
@@ -566,8 +574,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _vision: {fileID: 7351473875824171667}
-  _tag: {fileID: 1631174556}
+  _canAttack: {fileID: 0}
   _alarmDelay: 0.7
+  _attackCoolDown: 1
+  _missHeroCoolDown: 0.5
+  _isTower: 0
+  _platformPatroling: 0
 --- !u!114 &4740122049246414935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,6 +608,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _onHeal:
+    m_PersistentCalls:
+      m_Calls: []
   _onDie:
     m_PersistentCalls:
       m_Calls:
@@ -611,9 +626,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onHeal:
-    m_PersistentCalls:
-      m_Calls: []
   _onChange:
     m_PersistentCalls:
       m_Calls:

@@ -123,7 +123,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -201,9 +201,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d0ea2cbc93b5214e83c6b1d28701e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _jumpForce: 2
-  _groundCheck: {fileID: 3312735564250242637}
   _speed: 5
+  _jumpForce: 2
+  _DamageJumpForce: 0
+  _damage: 0
+  doubleJump: 0
+  _tagToAttack: 
+  _invertScale: 0
+  _attackFreeze: 0.5
+  _groundCheck: {fileID: 3312735564250242637}
+  _attackRange: {fileID: 0}
+  _particles: {fileID: 0}
+  _interactionRadius: 0
+  _interactionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  _interactionCheck: {fileID: 0}
+  _wallCheck: {fileID: 0}
+  CurrentCheckpoint: 0
+  Coins: 0
+  MaxHp: 20
+  Hp: 0
+  Damage: 0
+  Level: 1
+  Xp: 0
+  XpToUp: 100
+  AbilPoint: 0
+  ThrowDamage: 0
+  CanAttack: 0
+  WallSliding: 0
+  DoubleJump: 0
+  CanThrowAttack: 0
+  CoinBonus: 1
+  Scene: Island
+  Position: []
 --- !u!114 &3312735565551957378
 MonoBehaviour:
   m_ObjectHideFlags: 0
