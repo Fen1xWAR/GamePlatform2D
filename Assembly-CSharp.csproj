@@ -64,12 +64,14 @@
     <Compile Include="Assets\Scripts\Model\Data\Properties\FloatPersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Components\Audio\AudioSettingsComponent.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\MainMenuWindow.cs" />
+    <Compile Include="Assets\Scripts\UI\Hud\HudController.cs" />
     <Compile Include="Assets\Scripts\Components\DamageComponent.cs" />
     <Compile Include="Assets\Scripts\Components\HealingComponent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\InvenotryData.cs" />
     <Compile Include="Assets\Scripts\Components\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\SinusoidalProjectile.cs" />
     <Compile Include="Assets\Scripts\Components\InteractableComponent.cs" />
+    <Compile Include="Assets\Scripts\Model\Data\Properties\ObservableProperty.cs" />
     <Compile Include="Assets\Scripts\Model\DeleteSave.cs" />
     <Compile Include="Assets\Scripts\Model\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\HandlesUtils.cs" />
@@ -119,18 +121,16 @@
     <Compile Include="Assets\Scripts\Creatures\Weapons\ArrowProjectile.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\CustomButton.cs" />
     <Compile Include="Assets\Scripts\Test&apos;\_CoroutineTest.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryIdAttribute.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\Projectile.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\ConfirmNewGameWindow.cs" />
     <Compile Include="Assets\Scripts\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryItemDefinitions.cs" />
+    <Compile Include="Assets\Scripts\Model\Data\Properties\IntProperty.cs" />
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\_TransformBred.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
-    <Compile Include="Assets\Scripts\UI\Hud\HudController.cs" />
-    <Compile Include="Assets\Scripts\UI\Widgets\ProgressBar.cs" />
-    <Compile Include="Assets\Scripts\Model\Data\Properties\IntProperty.cs" />
-    <Compile Include="Assets\Scripts\Model\Data\Properties\ObservableProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />
