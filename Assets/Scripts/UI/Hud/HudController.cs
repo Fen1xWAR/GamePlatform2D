@@ -22,10 +22,6 @@ namespace Scripts
         [SerializeField] private Text _coins;
         private GameObject Character;
 
-        private void Awake()
-        {
-                DontDestroyOnLoad(this); // создает хранилище между сценами
-        }
         private void Start()
         {
             Character = GameObject.FindWithTag("Player");
