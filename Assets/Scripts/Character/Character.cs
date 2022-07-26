@@ -34,6 +34,7 @@ namespace Scripts
 
         private static readonly int IsOnWallKey = Animator.StringToHash("is-on-wall");
         private float _defaultGravityScale;
+        private HealthComponent _healthComponent;
 
 
         [Header("Player Stats")]
@@ -42,6 +43,7 @@ namespace Scripts
         public int MaxHp = 20;
         public int Hp; // CurrentHP
         public int Damage;
+        public int Death = 0;
 
         [Header("Player Level")]
         public int Level = 1;
@@ -55,7 +57,8 @@ namespace Scripts
         public bool WallSliding;
         public bool DoubleJump = false;
         public bool CanThrowAttack;
-        public float CoinBonus = 1f;  
+        public float CoinBonus = 1f;
+        public int CoinLossPercent = 2;
 
         [Header("Managment")]
         public string Scene = "Island";
@@ -68,6 +71,7 @@ namespace Scripts
             // _spriteRenderer = GetComponent<SpriteRenderer>();
             //_coinValue = GetComponent<CoinValue>(); 
             _defaultGravityScale = _rigidbody.gravityScale;
+            _healthComponent = GetComponent<HealthComponent>();
         }
         private void Start()
         {
@@ -86,8 +90,9 @@ namespace Scripts
         public void OnHeathChanged(int currentHealth)
         {
             Hp = currentHealth;
-            if (Hp > MaxHp)
+            if (GetComponent<HealthComponent>().Health >= MaxHp)
             {
+                GetComponent<HealthComponent>().Health = MaxHp;
                 Hp = MaxHp;
                 Debug.Log("Your HP if full!");
             }
@@ -128,6 +133,7 @@ namespace Scripts
                 Debug.LogError("Uncorrupted error, please reinstall your project or call an ambulance");
             }
 
+           
         }
 
         protected override float CalculateYVelocity()
@@ -280,11 +286,13 @@ namespace Scripts
             Hp = data.Hp;
             Damage = data.Damage;
             AbilPoint = data.AbilPoint;
+            Death = data.Death;
 
             Level = data.Level;
             Xp = data.Xp;
             XpToUp = data.XpToUp;
             CoinBonus = data.CoinBonus;
+            CoinLossPercent = data.CoinLossPercent;
 
             ThrowDamage = data.ThrowDamage;
             CanAttack = data.CanAttack;
@@ -321,6 +329,15 @@ namespace Scripts
                 SavePlayer();
             }
             else return;
+        }
+        public void DeathUpdate()
+        {
+            Hp = MaxHp;
+            Coins = Coins / 100 + CoinLossPercent;
+        }
+        public void DeathCount()
+        {
+            Death++;
         }
     }
 }

@@ -62,7 +62,6 @@
     <Compile Include="Assets\Scripts\Components\HealingComponent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\InvenotryData.cs" />
     <Compile Include="Assets\Scripts\Components\InteractableComponent.cs" />
-    <Compile Include="Assets\Scripts\Model\Data\Properties\ObservableProperty.cs" />
     <Compile Include="Assets\Scripts\Model\DeleteSave.cs" />
     <Compile Include="Assets\Scripts\HandlesUtils.cs" />
     <Compile Include="Assets\Scripts\Components\HealthComponent.cs" />

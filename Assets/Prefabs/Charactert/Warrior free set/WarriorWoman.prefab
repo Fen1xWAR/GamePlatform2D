@@ -456,6 +456,7 @@ MonoBehaviour:
   MaxHp: 20
   Hp: 0
   Damage: 100
+  Death: 0
   Level: 1
   Xp: 0
   XpToUp: 100
@@ -466,6 +467,7 @@ MonoBehaviour:
   DoubleJump: 1
   CanThrowAttack: 1
   CoinBonus: 1
+  CoinLossPercent: 2
   Scene: 
   Position: []
 --- !u!212 &9025307322779981594
@@ -696,7 +698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6e0f47038f5f74aa5e97165f637ce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 10
+  Health: 0
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -730,6 +732,42 @@ MonoBehaviour:
   _onDie:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 9025307322779981542}
+        m_TargetAssemblyTypeName: Scripts.Character, Assembly-CSharp
+        m_MethodName: DeathUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9025307322779981542}
+        m_TargetAssemblyTypeName: Scripts.Character, Assembly-CSharp
+        m_MethodName: DeathCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9025307322779981542}
+        m_TargetAssemblyTypeName: Scripts.Character, Assembly-CSharp
+        m_MethodName: SavePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: -258994443679641010}
         m_TargetAssemblyTypeName: Scripts.SceneChangeComponent, Assembly-CSharp
         m_MethodName: ChangeScene
@@ -739,7 +777,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainMenu
+          m_StringArgument: Island
           m_BoolArgument: 0
         m_CallState: 2
   _onChange:
@@ -782,8 +820,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawners:
-  - Id: 
-    Component: {fileID: 0}
   - Id: Throw
     Component: {fileID: 770009933}
 --- !u!114 &1645684766
