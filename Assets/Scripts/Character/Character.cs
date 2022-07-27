@@ -42,7 +42,7 @@ namespace Scripts
         public int Coins;
         public int MaxHp = 20;
         public int Hp; // CurrentHP
-        public int BaseDamage = 4;
+        public int BaseDamage = 5;
         public int Death = 0;
         public float DamageCoeff;
 
@@ -149,9 +149,6 @@ namespace Scripts
             {
                 return 0f;
             }
-
-
-
             return base.CalculateYVelocity();
         }
 
@@ -293,6 +290,7 @@ namespace Scripts
             BaseDamage = data.BaseDamage;
             AbilPoint = data.AbilPoint;
             Death = data.Death;
+            DamageCoeff = data.DamageCoeff;
 
             Level = data.Level;
             Xp = data.Xp;

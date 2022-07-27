@@ -16,6 +16,7 @@ namespace Scripts
         public int Hp; // CurrentHP
         public int BaseDamage;
         public int Death;
+        public float DamageCoeff;
 
         [Header("Player Level")]
         public int Level;
@@ -43,6 +44,7 @@ namespace Scripts
             Hp = player.Hp;
             BaseDamage = player.BaseDamage;
             Death = player.Death;
+            DamageCoeff = player.DamageCoeff;
 
             Level = player.Level;
             Xp = player.Xp;

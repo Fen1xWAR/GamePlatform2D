@@ -436,8 +436,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _jumpForce: 20
-  _DamageJumpForce: 7
-  _damage: 5
+  _DamageJumpForce: 0
+  _damage: 0
   doubleJump: 1
   _tagToAttack: Enemy
   _invertScale: 0
@@ -455,8 +455,9 @@ MonoBehaviour:
   Coins: 0
   MaxHp: 20
   Hp: 0
-  Damage: 100
+  BaseDamage: 4
   Death: 0
+  DamageCoeff: 1.5
   Level: 1
   Xp: 0
   XpToUp: 100
