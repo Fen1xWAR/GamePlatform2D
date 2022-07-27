@@ -525,7 +525,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1357124168774316360, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 5.796875
       objectReference: {fileID: 0}
     - target: {fileID: 1357124168774316362, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
       propertyPath: m_Name
@@ -537,7 +537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1357124168774316367, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.22103882
+      value: 2.106039
       objectReference: {fileID: 0}
     - target: {fileID: 1357124168774316367, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
       propertyPath: m_LocalPosition.y
@@ -734,6 +734,22 @@ PrefabInstance:
     - target: {fileID: 9025307322779981538, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
       propertyPath: m_Name
       value: WarriorWoman
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981542, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: Level
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981542, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: _damage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981542, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: BaseDamage
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981542, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: DamageCoeff
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 9025307322779981597, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
       propertyPath: m_RootOrder

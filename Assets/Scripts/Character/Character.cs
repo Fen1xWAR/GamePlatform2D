@@ -14,13 +14,13 @@ namespace Scripts
         //  private AnimatorController _controller;
         //   private SpriteRenderer _spriteRenderer;
         private bool _allowDoubleJump;
-        private readonly Collider2D[] _interactionResult = new Collider2D[1]; // Массив с одним элементом
+        private readonly Collider2D[] _interactionResult = new Collider2D[1]; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                                                                               //   [SerializeField] private bool _isArmed;
 
         [Space]
-        [Header("Interaction")]
-        [SerializeField] private float _interactionRadius; // радиус взаимодействия
-        [SerializeField] private LayerMask _interactionLayer; // На каких слоях будет работать
+        [Header("Interaction")] 
+        [SerializeField] private float _interactionRadius; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        [SerializeField] private LayerMask _interactionLayer; // пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private LayerCheck _wallCheck;
         //    [Space] [Header("Particles")] [SerializeField]
@@ -42,8 +42,9 @@ namespace Scripts
         public int Coins;
         public int MaxHp = 20;
         public int Hp; // CurrentHP
-        public int Damage;
+        public int BaseDamage = 4;
         public int Death = 0;
+        public float DamageCoeff;
 
         [Header("Player Level")]
         public int Level = 1;
@@ -155,16 +156,16 @@ namespace Scripts
         {
             if (!_isGrounded && _allowDoubleJump && DoubleJump && !_isOnWall)
             {
-                //    _particles.Spawn("Jump"); // НЕТУ!
+                //    _particles.Spawn("Jump"); // пїЅпїЅпїЅпїЅ!
                 _allowDoubleJump = false;
                 DoJumpVfx();
                 return _jumpForce;
             }
 
             return base.CalculateJumpVelocity(yVelocity);
-        } // Высчитывание высоту прыжка
+        } // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
-        public void AddCoins(int coins) // Добавление монет
+        public void AddCoins(int coins) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         {
             Coins += (int)(coins * CoinBonus);
             Debug.Log($"{(coins * CoinBonus)} coins added. Total coins: {Coins}");
@@ -188,7 +189,7 @@ namespace Scripts
             base.TakeDamage();
         }
 
-        public void Interact() // Создание зоны, в которй персонаж сможет взаимодействовать с предметами
+        public void Interact() // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         {
             var size = Physics2D.OverlapCircleNonAlloc(
                 transform.position,
@@ -196,12 +197,12 @@ namespace Scripts
                 _interactionResult,
                 _interactionLayer);
 
-            for (int i = 0; i < size; i++) // Перебор массива, если не вернется не один из элементов, то size = 0
+            for (int i = 0; i < size; i++) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ size = 0
             {
-                var interactable = _interactionResult[i].GetComponent<InteractableComponent>(); // Получаем компонент
-                if (interactable != null) // Если компонент присутствует, то
+                var interactable = _interactionResult[i].GetComponent<InteractableComponent>(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+                if (interactable != null) // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ
                 {
-                    interactable.Interact(); // Выполняется действие
+                    interactable.Interact(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 }
             }
         }
@@ -211,18 +212,23 @@ namespace Scripts
             {
                 _hitParticle.gameObject.SetActive(true);
                 _hitParticle.Play();
-            } // Проигрываение партиклов у персонажа */
+            } // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
         public override void Attack()
         {
             if (!CanAttack) return;
             if (_isGrounded == false) return;
             base.Attack();
         }
-
+        public int DamageCount()
+        {
+            var damage = (BaseDamage + Level) * DamageCoeff;
+            return (int)damage;
+        }
         public override void OnDoAttack()
         {
-            _damage = Damage;
+            _damage = DamageCount();
             base.OnDoAttack();
+            Debug.Log(_damage);
         }
         public void ArmHero()
         {
@@ -281,7 +287,7 @@ namespace Scripts
             Coins = data.Coins;
             MaxHp = data.MaxHp;
             Hp = data.Hp;
-            Damage = data.Damage;
+            BaseDamage = data.BaseDamage;
             AbilPoint = data.AbilPoint;
             Death = data.Death;
 
