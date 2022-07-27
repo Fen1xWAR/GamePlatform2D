@@ -113,6 +113,8 @@ namespace Scripts
             Scene CurrentScene = SceneManager.GetActiveScene();
             Scene = CurrentScene.name;
 
+            Hp = MaxHp;
+
             if (WallSliding == true)
             {
                 var moveToSameDirection = _direction.x * transform.lossyScale.x > 0;

@@ -525,7 +525,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1357124168774316360, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
       propertyPath: orthographic size
-      value: 5
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 1357124168774316362, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
       propertyPath: m_Name
@@ -2019,10 +2019,6 @@ PrefabInstance:
     - target: {fileID: 4181263320263763349, guid: 663b3037c29a5b245841caf0e8e48d32, type: 3}
       propertyPath: m_Name
       value: Global Postprocessing
-      objectReference: {fileID: 0}
-    - target: {fileID: 4181263320263763349, guid: 663b3037c29a5b245841caf0e8e48d32, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4181263320263763351, guid: 663b3037c29a5b245841caf0e8e48d32, type: 3}
       propertyPath: m_RootOrder
