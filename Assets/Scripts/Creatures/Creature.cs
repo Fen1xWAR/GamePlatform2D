@@ -6,17 +6,17 @@ namespace Scripts
 {
     public class Creature : MonoBehaviour
     {
-        [Space] [Header("Settings")] [SerializeField]
+        [Space][Header("Settings")][SerializeField]
         private float _speed;
         [SerializeField] protected float _jumpForce;
         [SerializeField] private float _DamageJumpForce;
-        [SerializeField] protected int _damage; // Урон персонажа
+        [SerializeField] protected int _damage; // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         [SerializeField] protected bool doubleJump;
         [SerializeField] private string _tagToAttack;
         [SerializeField] private bool _invertScale;
-        [SerializeField] private float _attackFreeze =0.5f;
+        [SerializeField] private float _attackFreeze = 0.5f;
 
-        [Space] [Header("Checkers")] [SerializeField]
+        [Space][Header("Checkers")][SerializeField]
         private LayerCheck _groundCheck; //layercheck
         [SerializeField] private CheckCircleOverlap _attackRange;
         [SerializeField] protected SpawnListComponent _particles;
@@ -27,7 +27,7 @@ namespace Scripts
         protected PlaySoundComponent _sounds;
         protected bool _isGrounded;
         private bool _isJumping;
-        protected bool _isOnWall; // Задействовать надо
+        protected bool _isOnWall; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
         private static readonly int IsGroundKey = Animator.StringToHash("is-ground");
         private static readonly int IsRunningKey = Animator.StringToHash("is-running");
@@ -35,8 +35,8 @@ namespace Scripts
         private static readonly int Hit = Animator.StringToHash("hit");
         private static readonly int AttackKey = Animator.StringToHash("attack");
         private static readonly int ThrowAttackKey = Animator.StringToHash("throw");
-       
 
+   
         protected virtual void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
@@ -77,7 +77,7 @@ namespace Scripts
                 _isJumping = false;
             }
 
-            if (isJumpPressing) // проблем
+            if (isJumpPressing) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             {
                 _isJumping = true;
 
@@ -102,7 +102,7 @@ namespace Scripts
             }
 
             return yVelocity;
-        } // Высчитывание высоту прыжка
+        } // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
         protected virtual void DoJumpVfx()
         {
@@ -122,12 +122,12 @@ namespace Scripts
                 transform.localScale = new Vector3(-1 * multiplier, 1, 1);
                 // _spriteRenderer.flipX = true;
             }
-        } // Поворот по оси Х
+        } // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅ
         public virtual void TakeDamage()
         {
             _isJumping = false;
             _animator.SetTrigger(Hit);
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _DamageJumpForce); // толчок от дамага по y координате
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _DamageJumpForce); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ y пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             //  PlayParticles();
         }
 
@@ -140,13 +140,13 @@ namespace Scripts
         public virtual void OnDoAttack()
         {
             var gos = _attackRange.GetObjectsInRange();
-            foreach (var go in gos) // Перебор объектов
+            foreach (var go in gos) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             {
-                var hp = go.GetComponent<HealthComponent>(); // Пробуем получить HealthComponent, у объектов в радиусе аттаки
-                if (hp != null && go.CompareTag(_tagToAttack)) // Если есть здоровье и тэг Enemy
+                var hp = go.GetComponent<HealthComponent>(); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ HealthComponent, пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+                if (hp != null && go.CompareTag(_tagToAttack)) // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ Enemy
                 {       
                     hp.ModifyHealth(-_damage);
-                    //_particles.Spawn("Splash"); // Их нет, поэтому и выключил!!! Через spawnlist на персонаже настроить нужно, но мне пофигу на эту чушь!!!!!!!!!
+                    //_particles.Spawn("Splash"); // пїЅпїЅ пїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!!! пїЅпїЅпїЅпїЅпїЅ spawnlist пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ!!!!!!!!!
                 }
             }
         }
@@ -163,7 +163,7 @@ namespace Scripts
 
         }
 
-        private IEnumerator AttackFreeze()// Нужно чтобы когда персонаж делал удар, то стоял на месте, хрен его знает как это сделать)_))))
+        private IEnumerator AttackFreeze()// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ)_))))
         {
             yield return new WaitForSeconds(_attackFreeze);
         }

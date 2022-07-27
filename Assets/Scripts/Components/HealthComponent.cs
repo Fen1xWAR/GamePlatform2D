@@ -6,7 +6,7 @@ namespace Scripts
 {
     public class HealthComponent : MonoBehaviour
     {
-        [SerializeField] private int _health;
+        [SerializeField] public int Health;
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] private UnityEvent _onDie;
@@ -14,10 +14,9 @@ namespace Scripts
 
         public void ModifyHealth(int healthDelta)
         {
-            if (_health <= 0) return;
-
-            _health += healthDelta;
-            _onChange?.Invoke(_health);
+            if (Health <= 0) return;
+            Health += healthDelta;
+            _onChange?.Invoke(Health);
 
             if (healthDelta < 0)
             {
@@ -29,7 +28,7 @@ namespace Scripts
                 _onHeal?.Invoke();
             }
 
-            if (_health <= 0)
+            if (Health <= 0)
             {
                 _onDie?.Invoke();
             }
@@ -39,13 +38,13 @@ namespace Scripts
         [ContextMenu("Update Health")]
         private void UpdateHealth()
         {
-            _onChange?.Invoke(_health);
+            _onChange?.Invoke(Health);
         }
 #endif
 
         public void SetHealth(int health)
         {
-            _health = health;
+            Health = health;
         }
 
         [Serializable]
