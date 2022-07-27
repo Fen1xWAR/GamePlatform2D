@@ -14,7 +14,7 @@ namespace Scripts
         public int Coins;
         public int MaxHp;
         public int Hp; // CurrentHP
-        public int Damage;
+        public int BaseDamage;
         public int Death;
 
         [Header("Player Level")]
@@ -41,7 +41,7 @@ namespace Scripts
             Coins = player.Coins;
             MaxHp = player.MaxHp;
             Hp = player.Hp;
-            Damage = player.Damage;
+            BaseDamage = player.BaseDamage;
             Death = player.Death;
 
             Level = player.Level;
