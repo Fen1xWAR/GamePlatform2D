@@ -148,9 +148,6 @@ namespace Scripts
             {
                 return 0f;
             }
-
-
-
             return base.CalculateYVelocity();
         }
 
