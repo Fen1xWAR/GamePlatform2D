@@ -15,6 +15,7 @@ namespace Scripts
         public int MaxHp;
         public int Hp; // CurrentHP
         public int Damage;
+        public int Death;
 
         [Header("Player Level")]
         public int Level;
@@ -29,6 +30,7 @@ namespace Scripts
         public bool WallSliding;
         public bool CanThrowAttack;
         public float CoinBonus;
+        public int CoinLossPercent;
 
         [Header("Managment")]
         public string Scene;
@@ -40,6 +42,7 @@ namespace Scripts
             MaxHp = player.MaxHp;
             Hp = player.Hp;
             Damage = player.Damage;
+            Death = player.Death;
 
             Level = player.Level;
             Xp = player.Xp;
@@ -52,6 +55,7 @@ namespace Scripts
             WallSliding = player.WallSliding;
             CanThrowAttack = player.CanThrowAttack;
             CoinBonus = player.CoinBonus;
+            CoinLossPercent = player.CoinLossPercent;
 
             Scene = player.Scene;
         }

@@ -20,12 +20,11 @@ namespace Scripts
 
         [Header("Coins")]
         [SerializeField] private Text _coins;
+
+        [Header("Death")]
+        [SerializeField] private Text _death;
         private GameObject Character;
 
-        private void Awake()
-        {
-                DontDestroyOnLoad(this); // создает хранилище между сценами
-        }
         private void Start()
         {
             Character = GameObject.FindWithTag("Player");
@@ -57,6 +56,10 @@ namespace Scripts
             //COINS
             var coins = Character.GetComponent<Character>().Coins;
             _coins.text = coins.ToString();
+
+            //DEATH
+            var death = Character.GetComponent<Character>().Death;
+            _death.text = death.ToString();
         }
     }
 }
