@@ -146,6 +146,7 @@ namespace Scripts
                 if (hp != null && go.CompareTag(_tagToAttack)) // ���� ���� �������� � ��� Enemy
                 {       
                     hp.ModifyHealth(-_damage);
+                    Debug.Log("Атакую!");
                     //_particles.Spawn("Splash"); // �� ���, ������� � ��������!!! ����� spawnlist �� ��������� ��������� �����, �� ��� ������ �� ��� ����!!!!!!!!!
                 }
             }

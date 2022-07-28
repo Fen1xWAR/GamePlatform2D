@@ -104,6 +104,7 @@
     <Compile Include="Assets/Scripts/UI/Hud/HudController.cs" />
     <Compile Include="Assets/Scripts/Components/SpriteAnimation.cs" />
     <Compile Include="Assets/Scripts/Creatures/Weapons/SinusoidalProjectile.cs" />
+    <Compile Include="Assets/Scripts/EnemySpawn.cs" />
     <Compile Include="Assets/Scripts/Model/SaveSystem.cs" />
     <Compile Include="Assets/Scripts/Components/ModifyHealthComponent.cs" />
     <Compile Include="Assets/Scripts/Components/SceneChangeComponent.cs" />
