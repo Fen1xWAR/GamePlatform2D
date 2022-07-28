@@ -32519,6 +32519,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    - target: {fileID: 8238695294222181051, guid: 675693902abedc8448c03ccd5a3e0245, type: 3}
+      propertyPath: Health
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8238695294222181052, guid: 675693902abedc8448c03ccd5a3e0245, type: 3}
       propertyPath: m_Name
       value: destructableBarrel
