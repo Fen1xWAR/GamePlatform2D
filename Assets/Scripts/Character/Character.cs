@@ -79,12 +79,13 @@ namespace Scripts
     //        _gameSession = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
             health.SetHealth(MaxHp);
-            Hp = MaxHp;
+            
             if (File.Exists(Application.persistentDataPath + "/player.nya"))
             {
                 LoadPlayer();
             }
             SavePlayer();
+            Hp = MaxHp;
             //       UpdateCharWeapon();
         }
 
@@ -112,8 +113,6 @@ namespace Scripts
 
             Scene CurrentScene = SceneManager.GetActiveScene();
             Scene = CurrentScene.name;
-
-            Hp = MaxHp;
 
             if (WallSliding == true)
             {

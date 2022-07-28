@@ -9,11 +9,11 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private Transform[] SpawnPoints;
     private int SpawnRandomChance;
     private int RandomEnemy;
-    public void Update()
+    public void SpawnEnemy()
     {
-        for (int i = 0; i < Enemy.Length; i++) {
+        for (int i = 0; i < SpawnPoints.Length; i++) {
             RandomEnemy = Random.Range(0, Enemy.Length);
-            Instantiate(Enemy[RandomEnemy], SpawnPoints[i].transform.position, SpawnPoints[i].transform.rotation);
+            Instantiate(Enemy[RandomEnemy], SpawnPoints[i].transform.position, Quaternion.identity);
                 }
         Object.Destroy(gameObject);
         //gameObject.SetActive(false);
