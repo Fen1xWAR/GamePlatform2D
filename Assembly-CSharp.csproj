@@ -95,6 +95,7 @@
     <Compile Include="Assets\Scripts\Model\Data\Properties\IntProperty.cs" />
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\_TransformBred.cs" />
+    <Compile Include="Assets\Scripts\Test&apos;\EnemyMassive.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\DefsFacade.cs" />
     <Compile Include="Assets\Resources\assets\Free Pixel Art Forest\Demo\MoveBackground.cs" />
     <Compile Include="Assets\Scripts\Components\SpawnListComponent.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Assets\Scripts\UI\Hud\HudController.cs" />
     <Compile Include="Assets\Scripts\Components\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\SinusoidalProjectile.cs" />
+    <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\Model\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Components\ModifyHealthComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SceneChangeComponent.cs" />
@@ -130,8 +132,6 @@
     <Compile Include="Assets\Scripts\UI\MainMenu\ConfirmNewGameWindow.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryItemDefinitions.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
-    <Compile Include="Assets\Scripts\EnemySpawn.cs" />
-    <Compile Include="Assets\Scripts\Test&apos;\EnemyMassive.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />
