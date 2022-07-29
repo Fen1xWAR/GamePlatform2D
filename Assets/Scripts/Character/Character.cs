@@ -104,7 +104,14 @@ namespace Scripts
 
         protected override void FixedUpdate()
         {
-            base.FixedUpdate();
+            if (_rigidbody.bodyType == RigidbodyType2D.Static)
+            {
+                return;
+            }
+            else
+            {
+                base.FixedUpdate();
+            } 
         }
 
         protected override void Update()
@@ -140,17 +147,25 @@ namespace Scripts
 
         protected override float CalculateYVelocity()
         {
-            var isJumpPressing = _direction.y > 0;
+            if (_rigidbody.bodyType == RigidbodyType2D.Static)
+            {
+                return _rigidbody.velocity.y;
+            }
+            else
+            {
+                var isJumpPressing = _direction.y > 0;
 
-            if (_isGrounded || _isOnWall)
-            {
-                _allowDoubleJump = true;
+                if (_isGrounded || _isOnWall)
+                {
+                    _allowDoubleJump = true;
+                }
+                if (!isJumpPressing && _isOnWall)
+                {
+                    return 0f;
+                }
+                return base.CalculateYVelocity();
             }
-            if (!isJumpPressing && _isOnWall)
-            {
-                return 0f;
-            }
-            return base.CalculateYVelocity();
+            
         }
 
         protected override float CalculateJumpVelocity(float yVelocity)
@@ -177,7 +192,14 @@ namespace Scripts
         }
         protected override void UpdateSpriteDirection()
         {
-            base.UpdateSpriteDirection();
+            if (_rigidbody.bodyType == RigidbodyType2D.Static)
+            {
+                return;
+            }
+            else
+            {
+                base.UpdateSpriteDirection();
+            }        
         }
 
         /*  private bool IsGrounded()
