@@ -145,7 +145,7 @@ namespace Scripts
            
         }
 
-        protected override float CalculateYVelocity()
+        public override float CalculateYVelocity()
         {
             if (_rigidbody.bodyType == RigidbodyType2D.Static)
             {
@@ -168,7 +168,7 @@ namespace Scripts
             
         }
 
-        protected override float CalculateJumpVelocity(float yVelocity)
+        public override float CalculateJumpVelocity(float yVelocity)
         {
             if (!_isGrounded && _allowDoubleJump && DoubleJump && !_isOnWall)
             {
@@ -180,7 +180,7 @@ namespace Scripts
 
             return base.CalculateJumpVelocity(yVelocity);
         } // ������������ ������ ������
-
+ 
         public void AddCoins(int coins) // ���������� �����
         {
             Coins += (int)(coins * CoinBonus);

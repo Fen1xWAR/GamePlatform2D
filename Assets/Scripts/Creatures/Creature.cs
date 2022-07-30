@@ -67,7 +67,7 @@ namespace Scripts
             UpdateSpriteDirection();
         }
 
-        protected virtual float CalculateYVelocity()
+        public virtual float CalculateYVelocity()
         {
             var yVelocity = _rigidbody.velocity.y;
             var isJumpPressing = _direction.y > 0;
@@ -92,7 +92,7 @@ namespace Scripts
                 return yVelocity;
         }
 
-        protected virtual float CalculateJumpVelocity(float yVelocity)
+        public virtual float CalculateJumpVelocity(float yVelocity)
         {
             if (_isGrounded && !_isOnWall)
             {

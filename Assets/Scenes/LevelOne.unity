@@ -998,6 +998,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2235090472374672416, guid: 12bfaff3a4eb99a44ab13dc71b480ab5, type: 3}
   m_PrefabInstance: {fileID: 2235090472487744967}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &514976551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9025307322779981543, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+  m_PrefabInstance: {fileID: 1137422582}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797f9302d1a7aaf4da536bbd5bd0f3fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!213 &525456254
 Sprite:
   m_ObjectHideFlags: 0
@@ -3701,6 +3712,46 @@ PrefabInstance:
     - target: {fileID: 9025307322779981538, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
       propertyPath: m_Name
       value: WarriorWoman
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981540, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981540, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 82ff23c9-a489-46c4-b208-3a18b0af07ff
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981540, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Character/VerticalMovement[/Keyboard/w]
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981540, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981540, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981540, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 514976551}
+    - target: {fileID: 9025307322779981540, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981540, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnVerticalMovement
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981540, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Scripts.CharacterInputReader, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9025307322779981540, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 9025307322779981597, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
       propertyPath: m_RootOrder

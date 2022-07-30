@@ -55,8 +55,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Up",
-                    "id": "b444f0a6-4fb5-4bcd-9fd0-94e3574a115a",
+                    "name": "up",
+                    "id": "b121d88e-53c6-42c7-a878-eb7515b98eee",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -66,8 +66,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Up",
-                    "id": "ad9b829c-c6f4-42f9-9f07-88630e9f9f17",
+                    "name": "up",
+                    "id": "bbaa8d14-2abd-47e0-993f-0e699bb82c3e",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",

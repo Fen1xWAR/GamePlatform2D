@@ -11,9 +11,19 @@ namespace Scripts
 
         public void OnHorizontalMovement(InputAction.CallbackContext context)
         {
+           
             var direction = context.ReadValue<Vector2>();
             _char.SetDirection(direction);
         }
+
+ /*       public void OnVerticalMovement(InputAction.CallbackContext context)
+        {
+                var direction = context.ReadValue<Vector2>();
+            if (context.performed)
+            {
+                _char.SetDirection(direction);
+            }                
+        }*/
 
         public void OnInteract(InputAction.CallbackContext context) // OnInteract - зависит от того как назвали в схеме управления, чтобы он подхватил эту кнопку
         {
