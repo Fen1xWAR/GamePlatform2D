@@ -30,7 +30,7 @@ namespace Scripts
         //    [SerializeField]
         //    private AnimatorController _armed;
         //    [SerializeField] private AnimatorController _disArmed;
-        //    private GameSession _gameSession;
+            private GameSession _gameSession;
 
         private static readonly int IsOnWallKey = Animator.StringToHash("is-on-wall");
         private float _defaultGravityScale;

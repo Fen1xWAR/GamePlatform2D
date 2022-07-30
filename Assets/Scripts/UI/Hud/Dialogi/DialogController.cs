@@ -9,9 +9,9 @@ namespace Scripts
     public class DialogController : MonoBehaviour
     {
         [SerializeField] private Text _text;
+        [SerializeField] private Text _name;
         [SerializeField] private GameObject _container;
         [SerializeField] private Animator _animator;
-
         [Space]
         [SerializeField] private float _textSpeed = 0.09f;
 
@@ -24,6 +24,7 @@ namespace Scripts
         private int _currentSentence;
         private AudioSource _sfxSource;
         private Coroutine _typingRoutine;
+        private ShowDialogComponent _showDialog;
 
         private GameObject _char;
 
@@ -42,7 +43,7 @@ namespace Scripts
             _data = data; // Сохраним данные
             _currentSentence = 0;
             _text.text = string.Empty;
-
+            _name.text = _data.Name;
             _container.SetActive(true);
             _sfxSource.PlayOneShot(_open);
             _animator.SetBool(IsOpen, true);
@@ -110,14 +111,6 @@ namespace Scripts
         public void OnCloseDialog()
         {
 
-        }
-
-        [SerializeField] private DialogData _testData;
-        public void Test()
-        {
-            
-            gameObject.SetActive(true);
-            ShowDialog(_testData);
         }
     }
 }
