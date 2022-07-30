@@ -9914,5 +9914,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomOne
       objectReference: {fileID: 0}
+    - target: {fileID: 8810548833989837912, guid: b76db9b84726a0744809631f42c995d8, type: 3}
+      propertyPath: m_Size.x
+      value: 3.935278
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810548833989837912, guid: b76db9b84726a0744809631f42c995d8, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.9403324
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b76db9b84726a0744809631f42c995d8, type: 3}
