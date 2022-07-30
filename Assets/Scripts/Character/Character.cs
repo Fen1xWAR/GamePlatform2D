@@ -30,7 +30,7 @@ namespace Scripts
         //    [SerializeField]
         //    private AnimatorController _armed;
         //    [SerializeField] private AnimatorController _disArmed;
-        //    private GameSession _gameSession;
+            private GameSession _gameSession;
 
         private static readonly int IsOnWallKey = Animator.StringToHash("is-on-wall");
         private float _defaultGravityScale;
@@ -44,7 +44,7 @@ namespace Scripts
         public int Hp; // CurrentHP
         public int BaseDamage = 5;
         public int Death = 0;
-        public float DamageCoeff;
+        public float DamageCoeff = 1;
 
         [Header("Player Level")]
         public int Level = 1;
@@ -79,12 +79,13 @@ namespace Scripts
     //        _gameSession = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
             health.SetHealth(MaxHp);
-            Hp = MaxHp;
+            
             if (File.Exists(Application.persistentDataPath + "/player.nya"))
             {
                 LoadPlayer();
             }
             SavePlayer();
+            Hp = MaxHp;
             //       UpdateCharWeapon();
         }
 
@@ -103,7 +104,14 @@ namespace Scripts
 
         protected override void FixedUpdate()
         {
-            base.FixedUpdate();
+            if (_rigidbody.bodyType == RigidbodyType2D.Static)
+            {
+                return;
+            }
+            else
+            {
+                base.FixedUpdate();
+            } 
         }
 
         protected override void Update()
@@ -112,8 +120,6 @@ namespace Scripts
 
             Scene CurrentScene = SceneManager.GetActiveScene();
             Scene = CurrentScene.name;
-
-            Hp = MaxHp;
 
             if (WallSliding == true)
             {
@@ -141,17 +147,25 @@ namespace Scripts
 
         protected override float CalculateYVelocity()
         {
-            var isJumpPressing = _direction.y > 0;
+            if (_rigidbody.bodyType == RigidbodyType2D.Static)
+            {
+                return _rigidbody.velocity.y;
+            }
+            else
+            {
+                var isJumpPressing = _direction.y > 0;
 
-            if (_isGrounded || _isOnWall)
-            {
-                _allowDoubleJump = true;
+                if (_isGrounded || _isOnWall)
+                {
+                    _allowDoubleJump = true;
+                }
+                if (!isJumpPressing && _isOnWall)
+                {
+                    return 0f;
+                }
+                return base.CalculateYVelocity();
             }
-            if (!isJumpPressing && _isOnWall)
-            {
-                return 0f;
-            }
-            return base.CalculateYVelocity();
+            
         }
 
         protected override float CalculateJumpVelocity(float yVelocity)
@@ -178,7 +192,14 @@ namespace Scripts
         }
         protected override void UpdateSpriteDirection()
         {
-            base.UpdateSpriteDirection();
+            if (_rigidbody.bodyType == RigidbodyType2D.Static)
+            {
+                return;
+            }
+            else
+            {
+                base.UpdateSpriteDirection();
+            }        
         }
 
         /*  private bool IsGrounded()

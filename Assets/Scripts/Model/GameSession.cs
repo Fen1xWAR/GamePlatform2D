@@ -1,26 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-/*namespace Scripts
+namespace Scripts
 {
     public class GameSession : MonoBehaviour
     {
-        [SerializeField] private PlayerData _payerData;
-        public PlayerData Data  => _payerData;
-        private PlayerData _save;
-
         private void Awake()
         {
-            if(IsSessionExist())
+            LoadHud();
+            if (IsSessionExist())
             {
                 Destroy(gameObject);
             }
             else
             {
-                Save();
                 DontDestroyOnLoad(this); // создает хранилище между сценами
             }
+        }
+
+        private void LoadHud()
+        {
+            SceneManager.LoadScene("Hud", LoadSceneMode.Additive);
         }
 
         private bool IsSessionExist()
@@ -34,15 +36,5 @@ using UnityEngine;
 
             return false;
         }
-
-        public void Save()
-        {
-       //     _save = _payerData.Clone();
-        }
-
-        public void LoadLastSave()
-        {
-        //    _payerData = _save.Clone();
-        }
     }
-}*/
+}
