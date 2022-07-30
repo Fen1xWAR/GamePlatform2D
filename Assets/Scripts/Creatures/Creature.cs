@@ -135,6 +135,10 @@ namespace Scripts
         {
             _sounds.Play("Melee");
             _animator.SetTrigger(AttackKey);
+        }
+
+        public virtual void OnDoAttack()
+        {
             var gos = _attackRange.GetObjectsInRange();
             foreach (var go in gos) // ������� ��������
             {
@@ -142,15 +146,9 @@ namespace Scripts
                 if (hp != null && go.CompareTag(_tagToAttack)) // ���� ���� �������� � ��� Enemy
                 {
                     hp.ModifyHealth(-_damage);
-                    Debug.Log("Атакую!");
                     //_particles.Spawn("Splash"); // �� ���, ������� � ��������!!! ����� spawnlist �� ��������� ��������� �����, �� ��� ������ �� ��� ����!!!!!!!!!
                 }
             }
-        }
-
-        public virtual void OnDoAttack()
-        {
-            return;
         }
         
         public virtual void ThrowAttack()

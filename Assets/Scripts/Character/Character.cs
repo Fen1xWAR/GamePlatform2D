@@ -44,7 +44,9 @@ namespace Scripts
         public int Hp; // CurrentHP
         public int BaseDamage = 5;
         public int Death = 0;
-        public float DamageCoeff = 1;
+        public float DamageCoeff = 1f;
+        public float CritChance = 0f;
+        public int CritDamage = 1;
 
         [Header("Player Level")]
         public int Level = 1;
@@ -242,16 +244,24 @@ namespace Scripts
             if (_isGrounded == false) return;
             base.Attack();
         }
-        public int DamageCount()
+
+        private void Crit()
         {
-            var damage = (BaseDamage + Level) * DamageCoeff;
-            return (int)damage;
+            float crit = Random.Range(1, 100);
+            if (crit <= CritChance)
+            {
+                CritDamage = 2;
+            }else
+            {
+                CritDamage = 1;
+            }
         }
+    
         public override void OnDoAttack()
         {
-            _damage = DamageCount();
-            base.OnDoAttack();
-            Debug.Log(_damage);
+            Crit();
+            _damage = (BaseDamage + Level) * CritDamage;
+            base.OnDoAttack(); 
         }
         public void ArmHero()
         {
@@ -314,6 +324,8 @@ namespace Scripts
             AbilPoint = data.AbilPoint;
             Death = data.Death;
             DamageCoeff = data.DamageCoeff;
+            CritChance = data.CritChance;
+            CritDamage = data.CritDamage;
 
             Level = data.Level;
             Xp = data.Xp;

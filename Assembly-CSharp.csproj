@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Model\Data\Properties\PrefsPersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Components\RoomGenerator 2.0\RoomPoints.cs" />
+    <Compile Include="Assets\Scripts\UI\Hud\Dialogi\DialogController.cs" />
     <Compile Include="Assets\Scripts\Components\DamageComponent.cs" />
     <Compile Include="Assets\Scripts\Components\HealingComponent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\InvenotryData.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Assets\Scripts\Components\AddCoin.cs" />
     <Compile Include="Assets\Scripts\Creatures\MobAI.cs" />
     <Compile Include="Assets\Scripts\Model\Data\GameSettings.cs" />
+    <Compile Include="Assets\Scripts\Utils\AudioUtils.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\BaseProjectile.cs" />
     <Compile Include="Assets\Scripts\Components\SwitchComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DestroyObjectComponent.cs" />
@@ -105,6 +107,7 @@
     <Compile Include="Assets\Scripts\UI\Hud\HudController.cs" />
     <Compile Include="Assets\Scripts\Components\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\SinusoidalProjectile.cs" />
+    <Compile Include="Assets\Scripts\Model\Definitions\DialogDef.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
     <Compile Include="Assets\Scripts\Model\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Components\ModifyHealthComponent.cs" />
@@ -113,13 +116,16 @@
     <Compile Include="Assets\Scripts\Model\Data\Properties\PersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Creatures\PlatformPatrol.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\ButtonSound.cs" />
+    <Compile Include="Assets\Scripts\UI\Hud\Dialogi\DataDialogCompleteEdition.cs" />
     <Compile Include="Assets\Scripts\Components\Audio\PlaySoundComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DebugConsole.cs" />
     <Compile Include="Assets\Scripts\Creatures\PointPatrol.cs" />
+    <Compile Include="Assets\Scripts\UI\Hud\Dialogi\ShowDialogComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\RoomVariants.cs" />
     <Compile Include="Assets\Scripts\Components\Checkpoint\_TestCheckpoint.cs" />
     <Compile Include="Assets\Scripts\Character\CharacterInputReader.cs" />
     <Compile Include="Assets\Scripts\Components\PlayerXp\MobXpGenerate.cs" />
+    <Compile Include="Assets\Scripts\UI\Hud\Dialogi\DialogData.cs" />
     <Compile Include="Assets\Scripts\Components\LayerCheck.cs" />
     <Compile Include="Assets\Scripts\Components\ReloadLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SpawnComponent.cs" />
@@ -132,12 +138,6 @@
     <Compile Include="Assets\Scripts\UI\MainMenu\ConfirmNewGameWindow.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryItemDefinitions.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
-    <Compile Include="Assets\Scripts\Utils\AudioUtils.cs" />
-    <Compile Include="Assets\Scripts\UI\Hud\Dialogi\ShowDialogComponent.cs" />
-    <Compile Include="Assets\Scripts\Model\Definitions\DialogDef.cs" />
-    <Compile Include="Assets\Scripts\UI\Hud\Dialogi\DataDialogCompleteEdition.cs" />
-    <Compile Include="Assets\Scripts\UI\Hud\Dialogi\DialogController.cs" />
-    <Compile Include="Assets\Scripts\UI\Hud\Dialogi\DialogData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />
