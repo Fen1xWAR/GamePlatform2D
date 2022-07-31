@@ -8,6 +8,12 @@ namespace Scripts
     public class CharacterInputReader : MonoBehaviour
     {
         [SerializeField] private Character _char;
+        [SerializeField] private DialogController _dialogController;
+
+        public void Start()
+        {
+            _dialogController = FindObjectOfType<DialogController>();
+        }
 
         public void OnHorizontalMovement(InputAction.CallbackContext context)
         {
@@ -24,6 +30,18 @@ namespace Scripts
                 _char.SetDirection(direction);
             }                
         }*/
+
+        public void OnDialogSettings(InputAction.CallbackContext context)
+        {
+            if (_dialogController._container.active)
+            {
+                if (context.canceled) // Отпустили клавишу
+                {
+                    _char.SkipDialog();
+                }
+            }
+            else return;
+        }
 
         public void OnInteract(InputAction.CallbackContext context) // OnInteract - зависит от того как назвали в схеме управления, чтобы он подхватил эту кнопку
         {

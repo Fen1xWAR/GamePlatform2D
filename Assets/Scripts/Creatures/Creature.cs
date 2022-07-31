@@ -133,8 +133,8 @@ namespace Scripts
 
         public virtual void Attack()
         {
-            _sounds.Play("Melee");
-            _animator.SetTrigger(AttackKey);
+                
+                _animator.SetTrigger(AttackKey);  
         }
 
         public virtual void OnDoAttack()
@@ -145,9 +145,16 @@ namespace Scripts
                 var hp = go.GetComponent<HealthComponent>(); // ������� �������� HealthComponent, � �������� � ������� ������
                 if (hp != null && go.CompareTag(_tagToAttack)) // ���� ���� �������� � ��� Enemy
                 {
+                    _sounds.Play("Melee");
                     hp.ModifyHealth(-_damage);
                     //_particles.Spawn("Splash"); // �� ���, ������� � ��������!!! ����� spawnlist �� ��������� ��������� �����, �� ��� ������ �� ��� ����!!!!!!!!!
                 }
+                else if(go.CompareTag("Dummy"))
+                {
+                    hp.ModifyHealth(-_damage);
+                    Debug.Log("Your damage is: " + _damage);
+                }
+                _sounds.Play("Melee");
             }
         }
         
@@ -161,11 +168,6 @@ namespace Scripts
         {
             _particles.Spawn("Throw");
 
-        }
-
-        private IEnumerator AttackFreeze()// ����� ����� ����� �������� ����� ����, �� ����� �� �����, ���� ��� ����� ��� ��� �������)_))))
-        {
-            yield return new WaitForSeconds(_attackFreeze);
         }
     }
 }

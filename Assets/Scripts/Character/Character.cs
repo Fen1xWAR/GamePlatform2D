@@ -15,14 +15,12 @@ namespace Scripts
         //   private SpriteRenderer _spriteRenderer;
         private bool _allowDoubleJump;
         private readonly Collider2D[] _interactionResult = new Collider2D[1]; // ������ � ����� ���������
-                                                                              //   [SerializeField] private bool _isArmed;
 
-        [Space]
-        [Header("Interaction")] 
         [SerializeField] private float _interactionRadius; // ������ ��������������
         [SerializeField] private LayerMask _interactionLayer; // �� ����� ����� ����� ��������
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private LayerCheck _wallCheck;
+        [SerializeField] private int _freeze = 1; 
         //    [Space] [Header("Particles")] [SerializeField]
         //    private SpawnComponent _footParticles;
         //    [SerializeField] private ParticleSystem _hitParticle;
@@ -35,6 +33,7 @@ namespace Scripts
         private static readonly int IsOnWallKey = Animator.StringToHash("is-on-wall");
         private float _defaultGravityScale;
         private HealthComponent _healthComponent;
+        private DialogController _dialogController;
 
 
         [Header("Player Stats")]
@@ -81,7 +80,8 @@ namespace Scripts
     //        _gameSession = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
             health.SetHealth(MaxHp);
-            
+            _dialogController = FindObjectOfType<DialogController>();
+
             if (File.Exists(Application.persistentDataPath + "/player.nya"))
             {
                 LoadPlayer();
@@ -242,7 +242,7 @@ namespace Scripts
         {
             if (!CanAttack) return;
             if (_isGrounded == false) return;
-            base.Attack();
+            base.Attack();  
         }
 
         private void Crit()
@@ -256,12 +256,27 @@ namespace Scripts
                 CritDamage = 1;
             }
         }
+
+        public void StartAttack()
+        {
+            _rigidbody.bodyType = RigidbodyType2D.Static;
+        }
+
+        public void EndAttack()
+        {
+            _rigidbody.bodyType = RigidbodyType2D.Dynamic;
+        }
     
         public override void OnDoAttack()
         {
             Crit();
-            _damage = (BaseDamage + Level) * CritDamage;
-            base.OnDoAttack(); 
+            _damage = (BaseDamage + Level) * CritDamage;   
+            base.OnDoAttack();  
+        }
+
+        private IEnumerator FreezeAttack()
+        {
+            yield return new WaitForSeconds(_freeze);
         }
         public void ArmHero()
         {
@@ -377,6 +392,11 @@ namespace Scripts
         public void DeathCount()
         {
             Death++;
+        }
+
+        public void SkipDialog()
+        {
+            _dialogController?.AutoSkip();
         }
     }
 }

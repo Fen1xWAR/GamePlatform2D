@@ -10,7 +10,7 @@ namespace Scripts
     {
         [SerializeField] private Text _text;
         [SerializeField] private Text _name;
-        [SerializeField] private GameObject _container;
+        [SerializeField] public GameObject _container;
         [SerializeField] private Animator _animator;
         [Space]
         [SerializeField] private float _textSpeed = 0.09f;
@@ -62,6 +62,18 @@ namespace Scripts
             _typingRoutine = null;
         }
 
+        public void AutoSkip()
+        {
+            if (_typingRoutine != null)
+            {
+                StopTypeAnimation();
+                _text.text = _data.Sentences[_currentSentence];
+            }else
+            {
+                OnContinue();
+            }
+        }
+
         public void OnSkip()
         {
             if (_typingRoutine == null) return;
@@ -99,6 +111,7 @@ namespace Scripts
         {
             _animator.SetBool(IsOpen, false);
             _sfxSource.PlayOneShot(_close);
+            _container.SetActive(false);
             _char.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             Cursor.visible = false;
         }

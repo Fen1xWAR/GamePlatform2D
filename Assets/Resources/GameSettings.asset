@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   _music:
-    _value: 0
+    _value: 0.03277824
   _sfx:
-    _value: 0
+    _value: 0.13

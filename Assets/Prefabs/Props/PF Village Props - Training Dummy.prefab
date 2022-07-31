@@ -126,6 +126,8 @@ GameObject:
   - component: {fileID: 829348048}
   - component: {fileID: 829348051}
   - component: {fileID: 829348052}
+  - component: {fileID: 2097974209}
+  - component: {fileID: 2097974208}
   m_Layer: 6
   m_Name: PF Village Props - Training Dummy
   m_TagString: Dummy
@@ -143,7 +145,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 939041801}
   m_Father: {fileID: 0}
@@ -279,6 +281,66 @@ MonoBehaviour:
     _name: 
   external: {fileID: 0}
   externalData:
+  - {fileID: 11400000, guid: a0c6bb1eb21b2c245a32f015717b882a, type: 2}
   - {fileID: 11400000, guid: 1fb114dadf9a7fd4eb536f96229cba34, type: 2}
+  - {fileID: 11400000, guid: 2ec76aadff14e8c47be0910cbf251595, type: 2}
+  - {fileID: 11400000, guid: 8cb81a7b77086354685b89e26ae3dbb6, type: 2}
   Tag: 
   Checkpoint: 0
+--- !u!95 &2097974209
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106967144069191874}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bc025d08a06e5c24eaa4db9a958ad739, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2097974208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4106967144069191874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6e0f47038f5f74aa5e97165f637ce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 2147483647
+  _onDamage:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2097974209}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hit
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  _onDie:
+    m_PersistentCalls:
+      m_Calls: []
+  _onChange:
+    m_PersistentCalls:
+      m_Calls: []
