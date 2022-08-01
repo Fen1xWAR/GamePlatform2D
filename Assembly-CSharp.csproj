@@ -87,6 +87,7 @@
     <Compile Include="Assets\Scripts\UI\OptionsWindow\OptionsWindow.cs" />
     <Compile Include="Assets\Scripts\Components\ExitLevelComponent.cs" />
     <Compile Include="Assets\Scripts\UI\WindowController.cs" />
+    <Compile Include="Assets\Scripts\Utils\CompositeDisposable.cs" />
     <Compile Include="Assets\Scripts\Creatures\ShootingTrapAI.cs" />
     <Compile Include="Assets\Scripts\Components\MovablePlatform.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\CustomButton.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Assets\Scripts\Model\Data\Properties\IntProperty.cs" />
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\_TransformBred.cs" />
+    <Compile Include="Assets\Scripts\UI\Bars\LifeBarEnemy.cs" />
     <Compile Include="Assets\Scripts\Test&apos;\EnemyMassive.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\DefsFacade.cs" />
     <Compile Include="Assets\Resources\assets\Trash\Demo\MoveBackground.cs" />
@@ -109,6 +111,7 @@
     <Compile Include="Assets\Scripts\Creatures\Weapons\SinusoidalProjectile.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\DialogDef.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\LifeBarWidget.cs" />
     <Compile Include="Assets\Scripts\Model\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Components\ModifyHealthComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SceneChangeComponent.cs" />
@@ -138,9 +141,6 @@
     <Compile Include="Assets\Scripts\UI\MainMenu\ConfirmNewGameWindow.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryItemDefinitions.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
-    <Compile Include="Assets\Scripts\UI\Widgets\LifeBarWidget.cs" />
-    <Compile Include="Assets\Scripts\Utils\CompositeDisposable.cs" />
-    <Compile Include="Assets\Scripts\UI\Bars\LifeBarEnemy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />
