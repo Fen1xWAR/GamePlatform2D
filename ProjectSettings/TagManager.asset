@@ -12,6 +12,7 @@ TagManager:
   - SfxAudioSource
   - Hud
   - Dummy
+  - SettingsMenu
   layers:
   - Default
   - TransparentFX

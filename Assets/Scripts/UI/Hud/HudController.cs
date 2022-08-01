@@ -25,9 +25,28 @@ namespace Scripts
         [SerializeField] private Text _death;
         private GameObject Character;
 
+        [Header("Misc")]
+        [SerializeField] public GameObject SettingsMenu;
+
         private void Start()
         {
             Character = GameObject.FindWithTag("Player");
+        }
+
+        public void ShowSettings()
+        {
+            if (SettingsMenu.active == false)
+            {
+                Character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                Cursor.visible = true;
+                SettingsMenu.SetActive(true);
+            }
+            else if (SettingsMenu.active == true)
+            {
+                Character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                Cursor.visible = false;
+                SettingsMenu.SetActive(false);
+            }
         }
         private void Update()
         {

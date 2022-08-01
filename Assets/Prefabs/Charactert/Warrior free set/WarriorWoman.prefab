@@ -702,6 +702,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: aae0998c-5594-4fee-95d1-2dcf5284b124
     m_ActionName: Character/DialogSettings[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9025307322779981543}
+        m_TargetAssemblyTypeName: Scripts.CharacterInputReader, Assembly-CSharp
+        m_MethodName: OnOpenMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7d713914-8aa8-4290-acad-c3c396a291b1
+    m_ActionName: Character/OpenMenu[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Character

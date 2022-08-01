@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Scripts
 {
@@ -9,10 +10,12 @@ namespace Scripts
     {
         [SerializeField] private Character _char;
         [SerializeField] private DialogController _dialogController;
+        private HudController _hudController;
 
         public void Start()
         {
             _dialogController = FindObjectOfType<DialogController>();
+            _hudController = FindObjectOfType<HudController>();
         }
 
         public void OnHorizontalMovement(InputAction.CallbackContext context)
@@ -42,6 +45,14 @@ namespace Scripts
             }
             else return;
         }
+
+  /*      public void OnOpenMenu(InputAction.CallbackContext context)
+        {
+            if (context.canceled) // Отпустили клавишу
+            {
+               _hudController.ShowSettings();
+            }  
+        }*/ //Need to fix
 
         public void OnInteract(InputAction.CallbackContext context) // OnInteract - зависит от того как назвали в схеме управления, чтобы он подхватил эту кнопку
         {
