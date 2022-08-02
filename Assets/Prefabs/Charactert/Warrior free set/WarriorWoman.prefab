@@ -474,6 +474,7 @@ MonoBehaviour:
   CoinLossPercent: 2
   Scene: 
   Position: []
+  CanFastTeleport: 0
 --- !u!212 &9025307322779981594
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -512,9 +513,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 525610241
-  m_SortingLayer: 3
-  m_SortingOrder: 2
+  m_SortingLayerID: 1967789385
+  m_SortingLayer: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3318188226485093758, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -718,6 +719,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7d713914-8aa8-4290-acad-c3c396a291b1
     m_ActionName: Character/OpenMenu[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9025307322779981543}
+        m_TargetAssemblyTypeName: Scripts.CharacterInputReader, Assembly-CSharp
+        m_MethodName: OnFastTeleport
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 35abb141-eb91-4b18-9148-a7fcb5a8d842
+    m_ActionName: Character/FastTeleport[/Keyboard/t]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Character

@@ -11,11 +11,13 @@ namespace Scripts
         [SerializeField] private Character _char;
         [SerializeField] private DialogController _dialogController;
         private HudController _hudController;
+        private FastTeleport _fastTeleport;
 
         public void Start()
         {
             _dialogController = FindObjectOfType<DialogController>();
             _hudController = FindObjectOfType<HudController>();
+            _fastTeleport = FindObjectOfType<FastTeleport>();
         }
 
         public void OnHorizontalMovement(InputAction.CallbackContext context)
@@ -53,6 +55,14 @@ namespace Scripts
                _hudController.ShowSettings();
             }  
         }*/ //Need to fix
+
+        public void OnFastTeleport(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+                _char.UseFastTeleport();
+            }   
+        }
 
         public void OnInteract(InputAction.CallbackContext context) // OnInteract - зависит от того как назвали в схеме управления, чтобы он подхватил эту кнопку
         {

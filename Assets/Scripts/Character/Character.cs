@@ -34,6 +34,7 @@ namespace Scripts
         private float _defaultGravityScale;
         private HealthComponent _healthComponent;
         private DialogController _dialogController;
+        private FastTeleport _fastTeleport;
 
 
         [Header("Player Stats")]
@@ -66,6 +67,9 @@ namespace Scripts
         public string Scene = "Island";
         public float[] Position;
 
+        [Header("Items")]
+        [SerializeField] public bool CanFastTeleport = false;
+
         protected override void Awake()
         {
             base.Awake();
@@ -82,6 +86,7 @@ namespace Scripts
             health.SetHealth(MaxHp);
             _dialogController = FindObjectOfType<DialogController>();
 
+            _fastTeleport = FindObjectOfType<FastTeleport>();
             if (File.Exists(Application.persistentDataPath + "/player.nya"))
             {
                 LoadPlayer();
@@ -119,7 +124,7 @@ namespace Scripts
         protected override void Update()
         {
             base.Update();
-
+            
             Scene CurrentScene = SceneManager.GetActiveScene();
             Scene = CurrentScene.name;
 
@@ -354,6 +359,8 @@ namespace Scripts
             WallSliding = data.WallSliding;
             CanThrowAttack = data.CanThrowAttack;
 
+            CanFastTeleport = data.CanFastTeleport;
+
         //    SceneManager.LoadScene("Island");
         }
 
@@ -397,6 +404,12 @@ namespace Scripts
         public void SkipDialog()
         {
             _dialogController?.AutoSkip();
+        }
+
+        public void UseFastTeleport()
+        {
+            _fastTeleport = FindObjectOfType<FastTeleport>();
+            _fastTeleport.Teleport();
         }
     }
 }

@@ -38,6 +38,9 @@ namespace Scripts
         [Header("Managment")]
         public string Scene;
 
+        [Header("Items")]
+        public bool CanFastTeleport;
+
         public PlayerData (Character player)
         {
             CurrentCheckpoint = player.CurrentCheckpoint;
@@ -64,6 +67,8 @@ namespace Scripts
             CoinLossPercent = player.CoinLossPercent;
 
             Scene = player.Scene;
+
+            CanFastTeleport = player.CanFastTeleport;
         }
     }
 }

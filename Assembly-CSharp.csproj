@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\Creatures\MobAI.cs" />
     <Compile Include="Assets\Scripts\Model\Data\GameSettings.cs" />
     <Compile Include="Assets\Scripts\Utils\AudioUtils.cs" />
+    <Compile Include="Assets\Scripts\Components\Shop.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\BaseProjectile.cs" />
     <Compile Include="Assets\Scripts\Components\SwitchComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DestroyObjectComponent.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Scripts\Utils\CompositeDisposable.cs" />
     <Compile Include="Assets\Scripts\Creatures\ShootingTrapAI.cs" />
     <Compile Include="Assets\Scripts\Components\MovablePlatform.cs" />
+    <Compile Include="Assets\Scripts\Items\FastTeleport.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\CustomButton.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryIdAttribute.cs" />

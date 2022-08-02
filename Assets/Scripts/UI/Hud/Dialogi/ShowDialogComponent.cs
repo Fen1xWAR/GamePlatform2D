@@ -15,10 +15,20 @@ namespace Scripts
         [SerializeField] private string Tag;
         [SerializeField] private int Checkpoint;
         private GameObject Character;
+        private Character _character;
+        private Shop _shop;
+
+        [Header("DialogMisc")]
+        [SerializeField] private bool ShowFastTeleport;
+
+        private bool FastTeleport;
+        private int Money;
         public void Start()
         {    
             Tag = gameObject.tag;
             Character = GameObject.FindWithTag("Player");
+            _character = Character.GetComponent<Character>();
+            _shop = FindObjectOfType<Shop>();
         }
         public void Show()
         {
@@ -47,6 +57,8 @@ namespace Scripts
         public void DialogDataCenter()
         {
             Checkpoint = Character.GetComponent<Character>().CurrentCheckpoint;
+            FastTeleport = Character.GetComponent<Character>().CanFastTeleport;
+            Money = Character.GetComponent<Character>().Coins;
             if (Tag == "Dummy")
             {
                 if (Checkpoint == 0)
@@ -71,6 +83,20 @@ namespace Scripts
                 else if (Checkpoint == 2)
                 {
                     external = externalData[2];
+                }
+            }else if (Tag == "SignTorgash")
+            {
+                if (FastTeleport == false && Money < _shop.FastTeleportPrice)
+                {
+                    external = externalData[2];
+                }
+                else if (FastTeleport == false)
+                {
+                    external = externalData[0];
+
+                }else if (FastTeleport == true)
+                {
+                    external = externalData[1];
                 }
             }
         }

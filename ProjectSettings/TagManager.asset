@@ -13,6 +13,7 @@ TagManager:
   - Hud
   - Dummy
   - SettingsMenu
+  - SignTorgash
   layers:
   - Default
   - TransparentFX
