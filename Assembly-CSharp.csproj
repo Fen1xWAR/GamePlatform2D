@@ -122,7 +122,6 @@
     <Compile Include="Assets\Scripts\UI\Widgets\LifeBarWidget.cs" />
     <Compile Include="Assets\Scripts\Model\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Components\ModifyHealthComponent.cs" />
-    <Compile Include="Assets\Skill03_Content.cs" />
     <Compile Include="Assets\Scripts\Components\SceneChangeComponent.cs" />
     <Compile Include="Assets\Scripts\Creatures\PlatformPatrolParent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\PersistentProperty.cs" />
@@ -146,6 +145,7 @@
     <Compile Include="Assets\Scripts\Cooldown.cs" />
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\DamageProjectile.cs" />
+    <Compile Include="Assets\Scripts\UI\SkillTree\SkillContent.cs" />
     <Compile Include="Assets\Scripts\Components\EnterCollision.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\ArrowProjectile.cs" />
     <Compile Include="Assets\Scripts\Test&apos;\_CoroutineTest.cs" />

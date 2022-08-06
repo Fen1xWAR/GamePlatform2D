@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CloseButton : MonoBehaviour
+namespace Scripts
 {
-   public  void Close()
+    public class CloseButton : MonoBehaviour
     {
-        SceneManager.UnloadSceneAsync("SkillTree");
-        Cursor.visible = false;
+        public void Close()
+        {
+            SceneManager.UnloadSceneAsync("SkillTree");
+            Cursor.visible = false;
+        }
     }
 }

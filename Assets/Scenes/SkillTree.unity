@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 26192388}
   - component: {fileID: 26192391}
   - component: {fileID: 26192390}
+  - component: {fileID: 26192392}
   m_Layer: 5
   m_Name: 00_Skill 1 (Parent)
   m_TagString: Untagged
@@ -240,9 +241,8 @@ MonoBehaviour:
   isUpgrade: 0
   Cost: 1
   Level: 0
-  MaxLevel: 1
+  MaxLevel: 4
   Activated: 0
-  Content: {fileID: 0}
   SkillState: 2
 --- !u!114 &26192389
 MonoBehaviour:
@@ -298,6 +298,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26192385}
   m_CullTransparentMesh: 1
+--- !u!114 &26192392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26192385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b89c31123a310b41a096993dcd552ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
 --- !u!1 &198044550
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +325,8 @@ GameObject:
   - component: {fileID: 198044554}
   - component: {fileID: 198044556}
   - component: {fileID: 198044555}
+  - component: {fileID: 198044558}
+  - component: {fileID: 198044557}
   m_Layer: 5
   m_Name: 02_Skill 3
   m_TagString: Untagged
@@ -419,7 +434,6 @@ MonoBehaviour:
   Level: 0
   MaxLevel: 4
   Activated: 0
-  Content: {fileID: 0}
   SkillState: 0
 --- !u!114 &198044554
 MonoBehaviour:
@@ -475,6 +489,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 198044550}
   m_CullTransparentMesh: 1
+--- !u!114 &198044557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198044550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6015d2081416d7f4a83922f372d56df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 2
+--- !u!114 &198044558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198044550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b89c31123a310b41a096993dcd552ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1531,8 @@ GameObject:
   - component: {fileID: 1485390238}
   - component: {fileID: 1485390240}
   - component: {fileID: 1485390239}
+  - component: {fileID: 1485390242}
+  - component: {fileID: 1485390241}
   m_Layer: 5
   m_Name: 01_Skill 2
   m_TagString: Untagged
@@ -1597,7 +1639,6 @@ MonoBehaviour:
   Level: 0
   MaxLevel: 2
   Activated: 0
-  Content: {fileID: 0}
   SkillState: 0
 --- !u!114 &1485390238
 MonoBehaviour:
@@ -1653,6 +1694,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485390234}
   m_CullTransparentMesh: 1
+--- !u!114 &1485390241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485390234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6015d2081416d7f4a83922f372d56df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1
+--- !u!114 &1485390242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485390234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b89c31123a310b41a096993dcd552ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1
 --- !u!1 &1510121533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,6 +1808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1645517650}
   - component: {fileID: 1645517649}
+  - component: {fileID: 1645517651}
   m_Layer: 0
   m_Name: SkillTreeController
   m_TagString: Untagged
@@ -1787,6 +1855,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1645517651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1645517648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6015d2081416d7f4a83922f372d56df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
 --- !u!1 &1702558963
 GameObject:
   m_ObjectHideFlags: 0

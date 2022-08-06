@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class SkillButton : MonoBehaviour
+namespace Scripts
 {
-    public Image SkillImage;
-    public Text SkillNameText;
-    public Text SkillDescriptionText;
-
-    public int SkillButtonId;
-
-    public void PressSkillButton()
+    public class SkillButton : MonoBehaviour
     {
-        SkillManager.instance.activateSkill = transform.GetComponent<Skill>();
+        public Image SkillImage;
+        public Text SkillNameText;
+        public Text SkillDescriptionText;
 
-        SkillImage.sprite = SkillManager.instance.skills[SkillButtonId].SkillSprite;
-        SkillNameText.text = SkillManager.instance.skills[SkillButtonId].SkillName;
-        SkillDescriptionText.text = SkillManager.instance.skills[SkillButtonId].SkillDes;
+        public int SkillButtonId;
+
+        public void PressSkillButton()
+        {
+            SkillManager.instance.activateSkill = transform.GetComponent<Skill>();
+
+            SkillImage.sprite = SkillManager.instance.skills[SkillButtonId].SkillSprite;
+            SkillNameText.text = SkillManager.instance.skills[SkillButtonId].SkillName;
+            SkillDescriptionText.text = SkillManager.instance.skills[SkillButtonId].SkillDes;
+        }
+
     }
-
 }
