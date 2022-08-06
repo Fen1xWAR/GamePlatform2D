@@ -13,6 +13,8 @@ namespace Scripts
         private HudController _hudController;
         private FastTeleport _fastTeleport;
 
+
+
         public void Start()
         {
             _dialogController = FindObjectOfType<DialogController>();
@@ -84,6 +86,14 @@ namespace Scripts
             if (context.performed) // Действие совершится, когда мы нажали на кнопку
             {
                 _char.ThrowAttack();
+            }
+        }
+        public void OnSkillTreeOpen(InputAction.CallbackContext context)
+        {
+            if (context.canceled)
+            {
+
+                _char.SkillTree();
             }
         }
     }

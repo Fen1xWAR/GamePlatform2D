@@ -32,6 +32,7 @@ namespace Scripts
 
         private static readonly int IsOnWallKey = Animator.StringToHash("is-on-wall");
         private float _defaultGravityScale;
+        private bool SkillTreeOpened = false;
         private HealthComponent _healthComponent;
         private DialogController _dialogController;
         private FastTeleport _fastTeleport;
@@ -427,6 +428,21 @@ namespace Scripts
             _fastTeleport = FindObjectOfType<FastTeleport>();
             _fastTeleport.Teleport();
         }
+        public void SkillTree() {
+            if (SkillTreeOpened == false)
+            {
+                SceneManager.LoadScene("SkillTree", LoadSceneMode.Additive);
+                SkillTreeOpened = true;
+                Cursor.visible = true;
+            }
+            else
+            {
+                SceneManager.UnloadSceneAsync("SkillTree");
+                SkillTreeOpened = false;
+                Cursor.visible = false;
+            }
+        }
+
     }
 }
 
