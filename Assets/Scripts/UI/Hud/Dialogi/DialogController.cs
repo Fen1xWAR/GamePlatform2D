@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Scripts
@@ -21,7 +22,8 @@ namespace Scripts
         [SerializeField] private AudioClip _close;
 
         private DialogData _data;
-        private int _currentSentence;
+        public int _currentSentence;
+        public bool dialogComplete;
         private AudioSource _sfxSource;
         private Coroutine _typingRoutine;
         private ShowDialogComponent _showDialog;
@@ -109,11 +111,22 @@ namespace Scripts
 
         private void HideDialohBox()
         {
-            _animator.SetBool(IsOpen, false);
-            _sfxSource.PlayOneShot(_close);
-            _container.SetActive(false);
-            _char.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            Cursor.visible = false;
+            if (_data.Action != null)
+            {
+                _animator.SetBool(IsOpen, false);
+                _sfxSource.PlayOneShot(_close);
+                _container.SetActive(false);
+                _char.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                dialogComplete = true;
+                _data.Action.Invoke();
+            }else
+            {
+                _animator.SetBool(IsOpen, false);
+                _sfxSource.PlayOneShot(_close);
+                _container.SetActive(false);
+                _char.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                dialogComplete = true;
+            }  
         }
 
         public void OnStartDialog()
@@ -123,7 +136,7 @@ namespace Scripts
 
         public void OnCloseDialog()
         {
-
+            
         }
     }
 }

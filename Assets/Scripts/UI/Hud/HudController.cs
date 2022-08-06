@@ -27,6 +27,7 @@ namespace Scripts
 
         [Header("Misc")]
         [SerializeField] public GameObject SettingsMenu;
+        [SerializeField] public GameObject SaveGame;
 
         private void Start()
         {

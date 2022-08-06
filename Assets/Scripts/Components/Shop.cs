@@ -1,5 +1,6 @@
 ﻿using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Scripts
 {
@@ -20,6 +21,19 @@ namespace Scripts
             money = _character.GetComponent<Character>().Coins;
         }
 
+        public void OpenShop()
+        {
+            _character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            SceneManager.LoadScene("ShopMenu", LoadSceneMode.Additive);
+        }
+
+        public void OnCloseShop()
+        {
+            _character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            SceneManager.UnloadSceneAsync("ShopMenu");
+            Cursor.visible = false;
+        }
+
         public void FastTeleport()
         {
             money = _character.GetComponent<Character>().Coins;
@@ -28,7 +42,7 @@ namespace Scripts
                 _character.GetComponent<Character>().Coins = _character.GetComponent<Character>().Coins - FastTeleportPrice;
                 _fastTeleport.GetFastTeleport();
                 _character.GetComponent<Character>().SavePlayer();
-            } 
+            }
             else return;
         }
     }

@@ -8,6 +8,7 @@ namespace Scripts
     [Serializable]
     public class PlayerData
     {
+        public string Name;
         [SerializeField] private InventoryData _inventory;
         [Header("Player Stats")]
         public int CurrentCheckpoint;

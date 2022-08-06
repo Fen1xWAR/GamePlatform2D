@@ -143,6 +143,8 @@
     <Compile Include="Assets\Scripts\UI\MainMenu\ConfirmNewGameWindow.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryItemDefinitions.cs" />
     <Compile Include="Assets\Scripts\Components\CoinValue.cs" />
+    <Compile Include="Assets\Scripts\UI\EzUI.cs" />
+    <Compile Include="Assets\Scripts\UI\FreezeChar.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />

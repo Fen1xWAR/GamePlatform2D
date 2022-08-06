@@ -35,7 +35,11 @@ namespace Scripts
         private HealthComponent _healthComponent;
         private DialogController _dialogController;
         private FastTeleport _fastTeleport;
+        private HudController _hudController;
 
+        public string saveName;
+
+        private IEnumerator saveCoroutine;
 
         [Header("Player Stats")]
         public int CurrentCheckpoint;
@@ -94,6 +98,7 @@ namespace Scripts
             SavePlayer();
             Hp = MaxHp;
             //       UpdateCharWeapon();
+            _hudController = FindObjectOfType<HudController>();
         }
 
         public void OnHeathChanged(int currentHealth)
@@ -329,7 +334,18 @@ namespace Scripts
 
         public void SavePlayer()
         {
-            SaveSystem.SavePlayer(this);
+                saveCoroutine = SaveWait(3.0f);
+                _hudController = FindObjectOfType<HudController>();
+                _hudController.SaveGame.SetActive(true);
+                SaveSystem.SavePlayer(this);
+                StartCoroutine(saveCoroutine);
+        }
+
+        public IEnumerator SaveWait(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+            Debug.Log("3 sec");
+            _hudController.SaveGame.SetActive(false);
         }
 
         public void LoadPlayer()

@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Scripts
 {
@@ -17,6 +18,7 @@ namespace Scripts
         private GameObject Character;
         private Character _character;
         private Shop _shop;
+        private DialogData _data;
 
         [Header("DialogMisc")]
         [SerializeField] private bool ShowFastTeleport;
@@ -35,6 +37,7 @@ namespace Scripts
             DialogDataCenter();
             if (_dialogController == null)
                 _dialogController = FindObjectOfType<DialogController>();
+            _dialogController.dialogComplete = false;
             _dialogController.ShowDialog(Data);
         }
 
@@ -56,9 +59,13 @@ namespace Scripts
         }
         public void DialogDataCenter()
         {
+            if (_dialogController == null)
+                _dialogController = FindObjectOfType<DialogController>();
             Checkpoint = Character.GetComponent<Character>().CurrentCheckpoint;
             FastTeleport = Character.GetComponent<Character>().CanFastTeleport;
             Money = Character.GetComponent<Character>().Coins;
+            _shop = FindObjectOfType<Shop>();
+
             if (Tag == "Dummy")
             {
                 if (Checkpoint == 0)
@@ -84,19 +91,26 @@ namespace Scripts
                 {
                     external = externalData[2];
                 }
-            }else if (Tag == "SignTorgash")
+            }
+            else if (Tag == "SignTorgash")
             {
-                if (FastTeleport == false && Money < _shop.FastTeleportPrice)
+                if (external == null)
+                external = externalData[0];
+            }
+            else if (Tag == "item_FastTeleport")
+            {
+                if (FastTeleport == true)
                 {
                     external = externalData[2];
                 }
-                else if (FastTeleport == false)
+                else if (Money < _shop.FastTeleportPrice && FastTeleport == false)
                 {
                     external = externalData[0];
-
-                }else if (FastTeleport == true)
+                }
+                else if (Money >= _shop.FastTeleportPrice && FastTeleport == false)
                 {
-                    external = externalData[1];
+                    _shop.FastTeleport();
+                    external = externalData[1];                
                 }
             }
         }

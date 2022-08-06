@@ -171,7 +171,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -285,8 +285,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1fb114dadf9a7fd4eb536f96229cba34, type: 2}
   - {fileID: 11400000, guid: 2ec76aadff14e8c47be0910cbf251595, type: 2}
   - {fileID: 11400000, guid: 8cb81a7b77086354685b89e26ae3dbb6, type: 2}
+  - {fileID: 11400000, guid: 68e317ead11b1d8499f0f2ac2f91e17b, type: 2}
   Tag: 
   Checkpoint: 0
+  ShowFastTeleport: 0
 --- !u!95 &2097974209
 Animator:
   serializedVersion: 4
