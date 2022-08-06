@@ -122,6 +122,7 @@
     <Compile Include="Assets\Scripts\UI\Widgets\LifeBarWidget.cs" />
     <Compile Include="Assets\Scripts\Model\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Components\ModifyHealthComponent.cs" />
+    <Compile Include="Assets\Skill03_Content.cs" />
     <Compile Include="Assets\Scripts\Components\SceneChangeComponent.cs" />
     <Compile Include="Assets\Scripts\Creatures\PlatformPatrolParent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\PersistentProperty.cs" />

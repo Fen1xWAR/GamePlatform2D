@@ -16,6 +16,7 @@ public class Skill : MonoBehaviour
     public int Level;
     public int MaxLevel;
     public bool Activated;
+
     public enum State
     {
         Closed = 0,
@@ -37,7 +38,6 @@ public class Skill : MonoBehaviour
                 Activated = true;
                 SkillState = State.Upgraded;
             }
-
         }
     }
 }

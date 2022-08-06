@@ -242,6 +242,7 @@ MonoBehaviour:
   Level: 0
   MaxLevel: 1
   Activated: 0
+  Content: {fileID: 0}
   SkillState: 2
 --- !u!114 &26192389
 MonoBehaviour:
@@ -412,11 +413,13 @@ MonoBehaviour:
   SkillDes: This is 3rd skill!
   Parents:
   - {fileID: 26192388}
+  - {fileID: 1485390237}
   isUpgrade: 0
   Cost: 1
   Level: 0
   MaxLevel: 4
   Activated: 0
+  Content: {fileID: 0}
   SkillState: 0
 --- !u!114 &198044554
 MonoBehaviour:
@@ -1594,6 +1597,7 @@ MonoBehaviour:
   Level: 0
   MaxLevel: 2
   Activated: 0
+  Content: {fileID: 0}
   SkillState: 0
 --- !u!114 &1485390238
 MonoBehaviour:
