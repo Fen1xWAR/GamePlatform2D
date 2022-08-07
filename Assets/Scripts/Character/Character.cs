@@ -30,6 +30,8 @@ namespace Scripts
         //    [SerializeField] private AnimatorController _disArmed;
             private GameSession _gameSession;
 
+        [SerializeField] public bool isRussian = true; // /// // / / / /// / / / /
+
         private static readonly int IsOnWallKey = Animator.StringToHash("is-on-wall");
         private float _defaultGravityScale;
         private bool SkillTreeOpened = false;

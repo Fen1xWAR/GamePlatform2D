@@ -131,7 +131,7 @@ namespace Scripts
             }
             _char.GetComponent<Character>().SkillsLevels = SkillsLevel;
             _char.GetComponent<Character>().AbilPoint = Points;
-           _char.GetComponent<Character>().SavePlayer();
+            _char.GetComponent<Character>().SavePlayer();
         }
         public void UpdateSkillButton()
         {

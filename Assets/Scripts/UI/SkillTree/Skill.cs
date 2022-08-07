@@ -7,11 +7,11 @@ namespace Scripts
 {
     public class Skill : MonoBehaviour
     {
-        public string SkillName;
+        public string[] SkillName;
         public Sprite SkillSprite;
 
         [TextArea(1, 3)]
-        public string SkillDes;
+        public string[] SkillDes;
         public Skill[] Parents;
         public int Cost;
         public int Level;
@@ -31,6 +31,8 @@ namespace Scripts
             Upgradable,
             Upgraded
         }
+
+
         public State SkillState;
         public void LevelDisplay()
         {
@@ -38,7 +40,6 @@ namespace Scripts
         }
         public void OnActivate()
         {
-            ;
             if (Activated == false)
             {
 

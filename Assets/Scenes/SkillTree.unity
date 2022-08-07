@@ -235,9 +235,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ca2ab14a1f1c6408760f784170fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: Skill 1
+  SkillName:
+  - "\u042F\u0431\u043B\u043E\u043A\u043E"
+  - Apple
   SkillSprite: {fileID: 21300000, guid: 5d9ba4e7d0964044ea54abe409d81dfd, type: 3}
-  SkillDes: This is 1st skill!
+  SkillDes:
+  - "\u0420\u043E\u0441\u0441\u0438\u0439\u0441\u043A\u0438\u0439 \u0441\u043C\u0430\u0440\u0442\u0444\u043E\u043D"
+  - Russian bullshit
   Parents: []
   Cost: 1
   Level: 0
@@ -500,9 +504,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ca2ab14a1f1c6408760f784170fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: Skill 3
+  SkillName:
+  - "\u0421\u043A\u0438\u043B\u043B 3"
   SkillSprite: {fileID: 21300000, guid: 172774604c1bee84185a69041576525b, type: 3}
-  SkillDes: This is 3rd skill!
+  SkillDes:
+  - "\u0421\u043A\u0438\u043B\u043B 3 \u0434\u0435\u0441\u043A"
   Parents:
   - {fileID: 26192388}
   Cost: 1
@@ -2194,9 +2200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ca2ab14a1f1c6408760f784170fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: Skill 2
+  SkillName:
+  - "\u0421\u043A\u0438\u043B\u043B 2"
   SkillSprite: {fileID: 21300000, guid: 2f1eaeeaad36ee5469eff7ff158f37ba, type: 3}
-  SkillDes: This is 2nd skill!
+  SkillDes:
+  - "\u0421\u043A\u0438\u043B\u043B 2 \u0434\u0435\u0441\u043A"
   Parents:
   - {fileID: 26192388}
   Cost: 1
@@ -2394,9 +2402,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ca2ab14a1f1c6408760f784170fe3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: Skill 4
+  SkillName:
+  - "\u0421\u043A\u0438\u043B\u043B 4"
   SkillSprite: {fileID: 21300000, guid: 172774604c1bee84185a69041576525b, type: 3}
-  SkillDes: This is 4rd skill!
+  SkillDes:
+  - "\u0421\u043A\u0438\u043B\u043B 4 \u0434\u0435\u0441\u043A"
   Parents:
   - {fileID: 1485390237}
   - {fileID: 198044553}

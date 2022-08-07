@@ -14,14 +14,13 @@ namespace Scripts
 
         public void PressSkillButton()
         {
-            SkillManager.instance.activateSkill = transform.GetComponent<Skill>();
 
-            SkillImage.sprite = SkillManager.instance.skills[SkillButtonId].SkillSprite;
-            SkillNameText.text = SkillManager.instance.skills[SkillButtonId].SkillName;
-            SkillDescriptionText.text = SkillManager.instance.skills[SkillButtonId].SkillDes;
-            SkillManager.instance.UpdateSkillCostDisplay(SkillButtonId);
-  
+                SkillManager.instance.activateSkill = transform.GetComponent<Skill>();
+                SkillImage.sprite = SkillManager.instance.skills[SkillButtonId].SkillSprite;
+                SkillNameText.text = SkillManager.instance.skills[SkillButtonId].SkillName[0];
+                SkillDescriptionText.text = SkillManager.instance.skills[SkillButtonId].SkillDes[0];
+                SkillManager.instance.UpdateSkillCostDisplay(SkillButtonId);
+        
         }
-
     }
 }
