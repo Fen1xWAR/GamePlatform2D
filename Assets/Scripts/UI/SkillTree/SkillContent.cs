@@ -17,7 +17,7 @@ namespace Scripts
             {
                 case 0:
                     Debug.Log("0");
-                    _char.GetComponent<Character>().BaseDamage++;
+                   // _char.GetComponent<Character>().BaseDamage++;
                     break;
                 case 1:
                     Debug.Log("1");

@@ -475,6 +475,7 @@ MonoBehaviour:
   CoinLossPercent: 2
   Scene: 
   Position: []
+  SkillsLevels: 00000000000000000000000000000000
   CanFastTeleport: 0
 --- !u!212 &9025307322779981594
 SpriteRenderer:

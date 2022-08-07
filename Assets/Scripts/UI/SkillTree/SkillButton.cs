@@ -19,6 +19,8 @@ namespace Scripts
             SkillImage.sprite = SkillManager.instance.skills[SkillButtonId].SkillSprite;
             SkillNameText.text = SkillManager.instance.skills[SkillButtonId].SkillName;
             SkillDescriptionText.text = SkillManager.instance.skills[SkillButtonId].SkillDes;
+            SkillManager.instance.UpdateSkillCostDisplay(SkillButtonId);
+  
         }
 
     }

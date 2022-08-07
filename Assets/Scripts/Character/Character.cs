@@ -71,6 +71,7 @@ namespace Scripts
         [Header("Managment")]
         public string Scene = "Island";
         public float[] Position;
+        public int[] SkillsLevels;
 
         [Header("Items")]
         [SerializeField] public bool CanFastTeleport = false;
@@ -352,7 +353,7 @@ namespace Scripts
         public void LoadPlayer()
         {
             PlayerData data = SaveSystem.LoadPlayer();
-
+            SkillsLevels = data.SkillsLevels;
             CurrentCheckpoint = data.CurrentCheckpoint;
             Coins = data.Coins;
             MaxHp = data.MaxHp;
@@ -431,7 +432,7 @@ namespace Scripts
         public void SkillTree() {
             if (SkillTreeOpened == false)
             {
-                SceneManager.LoadScene("SkillTree", LoadSceneMode.Additive);
+                SceneManager.LoadSceneAsync("SkillTree", LoadSceneMode.Additive);
                 SkillTreeOpened = true;
                 Cursor.visible = true;
             }

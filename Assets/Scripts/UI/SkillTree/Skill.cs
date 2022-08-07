@@ -13,35 +13,40 @@ namespace Scripts
         [TextArea(1, 3)]
         public string SkillDes;
         public Skill[] Parents;
-        public bool isUpgrade;
         public int Cost;
         public int Level;
         public int MaxLevel;
         public bool Activated;
         private SkillContent _skillContent;
+        private Text LevelText;
         private void Awake()
         {
             _skillContent = GetComponent<SkillContent>();
+            LevelText = GetComponentInChildren<Text>();
         }
         public enum State
         {
-            Closed = 0,
-            NotEnouthPointsToUpgrade = 1,
-            Upgradable = 2,
-            Upgraded = 3
+            Closed,
+            NotEnouthPointsToUpgrade,
+            Upgradable,
+            Upgraded
         }
         public State SkillState;
-
+        public void LevelDisplay()
+        {
+            LevelText.text = Level.ToString() + "/" + MaxLevel;
+        }
         public void OnActivate()
         {
+            ;
             if (Activated == false)
             {
+
                 _skillContent.Content();
-                Debug.Log(SkillName + ": Я сработаль! На уровне: " + Level);
+
                 Cost = Cost * 2;
                 if (Level == MaxLevel)
                 {
-                    isUpgrade = true;
                     Activated = true;
                     SkillState = State.Upgraded;
                 }

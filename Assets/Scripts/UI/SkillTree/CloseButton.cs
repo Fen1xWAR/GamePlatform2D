@@ -7,10 +7,14 @@ namespace Scripts
 {
     public class CloseButton : MonoBehaviour
     {
+        private GameObject _char;
+        private void Awake()
+        {
+            _char = GameObject.FindWithTag("Player");
+        }
         public void Close()
         {
-            SceneManager.UnloadSceneAsync("SkillTree");
-            Cursor.visible = false;
+            _char.GetComponent<Character>().SkillTree();
         }
     }
 }

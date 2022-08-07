@@ -38,12 +38,14 @@ namespace Scripts
 
         [Header("Managment")]
         public string Scene;
+        public int[] SkillsLevels;
 
         [Header("Items")]
         public bool CanFastTeleport;
 
         public PlayerData (Character player)
         {
+            SkillsLevels = player.SkillsLevels;
             CurrentCheckpoint = player.CurrentCheckpoint;
             Coins = player.Coins;
             MaxHp = player.MaxHp;
