@@ -9,6 +9,7 @@ namespace Scripts
     public class MainMenuWindow : WindowController
     {
         private Action _closeAction;
+        [SerializeField] Transform _spawnPoint;
 
         public void OnNewGame()
         {
@@ -16,7 +17,7 @@ namespace Scripts
             {
                 var window = Resources.Load<GameObject>("UI/NewGameConfirm");
                 var canvas = FindObjectOfType<Canvas>();
-                Instantiate(window, canvas.transform);
+                Instantiate(window, _spawnPoint);
             }
             else
             {
@@ -42,7 +43,7 @@ namespace Scripts
         {
             var window = Resources.Load<GameObject>("UI/OptionsWindow");
             var canvas = FindObjectOfType<Canvas>();
-            Instantiate(window, canvas.transform);
+            Instantiate(window, _spawnPoint);
         }
 
         public void Delete()
