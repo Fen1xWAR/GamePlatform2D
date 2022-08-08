@@ -22384,6 +22384,10 @@ PrefabInstance:
       propertyPath: _action.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7849919296158555601, guid: 07d2040cd57792843b573aa9132666ba, type: 3}
+      propertyPath: _action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ShowInHud
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7849919296158555564, guid: 07d2040cd57792843b573aa9132666ba, type: 3}
     - {fileID: 7849919296158555607, guid: 07d2040cd57792843b573aa9132666ba, type: 3}

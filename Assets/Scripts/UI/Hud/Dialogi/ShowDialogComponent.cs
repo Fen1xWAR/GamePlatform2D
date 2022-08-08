@@ -19,6 +19,7 @@ namespace Scripts
         private Character _character;
         private Shop _shop;
         private DialogData _data;
+        private DialogDef _dialogDef;
 
         [Header("DialogMisc")]
         [SerializeField] private bool ShowFastTeleport;
@@ -38,7 +39,24 @@ namespace Scripts
             if (_dialogController == null)
                 _dialogController = FindObjectOfType<DialogController>();
             _dialogController.dialogComplete = false;
-            _dialogController.ShowDialog(Data);
+            if (_dialogController._typingRoutine != null) return;
+            else
+            {
+                _dialogController.ShowDialog(Data);
+            } 
+        }
+
+        public void ShowInHud()
+        {
+            DialogDataCenter();
+            if (_dialogController == null)
+                _dialogController = FindObjectOfType<DialogController>();
+            _dialogController.dialogComplete = false;
+            if (_dialogController._typingRoutine != null || Character.GetComponent<Character>().isShopOpened == true) return;
+            else
+            {
+                _dialogController.ShowDialog(Data);
+            }
         }
 
         public DialogData Data

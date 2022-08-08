@@ -25,7 +25,7 @@ namespace Scripts
         public int _currentSentence;
         public bool dialogComplete;
         private AudioSource _sfxSource;
-        private Coroutine _typingRoutine;
+        public Coroutine _typingRoutine;
         private ShowDialogComponent _showDialog;
 
         private GameObject _char;
@@ -79,9 +79,15 @@ namespace Scripts
         public void OnSkip()
         {
             if (_typingRoutine == null) return;
-
-            StopTypeAnimation();
-            _text.text = _data.Sentences[_currentSentence];
+            else if (_typingRoutine != null)
+            {
+                StopTypeAnimation();
+                _text.text = _data.Sentences[_currentSentence];
+            }
+            else
+            {
+                OnContinue();
+            }
         }
 
         public void StopTypeAnimation()
@@ -109,7 +115,7 @@ namespace Scripts
             }
         }
 
-        private void HideDialohBox()
+        public void HideDialohBox()
         {
             if (_data.Action != null)
             {

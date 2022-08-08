@@ -11,10 +11,8 @@ GameObject:
   - component: {fileID: 5996798140469665168}
   - component: {fileID: 5996798140469665171}
   - component: {fileID: 7849919296158555565}
-  - component: {fileID: 7849919296158555607}
   - component: {fileID: 7849919296158555606}
   - component: {fileID: 7849919296158555601}
-  - component: {fileID: 7849919296158555564}
   - component: {fileID: 8998769703571337484}
   m_Layer: 6
   m_Name: Shop
@@ -116,20 +114,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.022212, y: 0.95704347}
   m_EdgeRadius: 0
---- !u!114 &7849919296158555607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5996798140469665170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b99081f07e60d44380ee57cf8f094e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Dialogues:
-  - {fileID: 0}
 --- !u!114 &7849919296158555606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +156,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7849919296158555606}
         m_TargetAssemblyTypeName: Scripts.ShowDialogComponent, Assembly-CSharp
-        m_MethodName: Show
+        m_MethodName: ShowInHud
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -182,31 +166,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7849919296158555564}
-        m_TargetAssemblyTypeName: Scripts.Shop, Assembly-CSharp
-        m_MethodName: FastTeleport
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &7849919296158555564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5996798140469665170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b90d6dfe3f04e584a8f0dfb151fdc9c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FastTeleportPrice: 150
 --- !u!95 &8998769703571337484
 Animator:
   serializedVersion: 4
