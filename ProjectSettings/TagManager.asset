@@ -17,7 +17,7 @@ TagManager:
   - Ded
   - item_FastTeleport
   - HudSettings
-  - SkillTree
+  - Shop
   layers:
   - Default
   - TransparentFX

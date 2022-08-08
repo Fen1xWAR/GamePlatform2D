@@ -15,10 +15,18 @@ namespace Scripts
 
         public void OpenShop()
         {
-            _character = GameObject.FindGameObjectWithTag("Player");
-            _character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            Cursor.visible = true;
-            SceneManager.LoadScene("ShopMenu", LoadSceneMode.Additive);
+                _character = GameObject.FindGameObjectWithTag("Player");
+            if (_character.GetComponent<Character>().isShopOpened == true)
+            {
+                return;
+            }
+            else if (_character.GetComponent<Character>().isShopOpened == false)
+            {
+                _character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                Cursor.visible = true;
+                SceneManager.LoadScene("ShopMenu", LoadSceneMode.Additive);
+                _character.GetComponent<Character>().isShopOpened = true;
+            }
         }
     }
 }

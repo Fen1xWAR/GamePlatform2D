@@ -5866,7 +5866,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6714839292742553075}
         m_TargetAssemblyTypeName: Scripts.DialogController, Assembly-CSharp
-        m_MethodName: OnSkip
+        m_MethodName: AutoSkip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

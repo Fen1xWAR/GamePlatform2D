@@ -29,6 +29,7 @@ namespace Scripts
         //    private AnimatorController _armed;
         //    [SerializeField] private AnimatorController _disArmed;
             private GameSession _gameSession;
+        public bool isShopOpened = false;
 
         [SerializeField] public bool isRussian = true; // /// // / / / /// / / / /
 
@@ -347,7 +348,7 @@ namespace Scripts
         public IEnumerator SaveWait(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
-            Debug.Log("3 sec");
+            Debug.Log("3 sex");
             _hudController.SaveGame.SetActive(false);
         }
 
