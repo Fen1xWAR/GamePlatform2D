@@ -16,6 +16,7 @@ TagManager:
   - SignTorgash
   - Ded
   - item_FastTeleport
+  - HudSettings
   layers:
   - Default
   - TransparentFX

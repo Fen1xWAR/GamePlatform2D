@@ -25,22 +25,26 @@ namespace Scripts
             _sfx.SetModel(GameSettings.I.Sfx);
             Character = GameObject.FindWithTag("Player");
             HudController = FindObjectOfType<HudController>();
-            resolutions = Screen.resolutions;
-            ResolutionDropdown.ClearOptions();
-            List<string> options = new List<string>();
-            int currentResolutionIndex = 0;
-            for (int i = 0; i < resolutions.Length; i++)
+            if (gameObject.CompareTag("HudSettings")) return;
+            else
             {
-                string option = resolutions[i].width + "x" + resolutions[i].height+ ":" + resolutions[i].refreshRate + "Hz";
-                options.Add(option);
-                if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+                resolutions = Screen.resolutions;
+                ResolutionDropdown.ClearOptions();
+                List<string> options = new List<string>();
+                int currentResolutionIndex = 0;
+                for (int i = 0; i < resolutions.Length; i++)
                 {
-                    currentResolutionIndex = i;
+                    string option = resolutions[i].width + "x" + resolutions[i].height + ":" + resolutions[i].refreshRate + "Hz";
+                    options.Add(option);
+                    if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+                    {
+                        currentResolutionIndex = i;
+                    }
                 }
+                ResolutionDropdown.AddOptions(options);
+                ResolutionDropdown.value = currentResolutionIndex;
+                ResolutionDropdown.RefreshShownValue();
             }
-            ResolutionDropdown.AddOptions(options);
-            ResolutionDropdown.value = currentResolutionIndex;
-            ResolutionDropdown.RefreshShownValue();
          }
 
         public void OnShowMainMenu()
