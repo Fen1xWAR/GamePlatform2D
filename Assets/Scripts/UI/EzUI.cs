@@ -9,11 +9,13 @@ namespace Scripts
         private GameObject _character;
         private DialogController _dialogController;
         private DialogDef _dialogDef;
+        private HudController _hudController;
 
         private void Start()
         {
             _character = GameObject.FindGameObjectWithTag("Player");
             _dialogController = FindObjectOfType<DialogController>();
+            _hudController = FindObjectOfType<HudController>();
         }
 
         public void OpenShop()
@@ -40,9 +42,8 @@ namespace Scripts
         }
         public void OpenSkillTree()
         {
+            _hudController.SkillTree.SetActive(true);
             _character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            var SkillTree = GameObject.FindGameObjectWithTag("SkillTree");
-            SkillTree.active = true;
             Cursor.visible = true;
         }
     }

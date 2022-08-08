@@ -17,20 +17,15 @@ namespace Scripts
         public int[] SkillsLevel;
         private GameObject _char;
         public Text TextOnUpgradeButton;
-        private void Start()
+        private void OnEnable()
         {
-
-
-
             _char = GameObject.FindWithTag("Player");
-          //  Points = _char.GetComponent<Character>().AbilPoint;
-         //   SkillsLevel = _char.GetComponent<Character>().SkillsLevels;
             Loader();
+            Debug.Log("Loader!");
             UpdateSkillButton();
             DisplayPoints();
-
-            //Вот тут надо вьебать чтобы из чара брался массив уровней навыков
         }
+
         public void DisplayPoints()
         {
             PointsText.text = Points.ToString();
@@ -48,6 +43,7 @@ namespace Scripts
                     Destroy(gameObject);
                 }
             }
+
         }
         public void PressUpgrade()
         {
@@ -119,7 +115,6 @@ namespace Scripts
             {
                 skills[i].Level = SkillsLevel[i];
 
-                //    skills[i].Level = _char.GetComponent<Character>().SkillsLevels[i];
 
             }
         }
@@ -179,7 +174,7 @@ namespace Scripts
                 }
             }
         }
-        private void OnDestroy()
+        private void OnDisable()
         {
             Saver();   
         }
