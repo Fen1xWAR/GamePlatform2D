@@ -67,15 +67,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "SkillTree",
-                    "type": "Button",
-                    "id": "416c8bea-cf51-4457-9710-0fcc70a408ed",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -252,17 +243,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "FastTeleport",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "5caf0e3e-f465-4e6b-9ef7-6babd4921682",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SkillTree",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

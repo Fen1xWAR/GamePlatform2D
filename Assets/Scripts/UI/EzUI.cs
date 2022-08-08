@@ -25,5 +25,12 @@ namespace Scripts
             SceneManager.UnloadSceneAsync("ShopMenu");
             Cursor.visible = false;
         }
+        public void OpenSkillTree()
+        {
+            _character.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            var SkillTree = GameObject.FindGameObjectWithTag("SkillTree");
+            SkillTree.active = true;
+            Cursor.visible = true;
+        }
     }
 }

@@ -88,14 +88,7 @@ namespace Scripts
                 _char.ThrowAttack();
             }
         }
-        public void OnSkillTreeOpen(InputAction.CallbackContext context)
-        {
-            if (context.canceled)
-            {
-
-                _char.SkillTree();
-            }
-        }
+        
     }
 }
 

@@ -9797,7 +9797,9 @@ GameObject:
   - component: {fileID: 866763041}
   - component: {fileID: 866763040}
   - component: {fileID: 866763039}
+  - component: {fileID: 866763042}
   - component: {fileID: 866763038}
+  - component: {fileID: 866763043}
   m_Layer: 6
   m_Name: Ded
   m_TagString: Ded
@@ -9858,7 +9860,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _action:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 866763042}
+        m_TargetAssemblyTypeName: Scripts.EzUI, Assembly-CSharp
+        m_MethodName: OpenSkillTree
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &866763040
 Animator:
   serializedVersion: 4
@@ -9931,6 +9945,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &866763042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866763036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cec35f2121b34d4aa912a617be0d033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!70 &866763043
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866763036}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.17013478, y: 0}
+  m_Size: {x: 0.539371, y: 1.3333334}
+  m_Direction: 0
 --- !u!4 &908184304 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6470441644502814732, guid: ab2f44b99adf358449c83b74c274b97b, type: 3}
@@ -22080,7 +22122,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1357124168774316360, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
       propertyPath: orthographic size
-      value: 5
+      value: 7.328125
       objectReference: {fileID: 0}
     - target: {fileID: 1357124168774316362, guid: 28bcdb42efdc91546ae1131a4004cf38, type: 3}
       propertyPath: m_Name

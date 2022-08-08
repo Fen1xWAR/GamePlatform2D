@@ -6,7 +6,7 @@ namespace Scripts
 {
     public class SkillManager : MonoBehaviour
     {
-        public Text LevelText;
+       // public Text LevelText;
         private int Points;
         public Text PointsText;
         public static SkillManager instance;
@@ -49,7 +49,7 @@ namespace Scripts
                 }
             }
         }
-        private void PressUpgrade()
+        public void PressUpgrade()
         {
             if (activateSkill.SkillState == Skill.State.Upgradable)
             {

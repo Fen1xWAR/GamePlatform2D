@@ -5,7 +5,7 @@ namespace Scripts
 {
     public class SkillContent : MonoBehaviour
     {
-        public int ID;
+        private int ID;
         private GameObject _char;
         private void Start()
         {
