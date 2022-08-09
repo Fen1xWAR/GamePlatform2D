@@ -536,9 +536,10 @@ GameObject:
   - component: {fileID: 329233497}
   - component: {fileID: 329233499}
   - component: {fileID: 329233498}
+  - component: {fileID: 329233500}
   m_Layer: 5
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: Shop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -603,6 +604,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 329233496}
   m_CullTransparentMesh: 1
+--- !u!95 &329233500
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329233496}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 106688e133ea6b54790cf8217243a69e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &332694008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,6 +1481,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 329233500}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: is-closed
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1309106050}
         m_TargetAssemblyTypeName: Scripts.EzUI, Assembly-CSharp
         m_MethodName: OnCloseShop
@@ -1909,7 +1942,7 @@ GameObject:
   - component: {fileID: 1684407219}
   m_Layer: 5
   m_Name: ShopMenu
-  m_TagString: Shop
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
