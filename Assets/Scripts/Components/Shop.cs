@@ -12,7 +12,7 @@ namespace Scripts
 
         private int money;
 
-        [SerializeField] public int FastTeleportPrice = 150;
+        public static int FastTeleportPrice = 150;
 
         private void Start()
         {
