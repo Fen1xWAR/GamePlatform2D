@@ -111,11 +111,14 @@ namespace Scripts
         {
             Points = _char.GetComponent<Character>().AbilPoint;
             SkillsLevel = _char.GetComponent<Character>().SkillsLevels ;
-            for (int i = 0; i < skills.Length; i++)
+            if (SkillsLevel.Length != 0)
             {
-                skills[i].Level = SkillsLevel[i];
+                for (int i = 0; i < skills.Length; i++)
+                {
+                    skills[i].Level = SkillsLevel[i];
 
 
+                }
             }
         }
         public void Saver()
