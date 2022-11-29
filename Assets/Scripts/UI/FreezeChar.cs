@@ -25,7 +25,7 @@ namespace Scripts
             yield return new WaitForSeconds(1f);
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             _char.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         }

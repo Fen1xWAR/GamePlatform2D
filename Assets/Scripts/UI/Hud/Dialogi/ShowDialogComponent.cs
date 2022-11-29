@@ -121,11 +121,11 @@ namespace Scripts
                 {
                     external = externalData[2];
                 }
-                else if (Money < _shop.FastTeleportPrice && FastTeleport == false)
+                else if (Money < Shop.FastTeleportPrice && FastTeleport == false)
                 {
                     external = externalData[0];
                 }
-                else if (Money >= _shop.FastTeleportPrice && FastTeleport == false)
+                else if (Money >= Shop.FastTeleportPrice && FastTeleport == false)
                 {
                     _shop.FastTeleport();
                     external = externalData[1];                
