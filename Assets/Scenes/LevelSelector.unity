@@ -52388,18 +52388,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarriorWoman
       objectReference: {fileID: 0}
-    - target: {fileID: 9025307322779981594, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
-      propertyPath: m_SortingLayer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025307322779981594, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9025307322779981594, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1967789385
-      objectReference: {fileID: 0}
     - target: {fileID: 9025307322779981597, guid: 8f5f8ad12d0a833478bad0dff512ec2a, type: 3}
       propertyPath: m_RootOrder
       value: 4

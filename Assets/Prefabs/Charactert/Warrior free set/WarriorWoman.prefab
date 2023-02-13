@@ -66,7 +66,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739759413}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22, y: 0.64, z: 0}
+  m_LocalPosition: {x: 0.262, y: 0.326, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -130,7 +130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770009931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.914, y: -0.712, z: 0}
+  m_LocalPosition: {x: 0.52, y: -0.62, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 770009932}
-  _prefab: {fileID: 5677678177206953117, guid: 7426a24fce5e08f4b9193d285f1dc8d5, type: 3}
+  _prefab: {fileID: 5677678177206953117, guid: f70bf025082aad946b6fcbfa479ef11a, type: 3}
 --- !u!1 &925378225
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925378225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.542, y: -0.238, z: 0}
+  m_LocalPosition: {x: 0.73, y: -0.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0f3d971e4ac9e4eac3982deec6f86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 0.83
+  _radius: 0.67
   _action:
     m_PersistentCalls:
       m_Calls: []
@@ -231,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803628248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.44, y: -1.13, z: 0}
+  m_LocalPosition: {x: -1.43, y: -1.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -277,7 +277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933763592}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12, y: -0.57, z: 0}
+  m_LocalPosition: {x: 0.71, y: -0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -333,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9025307322540058130}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.99, y: -0.83, z: 0}
+  m_LocalPosition: {x: -2.98, y: -0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -451,6 +451,8 @@ MonoBehaviour:
     m_Bits: 64
   _interactionCheck: {fileID: 1933763594}
   _wallCheck: {fileID: 739759415}
+  _freeze: 1
+  saveName: 
   CurrentCheckpoint: 0
   Coins: 0
   MaxHp: 20
@@ -458,6 +460,8 @@ MonoBehaviour:
   BaseDamage: 4
   Death: 0
   DamageCoeff: 1.5
+  CritChance: 0
+  CritDamage: 1
   Level: 1
   Xp: 0
   XpToUp: 100
@@ -471,6 +475,8 @@ MonoBehaviour:
   CoinLossPercent: 2
   Scene: 
   Position: []
+  SkillsLevels: 00000000000000000000000000000000
+  CanFastTeleport: 0
 --- !u!212 &9025307322779981594
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -509,9 +515,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 525610241
-  m_SortingLayer: 3
-  m_SortingOrder: 2
+  m_SortingLayerID: 1967789385
+  m_SortingLayer: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3318188226485093758, guid: ae72133dacba6ec4eb33ecde48f50e56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -577,8 +583,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.50646156, y: -0.2963184}
-  m_Size: {x: 1.0283252, y: 2.1343706}
+  m_Offset: {x: -0.5145767, y: -0.25221634}
+  m_Size: {x: 1.0646577, y: 2.1024246}
   m_Direction: 0
 --- !u!114 &9025307322779981543
 MonoBehaviour:
@@ -593,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _char: {fileID: 9025307322779981542}
+  _dialogController: {fileID: 0}
 --- !u!114 &9025307322779981540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,6 +689,70 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 2a9a46c8-3ee1-4394-a0a7-7ea5c373acb3
     m_ActionName: Character/RangeAttack[/Keyboard/shift]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9025307322779981543}
+        m_TargetAssemblyTypeName: Scripts.CharacterInputReader, Assembly-CSharp
+        m_MethodName: OnDialogSettings
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: aae0998c-5594-4fee-95d1-2dcf5284b124
+    m_ActionName: Character/DialogSettings[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9025307322779981543}
+        m_TargetAssemblyTypeName: Scripts.CharacterInputReader, Assembly-CSharp
+        m_MethodName: OnOpenMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7d713914-8aa8-4290-acad-c3c396a291b1
+    m_ActionName: Character/OpenMenu[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9025307322779981543}
+        m_TargetAssemblyTypeName: Scripts.CharacterInputReader, Assembly-CSharp
+        m_MethodName: OnFastTeleport
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 35abb141-eb91-4b18-9148-a7fcb5a8d842
+    m_ActionName: Character/FastTeleport[/Keyboard/t]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9025307322779981543}
+        m_TargetAssemblyTypeName: Scripts.CharacterInputReader, Assembly-CSharp
+        m_MethodName: OnSkillTreeOpen
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 416c8bea-cf51-4457-9710-0fcc70a408ed
+    m_ActionName: Character/SkillTree[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Character

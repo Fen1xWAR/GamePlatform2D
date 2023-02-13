@@ -40,6 +40,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DialogSettings",
+                    "type": "Button",
+                    "id": "aae0998c-5594-4fee-95d1-2dcf5284b124",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenMenu",
+                    "type": "Button",
+                    "id": "7d713914-8aa8-4290-acad-c3c396a291b1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "FastTeleport",
+                    "type": "Button",
+                    "id": "35abb141-eb91-4b18-9148-a7fcb5a8d842",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -55,8 +82,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Up",
-                    "id": "b444f0a6-4fb5-4bcd-9fd0-94e3574a115a",
+                    "name": "up",
+                    "id": "b121d88e-53c6-42c7-a878-eb7515b98eee",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -66,8 +93,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Up",
-                    "id": "ad9b829c-c6f4-42f9-9f07-88630e9f9f17",
+                    "name": "up",
+                    "id": "bbaa8d14-2abd-47e0-993f-0e699bb82c3e",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
@@ -183,6 +210,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "ThrowAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2cb630ca-f047-44b9-8ef1-1afaf54b3e5d",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DialogSettings",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02147812-9053-43e5-b1df-fe601e655ebd",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fcdcad9e-b546-4d70-bf4b-4183b8fdea70",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FastTeleport",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

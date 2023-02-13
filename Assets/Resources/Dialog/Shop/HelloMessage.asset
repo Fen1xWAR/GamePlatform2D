@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04a553963d0c0b34fac4724792fa1bd6, type: 3}
+  m_Name: HelloMessage
+  m_EditorClassIdentifier: 
+  _data:
+    _sentences:
+    - "\u041F\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E, \u0417\u0430\u0442\u0432\u043E\u0440\u043D\u0438\u043A!
+      \u0427\u0442\u043E-\u0436\u0435 \u0442\u044B \u0445\u043E\u0447\u0435\u0448\u044C
+      \u0443 \u043C\u0435\u043D\u044F \u043A\u0443\u043F\u0438\u0442\u044C?"
+    _name: "\u0422\u043E\u0440\u0433\u043E\u0432\u0435\u0446"
+    _action:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000}
+          m_TargetAssemblyTypeName: Scripts.DialogDef, Assembly-CSharp
+          m_MethodName: OpenShop
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

@@ -12,6 +12,12 @@ TagManager:
   - SfxAudioSource
   - Hud
   - Dummy
+  - SettingsMenu
+  - SignTorgash
+  - Ded
+  - item_FastTeleport
+  - HudSettings
+  - Shop
   layers:
   - Default
   - TransparentFX

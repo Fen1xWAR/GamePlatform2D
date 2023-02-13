@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Scripts
 {
@@ -15,17 +16,47 @@ namespace Scripts
         [SerializeField] private string Tag;
         [SerializeField] private int Checkpoint;
         private GameObject Character;
+        private Character _character;
+        private Shop _shop;
+        private DialogData _data;
+        private DialogDef _dialogDef;
+
+        [Header("DialogMisc")]
+        [SerializeField] private bool ShowFastTeleport;
+
+        private bool FastTeleport;
+        private int Money;
         public void Start()
         {    
             Tag = gameObject.tag;
             Character = GameObject.FindWithTag("Player");
+            _character = Character.GetComponent<Character>();
+            _shop = FindObjectOfType<Shop>();
         }
         public void Show()
         {
             DialogDataCenter();
             if (_dialogController == null)
                 _dialogController = FindObjectOfType<DialogController>();
-            _dialogController.ShowDialog(Data);
+            _dialogController.dialogComplete = false;
+            if (_dialogController._typingRoutine != null) return;
+            else
+            {
+                _dialogController.ShowDialog(Data);
+            } 
+        }
+
+        public void ShowInHud()
+        {
+            DialogDataCenter();
+            if (_dialogController == null)
+                _dialogController = FindObjectOfType<DialogController>();
+            _dialogController.dialogComplete = false;
+            if (_dialogController._typingRoutine != null || Character.GetComponent<Character>().isShopOpened == true) return;
+            else
+            {
+                _dialogController.ShowDialog(Data);
+            }
         }
 
         public DialogData Data
@@ -46,7 +77,13 @@ namespace Scripts
         }
         public void DialogDataCenter()
         {
+            if (_dialogController == null)
+                _dialogController = FindObjectOfType<DialogController>();
             Checkpoint = Character.GetComponent<Character>().CurrentCheckpoint;
+            FastTeleport = Character.GetComponent<Character>().CanFastTeleport;
+            Money = Character.GetComponent<Character>().Coins;
+            _shop = FindObjectOfType<Shop>();
+
             if (Tag == "Dummy")
             {
                 if (Checkpoint == 0)
@@ -71,6 +108,27 @@ namespace Scripts
                 else if (Checkpoint == 2)
                 {
                     external = externalData[2];
+                }
+            }
+            else if (Tag == "SignTorgash")
+            {
+                if (external == null)
+                external = externalData[0];
+            }
+            else if (Tag == "item_FastTeleport")
+            {
+                if (FastTeleport == true)
+                {
+                    external = externalData[2];
+                }
+                else if (Money < Shop.FastTeleportPrice && FastTeleport == false)
+                {
+                    external = externalData[0];
+                }
+                else if (Money >= Shop.FastTeleportPrice && FastTeleport == false)
+                {
+                    _shop.FastTeleport();
+                    external = externalData[1];                
                 }
             }
         }

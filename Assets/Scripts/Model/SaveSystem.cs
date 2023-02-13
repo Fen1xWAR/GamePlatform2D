@@ -21,6 +21,25 @@ namespace Scripts
             stream.Close();
         }
 
+
+     /*   public static void FirstSaveOne(Character player)
+        {
+            
+        }
+
+        public static void SavePlayerTwo(Character player)
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            string path = Application.persistentDataPath + "/player.bee";
+            FileStream stream = new FileStream(path, FileMode.Create);
+
+            PlayerData data = new PlayerData(player);
+
+            formatter.Serialize(stream, data);
+            stream.Close();
+        }*/
+
         public static PlayerData LoadPlayer()
         {
             string path = Application.persistentDataPath + "/player.nya";

@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Model\Data\Properties\PrefsPersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Components\RoomGenerator 2.0\RoomPoints.cs" />
+    <Compile Include="Assets\Scripts\Model\Definitions\AbilityDef.cs" />
     <Compile Include="Assets\Scripts\UI\Hud\Dialogi\DialogController.cs" />
     <Compile Include="Assets\Scripts\Components\DamageComponent.cs" />
     <Compile Include="Assets\Scripts\Components\HealingComponent.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Assets\Scripts\Model\DeleteSave.cs" />
     <Compile Include="Assets\Scripts\HandlesUtils.cs" />
     <Compile Include="Assets\Scripts\Components\HealthComponent.cs" />
+    <Compile Include="Assets\Scripts\Utils\IsShopOpenTrigger.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\AudioSettingsWidget.cs" />
     <Compile Include="Assets\Scripts\Components\ArmHeroComponent.cs" />
     <Compile Include="Assets\Scripts\Creatures\Creature.cs" />
@@ -76,19 +78,24 @@
     <Compile Include="Assets\Scripts\Model\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Components\AddCoin.cs" />
     <Compile Include="Assets\Scripts\Creatures\MobAI.cs" />
+    <Compile Include="Assets\Scripts\UI\SkillTree\CloseButton.cs" />
     <Compile Include="Assets\Scripts\Model\Data\GameSettings.cs" />
     <Compile Include="Assets\Scripts\Utils\AudioUtils.cs" />
+    <Compile Include="Assets\Scripts\Components\Shop.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\BaseProjectile.cs" />
     <Compile Include="Assets\Scripts\Components\SwitchComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DestroyObjectComponent.cs" />
     <Compile Include="Assets\Scripts\Creatures\Patrol.cs" />
     <Compile Include="Assets\Scripts\Components\EnterTriggerComponent.cs" />
     <Compile Include="Assets\Scripts\Test&apos;\_testMove.cs" />
+    <Compile Include="Assets\Free UI build package\Script\Slide.cs" />
     <Compile Include="Assets\Scripts\UI\OptionsWindow\OptionsWindow.cs" />
     <Compile Include="Assets\Scripts\Components\ExitLevelComponent.cs" />
     <Compile Include="Assets\Scripts\UI\WindowController.cs" />
+    <Compile Include="Assets\Scripts\Utils\CompositeDisposable.cs" />
     <Compile Include="Assets\Scripts\Creatures\ShootingTrapAI.cs" />
     <Compile Include="Assets\Scripts\Components\MovablePlatform.cs" />
+    <Compile Include="Assets\Scripts\Items\FastTeleport.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\CustomButton.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\InventoryIdAttribute.cs" />
@@ -97,26 +104,35 @@
     <Compile Include="Assets\Scripts\Model\Data\Properties\IntProperty.cs" />
     <Compile Include="Assets\Scripts\Components\TeleportComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\_TransformBred.cs" />
+    <Compile Include="Assets\Scripts\UI\Bars\LifeBarEnemy.cs" />
     <Compile Include="Assets\Scripts\Test&apos;\EnemyMassive.cs" />
+    <Compile Include="Assets\Scripts\UI\SkillTree\Skill.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\DefsFacade.cs" />
-    <Compile Include="Assets\Resources\assets\Free Pixel Art Forest\Demo\MoveBackground.cs" />
+    <Compile Include="Assets\Scripts\UI\SkillTree\SkillButton.cs" />
+    <Compile Include="Assets\Resources\assets\Trash\Demo\MoveBackground.cs" />
     <Compile Include="Assets\Scripts\Components\SpawnListComponent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\FloatPersistentProperty.cs" />
+    <Compile Include="Assets\Scripts\Model\Data\AbilityData.cs" />
     <Compile Include="Assets\Scripts\Components\Audio\AudioSettingsComponent.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu\MainMenuWindow.cs" />
     <Compile Include="Assets\Scripts\UI\Hud\HudController.cs" />
+    <Compile Include="Assets\Free UI build package\Script\Togglescript.cs" />
     <Compile Include="Assets\Scripts\Components\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\SinusoidalProjectile.cs" />
     <Compile Include="Assets\Scripts\Model\Definitions\DialogDef.cs" />
     <Compile Include="Assets\Scripts\EnemySpawn.cs" />
+    <Compile Include="Assets\Scripts\UI\SkillTree\SkillManager.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\LifeBarWidget.cs" />
     <Compile Include="Assets\Scripts\Model\SaveSystem.cs" />
     <Compile Include="Assets\Scripts\Components\ModifyHealthComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SceneChangeComponent.cs" />
     <Compile Include="Assets\Scripts\Creatures\PlatformPatrolParent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\PersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Creatures\PlatformPatrol.cs" />
+    <Compile Include="Assets\Scripts\UI\FreezeChar.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\ButtonSound.cs" />
     <Compile Include="Assets\Scripts\UI\Hud\Dialogi\DataDialogCompleteEdition.cs" />
+    <Compile Include="Assets\Scripts\UI\EzUI.cs" />
     <Compile Include="Assets\Scripts\Components\Audio\PlaySoundComponent.cs" />
     <Compile Include="Assets\Scripts\Components\DebugConsole.cs" />
     <Compile Include="Assets\Scripts\Creatures\PointPatrol.cs" />
@@ -126,12 +142,14 @@
     <Compile Include="Assets\Scripts\Character\CharacterInputReader.cs" />
     <Compile Include="Assets\Scripts\Components\PlayerXp\MobXpGenerate.cs" />
     <Compile Include="Assets\Scripts\UI\Hud\Dialogi\DialogData.cs" />
+    <Compile Include="Assets\Scripts\UI\Shop\ShopItemManager.cs" />
     <Compile Include="Assets\Scripts\Components\LayerCheck.cs" />
     <Compile Include="Assets\Scripts\Components\ReloadLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Components\SpawnComponent.cs" />
     <Compile Include="Assets\Scripts\Cooldown.cs" />
     <Compile Include="Assets\Scripts\Components\DontWorkRoomGeneration\RoomGenerator.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\DamageProjectile.cs" />
+    <Compile Include="Assets\Scripts\UI\SkillTree\SkillContent.cs" />
     <Compile Include="Assets\Scripts\Components\EnterCollision.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapons\ArrowProjectile.cs" />
     <Compile Include="Assets\Scripts\Test&apos;\_CoroutineTest.cs" />
@@ -142,10 +160,10 @@
   <ItemGroup>
     <None Include="Assets\Prefabs\Charactert\Warrior free set\License.txt" />
     <None Include="Assets\Resources\assets\Pixel Art Platformer - Village Props\Changelog.txt" />
-    <None Include="Assets\Resources\assets\Free Pixel Art Forest\Contact.txt" />
-    <None Include="Assets\Resources\assets\Free Pixel Art Forest\Lisense.txt" />
+    <None Include="Assets\Resources\assets\Trash\Contact.txt" />
+    <None Include="Assets\Resources\assets\Trash\Lisense.txt" />
     <None Include="Assets\Prefabs\Charactert\Warrior free set\Contact.txt" />
-    <None Include="Assets\Resources\assets\Free Pixel Art Forest\readme.txt" />
+    <None Include="Assets\Resources\assets\Trash\readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -7,11 +7,12 @@ namespace Scripts
     public class HealthComponent : MonoBehaviour
     {
         [SerializeField] public int Health;
-        [SerializeField] private UnityEvent _onDamage;
-        [SerializeField] private UnityEvent _onHeal;
-        [SerializeField] private UnityEvent _onDie;
-        [SerializeField] private HealthChangeEvent _onChange;
+        [SerializeField] public UnityEvent _onDamage;
+        [SerializeField] public UnityEvent _onHeal;
+        [SerializeField] public UnityEvent _onDie;
+        [SerializeField] public HealthChangeEvent _onChange;
 
+        private LifeBarEnemy _enemy;
         public void ModifyHealth(int healthDelta)
         {
             if (Health <= 0) return;
@@ -21,6 +22,7 @@ namespace Scripts
             if (healthDelta < 0)
             {
                 _onDamage?.Invoke();
+                _enemy?.HealthBarUpdate();
             }
 
             if (healthDelta > 0)

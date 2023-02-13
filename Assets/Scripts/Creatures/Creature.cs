@@ -67,7 +67,7 @@ namespace Scripts
             UpdateSpriteDirection();
         }
 
-        protected virtual float CalculateYVelocity()
+        public virtual float CalculateYVelocity()
         {
             var yVelocity = _rigidbody.velocity.y;
             var isJumpPressing = _direction.y > 0;
@@ -92,7 +92,7 @@ namespace Scripts
                 return yVelocity;
         }
 
-        protected virtual float CalculateJumpVelocity(float yVelocity)
+        public virtual float CalculateJumpVelocity(float yVelocity)
         {
             if (_isGrounded && !_isOnWall)
             {
@@ -133,24 +133,29 @@ namespace Scripts
 
         public virtual void Attack()
         {
-            _sounds.Play("Melee");
-            _animator.SetTrigger(AttackKey);
+                
+                _animator.SetTrigger(AttackKey);  
+        }
+
+        public virtual void OnDoAttack()
+        {
             var gos = _attackRange.GetObjectsInRange();
             foreach (var go in gos) // ������� ��������
             {
                 var hp = go.GetComponent<HealthComponent>(); // ������� �������� HealthComponent, � �������� � ������� ������
                 if (hp != null && go.CompareTag(_tagToAttack)) // ���� ���� �������� � ��� Enemy
                 {
+                    _sounds.Play("Melee");
                     hp.ModifyHealth(-_damage);
-                    Debug.Log("Атакую!");
                     //_particles.Spawn("Splash"); // �� ���, ������� � ��������!!! ����� spawnlist �� ��������� ��������� �����, �� ��� ������ �� ��� ����!!!!!!!!!
                 }
+                else if(go.CompareTag("Dummy"))
+                {
+                    hp.ModifyHealth(-_damage);
+                    Debug.Log("Your damage is: " + _damage);
+                }
+                _sounds.Play("Melee");
             }
-        }
-
-        public virtual void OnDoAttack()
-        {
-            return;
         }
         
         public virtual void ThrowAttack()
@@ -163,11 +168,6 @@ namespace Scripts
         {
             _particles.Spawn("Throw");
 
-        }
-
-        private IEnumerator AttackFreeze()// ����� ����� ����� �������� ����� ����, �� ����� �� �����, ���� ��� ����� ��� ��� �������)_))))
-        {
-            yield return new WaitForSeconds(_attackFreeze);
         }
     }
 }

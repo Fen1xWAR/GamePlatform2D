@@ -8,6 +8,7 @@ namespace Scripts
     [Serializable]
     public class PlayerData
     {
+        public string Name;
         [SerializeField] private InventoryData _inventory;
         [Header("Player Stats")]
         public int CurrentCheckpoint;
@@ -17,6 +18,8 @@ namespace Scripts
         public int BaseDamage;
         public int Death;
         public float DamageCoeff;
+        public float CritChance;
+        public int CritDamage;
 
         [Header("Player Level")]
         public int Level;
@@ -35,9 +38,14 @@ namespace Scripts
 
         [Header("Managment")]
         public string Scene;
+        public int[] SkillsLevels;
+
+        [Header("Items")]
+        public bool CanFastTeleport;
 
         public PlayerData (Character player)
         {
+            SkillsLevels = player.SkillsLevels;
             CurrentCheckpoint = player.CurrentCheckpoint;
             Coins = player.Coins;
             MaxHp = player.MaxHp;
@@ -45,6 +53,8 @@ namespace Scripts
             BaseDamage = player.BaseDamage;
             Death = player.Death;
             DamageCoeff = player.DamageCoeff;
+            CritDamage = player.CritDamage;
+            CritChance = player.CritChance;
 
             Level = player.Level;
             Xp = player.Xp;
@@ -60,6 +70,8 @@ namespace Scripts
             CoinLossPercent = player.CoinLossPercent;
 
             Scene = player.Scene;
+
+            CanFastTeleport = player.CanFastTeleport;
         }
     }
 }

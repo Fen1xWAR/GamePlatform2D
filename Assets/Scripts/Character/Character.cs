@@ -15,14 +15,12 @@ namespace Scripts
         //   private SpriteRenderer _spriteRenderer;
         private bool _allowDoubleJump;
         private readonly Collider2D[] _interactionResult = new Collider2D[1]; // ������ � ����� ���������
-                                                                              //   [SerializeField] private bool _isArmed;
 
-        [Space]
-        [Header("Interaction")] 
         [SerializeField] private float _interactionRadius; // ������ ��������������
         [SerializeField] private LayerMask _interactionLayer; // �� ����� ����� ����� ��������
         [SerializeField] private CheckCircleOverlap _interactionCheck;
         [SerializeField] private LayerCheck _wallCheck;
+        [SerializeField] private int _freeze = 1; 
         //    [Space] [Header("Particles")] [SerializeField]
         //    private SpawnComponent _footParticles;
         //    [SerializeField] private ParticleSystem _hitParticle;
@@ -31,11 +29,20 @@ namespace Scripts
         //    private AnimatorController _armed;
         //    [SerializeField] private AnimatorController _disArmed;
             private GameSession _gameSession;
+        public bool isShopOpened = false;
+
+        [SerializeField] public bool isRussian = true; // /// // / / / /// / / / /
 
         private static readonly int IsOnWallKey = Animator.StringToHash("is-on-wall");
         private float _defaultGravityScale;
         private HealthComponent _healthComponent;
+        private DialogController _dialogController;
+        private FastTeleport _fastTeleport;
+        private HudController _hudController;
 
+        public string saveName;
+
+        private IEnumerator saveCoroutine;
 
         [Header("Player Stats")]
         public int CurrentCheckpoint;
@@ -44,7 +51,9 @@ namespace Scripts
         public int Hp; // CurrentHP
         public int BaseDamage = 5;
         public int Death = 0;
-        public float DamageCoeff = 1;
+        public float DamageCoeff = 1f;
+        public float CritChance = 0f;
+        public int CritDamage = 1;
 
         [Header("Player Level")]
         public int Level = 1;
@@ -64,6 +73,10 @@ namespace Scripts
         [Header("Managment")]
         public string Scene = "Island";
         public float[] Position;
+        public int[] SkillsLevels;
+
+        [Header("Items")]
+        [SerializeField] public bool CanFastTeleport = false;
 
         protected override void Awake()
         {
@@ -79,7 +92,9 @@ namespace Scripts
     //        _gameSession = FindObjectOfType<GameSession>();
             var health = GetComponent<HealthComponent>();
             health.SetHealth(MaxHp);
-            
+            _dialogController = FindObjectOfType<DialogController>();
+
+            _fastTeleport = FindObjectOfType<FastTeleport>();
             if (File.Exists(Application.persistentDataPath + "/player.nya"))
             {
                 LoadPlayer();
@@ -87,6 +102,7 @@ namespace Scripts
             SavePlayer();
             Hp = MaxHp;
             //       UpdateCharWeapon();
+            _hudController = FindObjectOfType<HudController>();
         }
 
         public void OnHeathChanged(int currentHealth)
@@ -117,7 +133,7 @@ namespace Scripts
         protected override void Update()
         {
             base.Update();
-
+            
             Scene CurrentScene = SceneManager.GetActiveScene();
             Scene = CurrentScene.name;
 
@@ -145,7 +161,7 @@ namespace Scripts
            
         }
 
-        protected override float CalculateYVelocity()
+        public override float CalculateYVelocity()
         {
             if (_rigidbody.bodyType == RigidbodyType2D.Static)
             {
@@ -168,7 +184,7 @@ namespace Scripts
             
         }
 
-        protected override float CalculateJumpVelocity(float yVelocity)
+        public override float CalculateJumpVelocity(float yVelocity)
         {
             if (!_isGrounded && _allowDoubleJump && DoubleJump && !_isOnWall)
             {
@@ -180,7 +196,7 @@ namespace Scripts
 
             return base.CalculateJumpVelocity(yVelocity);
         } // ������������ ������ ������
-
+ 
         public void AddCoins(int coins) // ���������� �����
         {
             Coins += (int)(coins * CoinBonus);
@@ -240,18 +256,41 @@ namespace Scripts
         {
             if (!CanAttack) return;
             if (_isGrounded == false) return;
-            base.Attack();
+            base.Attack();  
         }
-        public int DamageCount()
+
+        private void Crit()
         {
-            var damage = (BaseDamage + Level) * DamageCoeff;
-            return (int)damage;
+            float crit = Random.Range(1, 100);
+            if (crit <= CritChance)
+            {
+                CritDamage = 2;
+            }else
+            {
+                CritDamage = 1;
+            }
         }
+
+        public void StartAttack()
+        {
+            _rigidbody.bodyType = RigidbodyType2D.Static;
+        }
+
+        public void EndAttack()
+        {
+            _rigidbody.bodyType = RigidbodyType2D.Dynamic;
+        }
+    
         public override void OnDoAttack()
         {
-            _damage = DamageCount();
-            base.OnDoAttack();
-            Debug.Log(_damage);
+            Crit();
+            _damage = (BaseDamage + Level) * CritDamage;   
+            base.OnDoAttack();  
+        }
+
+        private IEnumerator FreezeAttack()
+        {
+            yield return new WaitForSeconds(_freeze);
         }
         public void ArmHero()
         {
@@ -299,13 +338,24 @@ namespace Scripts
 
         public void SavePlayer()
         {
-            SaveSystem.SavePlayer(this);
+                saveCoroutine = SaveWait(3.0f);
+                _hudController = FindObjectOfType<HudController>();
+                _hudController.SaveGame.SetActive(true);
+                SaveSystem.SavePlayer(this);
+                StartCoroutine(saveCoroutine);
+        }
+
+        public IEnumerator SaveWait(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+            Debug.Log("3 sex");
+            _hudController.SaveGame.SetActive(false);
         }
 
         public void LoadPlayer()
         {
             PlayerData data = SaveSystem.LoadPlayer();
-
+            SkillsLevels = data.SkillsLevels;
             CurrentCheckpoint = data.CurrentCheckpoint;
             Coins = data.Coins;
             MaxHp = data.MaxHp;
@@ -314,6 +364,8 @@ namespace Scripts
             AbilPoint = data.AbilPoint;
             Death = data.Death;
             DamageCoeff = data.DamageCoeff;
+            CritChance = data.CritChance;
+            CritDamage = data.CritDamage;
 
             Level = data.Level;
             Xp = data.Xp;
@@ -326,6 +378,8 @@ namespace Scripts
             DoubleJump = data.DoubleJump;
             WallSliding = data.WallSliding;
             CanThrowAttack = data.CanThrowAttack;
+
+            CanFastTeleport = data.CanFastTeleport;
 
         //    SceneManager.LoadScene("Island");
         }
@@ -366,6 +420,19 @@ namespace Scripts
         {
             Death++;
         }
+
+        public void SkipDialog()
+        {
+            _dialogController?.AutoSkip();
+        }
+
+        public void UseFastTeleport()
+        {
+            _fastTeleport = FindObjectOfType<FastTeleport>();
+            _fastTeleport.Teleport();
+        }
+
+
     }
 }
 
